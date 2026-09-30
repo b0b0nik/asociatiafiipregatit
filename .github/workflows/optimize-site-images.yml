@@ -60,7 +60,7 @@ jobs:
                       im.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
                   im.save(p, "PNG", optimize=True, compress_level=9)
 
-          optimize_png("LOGO-PATCH.png", 1000)
+          optimize_png("LOGO-PATCH.png", 512)
           optimize_png("LOGO-OFFICIAL.png", 1400)
 
           optimize_jpeg("adapost-noi.jpg", 1800, 82)
