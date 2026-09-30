@@ -69,7 +69,7 @@
       wrapper.appendChild(image);
 
       const watermark = document.createElement("img");
-      watermark.src = "/LOGO-OFFICIAL.png";
+      watermark.src = "/assets/imagini-site/LOGO-OFFICIAL.png";
       watermark.alt = "";
       watermark.setAttribute("aria-hidden", "true");
       watermark.className = "afp-watermark";
