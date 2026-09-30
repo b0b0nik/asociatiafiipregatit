@@ -94,6 +94,36 @@
     while(walker.nextNode())found.push(walker.currentNode);
     found.forEach(enhanceText);
     enhanceExistingLinks();
+    // Contact cards are full clickable links. Put the separate copy control
+    // beside the link, never inside it, so calling/opening still works.
+    document.querySelectorAll("#contact .grid3 > a[href]").forEach(function(link){
+      if(link.parentElement?.classList.contains("afp-contact-card-wrap"))return;
+      const href=link.getAttribute("href")||"";
+      const kind=href.startsWith("mailto:")?"e-mail":
+        (href.startsWith("tel:")||href.startsWith("https://wa.me/"))?"telefon":null;
+      if(!kind)return;
+      const value=kind==="e-mail"?"contact@asociatiafiipregatit.ro":"0745482705";
+      const wrapper=document.createElement("div");
+      wrapper.className="afp-contact-card-wrap";
+      wrapper.style.cssText="position:relative;min-width:0;display:flex";
+      link.before(wrapper);
+      wrapper.appendChild(link);
+      link.style.cssText+=";width:100%;padding-right:48px";
+      const button=makeButton(value,kind);
+      button.classList.add("afp-contact-card-copy");
+      button.style.cssText="position:absolute;right:13px;bottom:13px;"+
+        "width:31px;height:31px;margin:0;z-index:2;"+
+        "background:rgba(16,98,28,.07);color:#1b340c;opacity:1";
+      wrapper.appendChild(button);
+      // Tapping the displayed number is still handled by the original link.
+      link.querySelectorAll("div").forEach(function(div){
+        if(div.textContent.includes("0745")||div.textContent.includes("@")){
+          div.style.userSelect="text";
+          div.style.webkitUserSelect="text";
+          div.style.webkitTouchCallout="default";
+        }
+      });
+    });
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",enhancePublicInformation,{once:true});
   else enhancePublicInformation();
