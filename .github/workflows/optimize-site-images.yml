@@ -1,4 +1,4 @@
-name: Optimize site images
+name: Optimize patch logo
 
 on:
   push:
@@ -13,73 +13,31 @@ jobs:
   optimize:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install Pillow
-        run: python -m pip install --quiet pillow
-
-      - name: Optimize images in place
+      - run: python -m pip install --quiet pillow
+      - name: Optimize patch PNG
         run: |
           python - <<'PY'
           from PIL import Image, ImageOps
-          from pathlib import Path
-          import os
-
-          def optimize_jpeg(path, max_side=1800, quality=82):
-              p = Path(path)
-              if not p.exists() or p.stat().st_size < 300_000:
-                  return
-              with Image.open(p) as im:
-                  im = ImageOps.exif_transpose(im).convert("RGB")
-                  if max(im.size) > max_side:
-                      im.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
-                  im.save(
-                      p,
-                      "JPEG",
-                      quality=quality,
-                      optimize=True,
-                      progressive=True,
-                      subsampling=1,
-                  )
-
-          def optimize_png(path, max_side):
-              p = Path(path)
-              if not p.exists():
-                  return
-              with Image.open(p) as im:
-                  im = ImageOps.exif_transpose(im)
-                  if max(im.size) > max_side:
-                      im.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
-                  im.save(p, "PNG", optimize=True, compress_level=9)
-
-          optimize_png("LOGO-PATCH.png", 512)
-          optimize_png("LOGO-OFFICIAL.png", 1400)
-
-          optimize_jpeg("adapost-noi.jpg", 1800, 82)
-
-          for p in Path("propunere-activitati/pdf-media").glob("*.jpg"):
-              optimize_jpeg(p, 1800, 82)
-
-          for p in Path("propunere-activitati/media").glob("photo-*.jpg"):
-              optimize_jpeg(p, 1800, 82)
+          p="LOGO-PATCH.png"
+          with Image.open(p) as im:
+              im=ImageOps.exif_transpose(im)
+              if max(im.size)>512:
+                  im.thumbnail((512,512), Image.Resampling.LANCZOS)
+              im.save(p,"PNG",optimize=True,compress_level=9)
           PY
-
-      - name: Commit optimized images
+      - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add LOGO-PATCH.png LOGO-OFFICIAL.png adapost-noi.jpg propunere-activitati/pdf-media propunere-activitati/media
+          git add LOGO-PATCH.png
           if git diff --cached --quiet; then
-            echo "No image changes."
+            echo "No changes."
           else
-            git commit -m "Optimize site images for faster loading [skip ci]"
+            git commit -m "Optimize patch logo for web [skip ci]"
             git push
           fi
