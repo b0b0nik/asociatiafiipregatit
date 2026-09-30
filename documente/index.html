@@ -171,6 +171,7 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
 </style>
 
 <script src="/cookies.js" defer></script>
+<script src="/analytics.js" defer></script>
 <script src="/protection.js" defer></script>
  
 </head>
@@ -1427,6 +1428,8 @@ async function finishFlow(){
     }
 
     goStep(5);
+    // Success confirmed by Apps Script. Never send document ID or personal data.
+    window.afpTrackEvent?.("sign_up");
 
   }catch(err){
     sendingNotice.classList.add("hidden");

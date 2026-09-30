@@ -26,6 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
   <script src="/cookies.js" defer></script>
+<script src="/analytics.js" defer></script>
   <script src="/protection.js" defer></script>
   <style>
     :root{--green-deep:#1b340c;--green:#10380e;--green-2:#173a10;--orange:#ff5502;--orange-2:#ff7a1f;--cream:#f4efe4;--cream-2:#fbf9f4;--ink:#22301a;--muted:#5a624c;--line:#e6e0d2}
@@ -707,6 +708,7 @@
    const result=await response.json();
    if(!response.ok || !result.success)throw new Error(result.error || 'Mesajul nu a putut fi trimis.');
    status.textContent=result.copySent?'Am primit mesajul tău! Ți-am trimis pe e-mail confirmarea și o copie. Revenim în cel mai scurt timp.':'Am primit mesajul tău și revenim în cel mai scurt timp. Copia pe e-mail nu a putut fi trimisă.';
+   window.afpTrackEvent?.("generate_lead", {source_page: "scoli"});
    form.reset();previous='';requestId='';
   }catch(error){status.textContent=error.name==='AbortError'?'Trimiterea durează mai mult. Încearcă din nou sau scrie-ne direct pe e-mail.':(error.message==='Failed to fetch'?'Nu am putut confirma trimiterea. Încearcă din nou sau scrie-ne direct pe e-mail.':error.message);}
   finally{clearTimeout(timeout);button.disabled=false;button.textContent='Trimite mesajul →';}

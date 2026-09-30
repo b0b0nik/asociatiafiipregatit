@@ -40,8 +40,34 @@
     });
   }
 
+
+
+  function withdrawAnalytics() {
+    // Stop sending GA hits immediately, even when its script was already loaded.
+    window["ga-disable-" + GA_ID] = true;
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {analytics_storage: "denied"});
+    }
+    window.__afpAnalyticsReady = false;
+    deleteAnalyticsCookies();
+    window.dispatchEvent(new Event("afp-analytics-revoked"));
+  }
+
   function loadGoogleAnalytics() {
-    if (window.__afpAnalyticsLoaded) return;
+    if (window.__afpAnalyticsLoaded) {
+      window["ga-disable-" + GA_ID] = false;
+      if (typeof window.gtag === "function") {
+        window.gtag("consent", "update", {analytics_storage: "granted"});
+        if (window.__afpScriptReady) {
+          window.gtag("config", GA_ID, {anonymize_ip: true});
+          window.__afpAnalyticsReady = true;
+          window.dispatchEvent(new Event("afp-analytics-ready"));
+        }
+      }
+      return;
+    }
+
+    window["ga-disable-" + GA_ID] = false;
 
     window.__afpAnalyticsLoaded = true;
 
@@ -51,6 +77,13 @@
       window.dataLayer.push(arguments);
     };
 
+    window.gtag("consent", "default", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied"
+    });
+    window.gtag("consent", "update", {analytics_storage: "granted"});
     window.gtag("js", new Date());
 
     const script = document.createElement("script");
@@ -58,9 +91,16 @@
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
 
     script.onload = function () {
-      window.gtag("config", GA_ID, {
-        anonymize_ip: true
-      });
+      window.__afpScriptReady = true;
+      if (getCookie(COOKIE_NAME) !== "accepted") return;
+      window.gtag("config", GA_ID, {anonymize_ip: true});
+      window.__afpAnalyticsReady = true;
+      window.dispatchEvent(new Event("afp-analytics-ready"));
+    };
+    script.onerror = function () {
+      window.__afpAnalyticsLoaded = false;
+      window.__afpScriptReady = false;
+      window.__afpAnalyticsReady = false;
     };
 
     document.head.appendChild(script);
@@ -128,7 +168,7 @@
       .getElementById("afpCookieRefuse")
       .addEventListener("click", function () {
         setCookie(COOKIE_NAME, "refused", COOKIE_DAYS);
-        deleteAnalyticsCookies();
+        withdrawAnalytics();
         removeBanner();
       });
   }
@@ -149,7 +189,7 @@
 
     button.addEventListener("click", function () {
       deleteCookie(COOKIE_NAME);
-      deleteAnalyticsCookies();
+      withdrawAnalytics();
       showBanner();
     });
 
