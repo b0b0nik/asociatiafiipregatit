@@ -242,22 +242,57 @@
 @media(max-width:600px){#feedback-mesaje .feedback-image-card{flex-basis:290px;height:340px}}
 @media(prefers-reduced-motion:reduce){#feedback-mesaje .feedback-image-card{transition:none}#feedback-mesaje .feedback-image-card:hover{transform:none}}
 </style>
+<style>
+.page-nav-actions{display:flex;gap:8px;align-items:center;margin-left:auto}
+.page-nav .page-menu-toggle{cursor:pointer;gap:8px}
+.page-menu{position:fixed;inset:0 0 0 auto;margin:0;width:min(360px,92vw);max-width:none;height:100dvh;max-height:100dvh;padding:28px 24px;border:0;border-left:1px solid rgba(169,197,149,.22);background:var(--green-deep);color:var(--cream);box-shadow:-16px 0 45px rgba(0,0,0,.2);overflow-y:auto}
+.page-menu::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(3px)}
+.page-menu[open]{animation:pageMenuIn .22s ease-out}
+.page-menu-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.page-menu-heading h2{font-size:24px;font-weight:600}
+.page-menu-close{display:flex;align-items:center;justify-content:center;flex:0 0 44px;height:44px;border:1px solid rgba(169,197,149,.25);border-radius:7px;background:rgba(66,104,46,.28);color:var(--cream);font-size:28px;cursor:pointer}
+.page-menu-links{display:flex;flex-direction:column;gap:9px}
+.page-menu-links a{display:block;padding:13px 16px;border:1px solid rgba(169,197,149,.22);border-radius:7px;background:rgba(66,104,46,.28);color:var(--cream);text-decoration:none;font-size:13px;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.page-menu-links a:hover,.page-menu-links a:active,.page-menu-close:hover{border-color:var(--orange);background:rgba(66,104,46,.45)}
+.page-menu-links a:hover{transform:translateX(-2px)}
+.page-menu-links a:focus-visible,.page-menu-close:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+body.page-menu-open{overflow:hidden}
+@keyframes pageMenuIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:760px){
+ .page-nav{flex-wrap:nowrap;gap:10px}
+ .page-nav-brand img{height:52px;max-width:35vw;object-fit:contain}
+ .page-nav-actions{gap:6px}
+ .page-nav .page-nav-actions .page-nav-link{font-size:11px;padding:9px 10px;min-height:42px;white-space:nowrap}
+}
+@media(max-width:360px){
+ .page-nav{padding-left:12px;padding-right:12px}
+ .page-nav .page-nav-actions .page-nav-link{font-size:10px;padding:8px}
+ .page-nav-brand img{max-width:30vw}
+}
+@media(prefers-reduced-motion:reduce){.page-menu[open]{animation:none}.page-menu-links a{transition:none}.page-menu-links a:hover{transform:none}}
+</style>
 </head>
 <body id="sus">
-  <nav class="page-nav" aria-label="Meniu propunere activități">
-    <a class="page-nav-brand" href="/" aria-label="Asociația Fii Pregătit — Homepage"><img src="/assets/imagini-site/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
-    <div class="page-nav-links">
-      <a class="page-nav-link" href="/">Homepage</a>
-      <a class="page-nav-link" href="#cine-suntem">Cine suntem?</a>
-      <a class="page-nav-link" href="#de-ce-fii-pregatit">De ce Fii Pregătit?</a>
-      <a class="page-nav-link" href="#activitati">Activități</a>
-      <a class="page-nav-link" href="#metoda">Metodă</a>
-      <a class="page-nav-link" href="#natura">De ce natura?</a>
-      <a class="page-nav-link" href="#siguranta">Siguranță</a>
-      <a class="page-nav-link" href="#feedback">Feedback</a>
-      <a class="page-nav-link" href="#oferta">Ofertă și contact</a>
-    </div>
-  </nav>
+  <nav class="page-nav" aria-label="Navigare principală">
+ <a class="page-nav-brand" href="/" aria-label="Asociația Fii Pregătit — Homepage"><img src="/assets/imagini-site/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
+ <div class="page-nav-actions">
+  <a class="page-nav-link" href="/">Homepage</a>
+  <button class="page-nav-link page-menu-toggle" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="page-menu">Explorează pagina <span aria-hidden="true">☰</span></button>
+ </div>
+</nav>
+<dialog id="page-menu" class="page-menu" aria-labelledby="page-menu-title">
+ <div class="page-menu-heading"><h2 id="page-menu-title" class="disp">Explorează pagina</h2><button class="page-menu-close" type="button" aria-label="Închide meniul" autofocus>×</button></div>
+ <nav class="page-menu-links" aria-label="Secțiunile paginii">
+  <a href="#cine-suntem">Cine suntem?</a>
+  <a href="#de-ce-fii-pregatit">De ce Fii Pregătit?</a>
+  <a href="#activitati">Activități</a>
+  <a href="#metoda">Metodă</a>
+  <a href="#natura">De ce natura?</a>
+  <a href="#siguranta">Siguranță</a>
+  <a href="#feedback">Feedback</a>
+  <a href="#oferta">Ofertă și contact</a>
+ </nav>
+</dialog>
   <header class="hero">
     <div class="hero-bg" aria-hidden="true">
 </div>
@@ -272,7 +307,7 @@
 <span class="hero-tag">Aprox. 3 ore</span>
 <span class="hero-tag">Fără competiție</span>
 </div>
-        <a class="btn btn-orange" href="#activitati">Descoperă activitățile <i class="ti ti-arrow-down">
+        <a class="btn btn-orange" href="#cine-suntem">Descoperă programul <i class="ti ti-arrow-down">
 </i>
 </a>
         <a class="btn btn-ghost" href="#oferta">Vezi oferta</a>
@@ -1111,6 +1146,30 @@ Multumim pentru tot,revenim cu drag!</p>
   resume();
 })();
 
+</script>
+<script>
+(() => {
+ const menu=document.getElementById('page-menu'), toggle=document.querySelector('.page-menu-toggle');
+ const close=()=>menu.close();
+ toggle.addEventListener('click',()=>{
+  menu.showModal();
+  toggle.setAttribute('aria-expanded','true');
+  document.body.classList.add('page-menu-open');
+ });
+ menu.querySelector('.page-menu-close').addEventListener('click',close);
+ menu.addEventListener('click',event=>{
+  if(event.target===menu){
+   const r=menu.getBoundingClientRect();
+   if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();
+  }
+ });
+ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+ menu.addEventListener('close',()=>{
+  toggle.setAttribute('aria-expanded','false');
+  document.body.classList.remove('page-menu-open');
+  toggle.focus({preventScroll:true});
+ });
+})();
 </script>
 </body>
 </html>
