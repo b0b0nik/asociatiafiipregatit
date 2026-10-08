@@ -668,7 +668,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 .review-card:focus-within{border-color:var(--orange);box-shadow:0 16px 32px rgba(0,0,0,.16)}
 @media(prefers-reduced-motion:reduce){.review-card,.review-toggle{transition:none!important}.review-card:hover,.review-toggle:hover{transform:none!important}}
 .reviews-actions{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px}
-@media(max-width:600px){.review-card{flex-basis:290px;padding:20px}#recenzii{scroll-margin-top:150px}}
+@media(max-width:600px){#recenzii .review-card{flex-basis:290px;max-width:calc(100vw - 44px);padding:20px}#recenzii .review-text{font-size:14px;overflow-wrap:anywhere}#recenzii .review-toggle,#recenzii .reviews-pause{min-height:44px;font-size:13px}#recenzii .reviews-actions{gap:8px}#recenzii .reviews-actions .btn{max-width:100%;text-align:center;white-space:normal}#recenzii{scroll-margin-top:150px}}
 
 </style>
 </head>
