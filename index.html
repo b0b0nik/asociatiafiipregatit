@@ -653,6 +653,13 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 #recenzii .t{color:var(--green-deep)}
 .reviews-viewport{scroll-behavior:auto;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:16px 12px 34px;margin:0 -12px}
 .reviews-viewport::-webkit-scrollbar{display:none}
+@media(hover:hover) and (pointer:fine){
+  #recenzii .reviews-viewport{scrollbar-width:thin;scrollbar-color:rgba(16,56,14,.25) transparent}
+  #recenzii .reviews-viewport::-webkit-scrollbar{display:block;height:5px}
+  #recenzii .reviews-viewport::-webkit-scrollbar-track{background:transparent}
+  #recenzii .reviews-viewport::-webkit-scrollbar-thumb{background:rgba(16,56,14,.25);border-radius:10px}
+  #recenzii .reviews-viewport::-webkit-scrollbar-thumb:hover{background:rgba(16,56,14,.45)}
+}
 .reviews-track{display:flex;gap:18px;align-items:flex-start}
 .review-card{flex:0 0 330px;max-width:calc(100vw - 44px);background:var(--green);border:1px solid var(--green);border-radius:10px;padding:24px;color:#c6d1bd;box-shadow:0 12px 24px rgba(16,56,14,.18),0 3px 7px rgba(16,56,14,.10)}
 .review-stars{color:var(--orange);letter-spacing:2px;margin-bottom:12px}
@@ -1032,7 +1039,6 @@ Multumim pentru tot,revenim cu drag!</p>
     </div>
     <div class="reviews-actions">
       <a class="btn btn-orange" href="https://maps.app.goo.gl/S9jeFsvnTLYEPa5t7" target="_blank" rel="noopener noreferrer">Vezi toate recenziile pe Google</a>
-      <button class="reviews-pause" type="button" aria-pressed="false">Oprește mișcarea</button>
     </div>
   </div>
 </section>
@@ -1398,13 +1404,12 @@ Multumim pentru tot,revenim cu drag!</p>
   if (!section) return;
   const viewport = section.querySelector('.reviews-viewport');
   const track = section.querySelector('.reviews-track');
-  const pauseButton = section.querySelector('.reviews-pause');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let manualPause = false, hover = false, touching = false, last = 0;
+  let hover = false, touching = false, last = 0, interactionUntil = 0;
   let visible = true, frame = 0, position = viewport.scrollLeft;
-  const paused = () => manualPause || hover || touching || reduced.matches ||
+  const paused = () => hover || touching || performance.now() < interactionUntil || reduced.matches ||
     !!section.querySelector('.is-expanded') ||
-    !!viewport.querySelector(':focus-visible');
+    viewport.matches(':focus-visible') || !!viewport.querySelector(':focus-visible');
   const updateToggles = () => section.querySelectorAll('.review-card').forEach(card => {
     const text = card.querySelector('.review-text');
     if (!card.classList.contains('is-expanded')) {
@@ -1419,16 +1424,29 @@ Multumim pentru tot,revenim cu drag!</p>
     button.setAttribute('aria-expanded', String(expanded));
     button.textContent = expanded ? 'Restrânge' : 'Citește integral';
   });
-  pauseButton.addEventListener('click', () => {
-    manualPause = !manualPause;
-    pauseButton.setAttribute('aria-pressed', String(manualPause));
-    pauseButton.textContent = manualPause ? 'Reia mișcarea' : 'Oprește mișcarea';
-  });
   viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hover = true; });
   viewport.addEventListener('pointerleave', () => { hover = false; });
   viewport.addEventListener('pointerdown', () => { touching = true; });
-  window.addEventListener('pointerup', () => { touching = false; });
-  window.addEventListener('pointercancel', () => { touching = false; });
+  const finishTouch = () => {
+    touching = false;
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  };
+  window.addEventListener('pointerup', finishTouch);
+  window.addEventListener('pointercancel', finishTouch);
+  viewport.addEventListener('touchstart', () => { touching = true; }, {passive:true});
+  viewport.addEventListener('touchend', finishTouch, {passive:true});
+  viewport.addEventListener('touchcancel', finishTouch, {passive:true});
+  viewport.addEventListener('wheel', () => {
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  }, {passive:true});
+  viewport.addEventListener('scroll', () => {
+    if (touching || hover || performance.now() < interactionUntil) {
+      position = viewport.scrollLeft;
+      interactionUntil = performance.now() + 1000;
+    }
+  }, {passive:true});
   const animate = time => {
     frame = 0;
     const elapsed = last ? Math.min(time - last, 50) : 0;
@@ -1454,7 +1472,6 @@ Multumim pentru tot,revenim cu drag!</p>
     if (frame) cancelAnimationFrame(frame);
     frame = 0;
     if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
-    pauseButton.hidden = reduced.matches;
   };
   const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; resume(); });
   observer.observe(section);
