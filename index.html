@@ -677,6 +677,14 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 .reviews-actions{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px}
 @media(max-width:600px){#recenzii .review-card{flex-basis:290px;max-width:calc(100vw - 44px);padding:20px}#recenzii .review-text{font-size:14px;overflow-wrap:anywhere}#recenzii .review-toggle,#recenzii .reviews-pause{min-height:44px;font-size:13px}#recenzii .reviews-actions{gap:8px}#recenzii .reviews-actions .btn{max-width:100%;text-align:center;white-space:normal}#recenzii{scroll-margin-top:150px}}
 
+#recenzii .review-card{height:294px;display:grid;grid-template-rows:18px minmax(0,1fr) 34px 22px;gap:12px}
+#recenzii .review-card .review-stars,#recenzii .review-card .review-text,#recenzii .review-card .review-author{margin:0}
+#recenzii .review-card .review-text{min-height:0}
+#recenzii .review-card .review-toggle{text-align:left;justify-self:start}
+#recenzii .review-card .review-toggle[hidden]{display:block;visibility:hidden;pointer-events:none}
+#recenzii .review-card.is-expanded{height:auto;min-height:294px;grid-template-rows:18px auto 34px 22px}
+@media(max-width:600px){#recenzii .review-card{height:320px;grid-template-rows:18px minmax(0,1fr) 44px 22px}#recenzii .review-card.is-expanded{height:auto;min-height:320px;grid-template-rows:18px auto 44px 22px}}
+
 </style>
 </head>
 <body>
