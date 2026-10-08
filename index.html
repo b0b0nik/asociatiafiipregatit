@@ -651,7 +651,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 #recenzii{background:var(--cream-2);scroll-margin-top:110px}
 #recenzii .reviews-heading{text-align:center;margin-bottom:28px}
 #recenzii .t{color:var(--green-deep)}
-.reviews-viewport{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:8px 0 18px}
+.reviews-viewport{scroll-behavior:auto;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:8px 0 18px}
 .reviews-viewport::-webkit-scrollbar{display:none}
 .reviews-track{display:flex;gap:18px;align-items:flex-start}
 .review-card{flex:0 0 330px;max-width:calc(100vw - 44px);background:var(--green);border:1px solid var(--green);border-radius:10px;padding:24px;color:#c6d1bd}
@@ -1401,9 +1401,10 @@ Multumim pentru tot,revenim cu drag!</p>
   const pauseButton = section.querySelector('.reviews-pause');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let manualPause = false, hover = false, touching = false, last = 0;
-  let visible = true, frame = 0;
+  let visible = true, frame = 0, position = viewport.scrollLeft;
   const paused = () => manualPause || hover || touching || reduced.matches ||
-    !!section.querySelector('.is-expanded') || section.contains(document.activeElement);
+    !!section.querySelector('.is-expanded') ||
+    !!viewport.querySelector(':focus-visible');
   const updateToggles = () => section.querySelectorAll('.review-card').forEach(card => {
     const text = card.querySelector('.review-text');
     if (!card.classList.contains('is-expanded')) {
@@ -1433,14 +1434,18 @@ Multumim pentru tot,revenim cu drag!</p>
     const elapsed = last ? Math.min(time - last, 50) : 0;
     last = time;
     if (!paused()) {
-      viewport.scrollLeft += elapsed * 0.042;
+      position += elapsed * 0.042;
+      viewport.scrollLeft = position;
       const first = track.firstElementChild;
       const span = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
-      if (viewport.scrollLeft >= span) {
-        const offset = viewport.scrollLeft - span;
+      if (position >= span) {
+        const offset = position - span;
         track.append(first);
-        viewport.scrollLeft = offset;
+        position = offset;
+        viewport.scrollLeft = position;
       }
+    } else {
+      position = viewport.scrollLeft;
     }
     if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
   };
