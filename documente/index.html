@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Înscriere · Asociația Fii Pregătit</title>
-<meta name="description" content="Înscriere online pentru activitățile Asociației Fii Pregătit. Regulament, date participant, verificare document, semnătură și finalizare.">
+<title>Documente de participare · Asociația Fii Pregătit</title>
+<meta name="description" content="Completează documentele de participare pentru activitățile Asociației Fii Pregătit: regulament, date participant, verificarea documentului și semnătura online.">
 <link rel="canonical" href="https://asociatiafiipregatit.ro/documente/">
-<meta property="og:title" content="Înscriere activități · Fii Pregătit">
-<meta property="og:description" content="Înscriere online pentru activitățile Asociației Fii Pregătit: completează datele, verifică documentul și semnează online.">
+<meta property="og:title" content="Documente de participare · Fii Pregătit">
+<meta property="og:description" content="Documente de participare pentru activitățile Asociației Fii Pregătit: completează datele, verifică documentul și semnează online.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://asociatiafiipregatit.ro/documente/">
 <meta property="og:image" content="https://asociatiafiipregatit.ro/assets/imagini-share/og-inscriere-fii-pregatit.JPG">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Înscriere activități Fii Pregătit — completează, verifică și semnează online">
+<meta property="og:image:alt" content="Documente de participare Fii Pregătit — completează, verifică și semnează online">
 <meta property="og:locale" content="ro_RO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Înscriere activități · Fii Pregătit">
-<meta name="twitter:description" content="Înscriere online pentru activitățile Asociației Fii Pregătit.">
+<meta name="twitter:title" content="Documente de participare · Fii Pregătit">
+<meta name="twitter:description" content="Completează și semnează online documentele de participare pentru activitățile Asociației Fii Pregătit.">
 <meta name="twitter:image" content="https://asociatiafiipregatit.ro/assets/imagini-share/og-inscriere-fii-pregatit.JPG">
 <link rel="icon" type="image/png" href="/assets/imagini-site/LOGO-PATCH.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,10 +193,10 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
 
 <header class="hero">
   <div class="wrap">
-    <div class="eb">Înscriere online</div>
+    <div class="eb">Documente de participare</div>
     <h1 class="disp">Tot ce ai nevoie pentru participare.</h1>
     <p class="lead">
-  Completezi datele, verifici documentul generat, semnezi pe ecran și finalizezi înscrierea. Completarea datelor durează câteva minute, iar timpul total depinde de parcurgerea documentului și a regulamentului.
+  Completezi datele, verifici documentul generat, semnezi pe ecran și trimiți documentul semnat. Completarea datelor durează câteva minute, iar timpul total depinde de parcurgerea documentului și a regulamentului.
 </p>
 
     <div class="progress">
@@ -218,7 +218,7 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
       <div class="eb">Pasul 1</div>
       <h2 class="disp">Regulamentul participanților</h2>
       <p style="color:#4c5440;margin-bottom:18px">
-        Înainte de înscriere, te rugăm să citești regulamentul. Acesta stabilește regulile de participare, conduită și siguranță pentru activitățile Asociației Fii Pregătit.
+        Înainte de completarea documentelor, te rugăm să citești regulamentul. Acesta stabilește regulile de participare, conduită și siguranță pentru activitățile Asociației Fii Pregătit.
       </p>
 
       <div class="row">
@@ -446,12 +446,12 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
 
         <div class="row">
           <button class="btn btn-light" onclick="goStep(3)">Înapoi</button>
-          <button id="finishBtn" class="btn btn-orange" onclick="finishFlow()">Finalizează înscrierea</button>
+          <button id="finishBtn" class="btn btn-orange" onclick="finishFlow()">Trimite documentul semnat</button>
         </div>
         <div id="sendingNotice" class="sending-notice hidden" role="status" aria-live="polite">
   <span class="sending-spinner"></span>
   <div>
-    <strong>Se transmite înscrierea...</strong>
+    <strong>Se transmite documentul semnat...</strong>
     <span>Documentul semnat este generat și trimis. Te rugăm să nu închizi pagina.</span>
   </div>
 </div>
@@ -461,9 +461,9 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
     <section id="step5" class="hidden">
       <div class="success">
         <i class="ti ti-circle-check"></i>
-        <h2 class="disp" style="font-size:34px;margin:16px 0 10px">Înscriere transmisă</h2>
+        <h2 class="disp" style="font-size:34px;margin:16px 0 10px">Document transmis</h2>
         <p style="color:#d7e0cd;max-width:620px;margin:0 auto 22px">
-          Documentul a fost completat, semnat și transmis automat pe email către părinte și către Asociația Fii Pregătit.
+          Documentul a fost completat, semnat și transmis automat pe e-mail către semnatar și către Asociația Fii Pregătit.
         </p>
 
         
@@ -499,7 +499,7 @@ footer{background:var(--green-deep);padding:36px 32px;color:#9aa88c;font-size:12
           href="/documente/"
           style="color:#cfe0c5;font-size:12px;text-decoration:none"
         >
-          Înscriere
+          Documente de participare
         </a>
 
         <a
@@ -645,7 +645,7 @@ function selectType(type){
   document.getElementById("formCard").classList.remove("hidden");
   document.getElementById("childFields").classList.toggle("hidden", type!=="child");
   document.getElementById("adultFields").classList.toggle("hidden", type!=="adult");
-  document.getElementById("formTitle").textContent = type==="child" ? "Date pentru înscriere copil" : "Date pentru înscriere adult";
+  document.getElementById("formTitle").textContent = type==="child" ? "Date pentru participarea copilului" : "Date pentru participarea adultului";
 }
 
 function val(id){
@@ -1434,7 +1434,7 @@ async function finishFlow(){
   }catch(err){
     sendingNotice.classList.add("hidden");
     finishBtn.disabled = false;
-    finishBtn.textContent = "Finalizează înscrierea";
+    finishBtn.textContent = "Trimite documentul semnat";
 
     showError("Trimiterea automată a documentului a eșuat: " + err.message);
   }
