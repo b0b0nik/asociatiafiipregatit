@@ -531,6 +531,7 @@ let currentType = "";
 let signatureHasContent = false;
 let signatureDataUrl = "";
 let currentDocumentId = "";
+let pendingDocumentRequest = null;
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMdtIfBdCfVh6Eg4lle1YrZAfEzfvEkHQMRiTNMl30l-hHG8oFuV_LBhMXlk414inN/exec";
 const LOGO_OFFICIAL_URL = "https://asociatiafiipregatit.ro/assets/imagini-site/LOGO-OFFICIAL-verde.png";
@@ -723,6 +724,8 @@ function generateDocumentId(){
 }  
   
 async function generatePreview(){
+  pendingDocumentRequest = null;
+  document.getElementById("finishBtn").textContent = "Trimite documentul semnat";
   const now = new Date();
   currentDocumentId = generateDocumentId();
 const documentId = currentDocumentId;
@@ -1375,18 +1378,24 @@ async function sendDocumentToServer(){
   const parentName = currentType === "child" ? val("parentName") : val("adultName");
   const participantName = currentType === "child" ? val("childName") : val("adultName");
 
+  const requestBody = JSON.stringify({
+    documentId:currentDocumentId,
+    parentEmail:parentEmail,
+    parentName:parentName,
+    participantName:participantName,
+    documentHtml:finalDocument.innerHTML
+  });
+  if(pendingDocumentRequest !== null && pendingDocumentRequest !== requestBody){
+    throw new Error("Datele sau semnătura s-au schimbat. Revino la verificarea documentului pentru a genera un document nou.");
+  }
+  pendingDocumentRequest = requestBody;
+
   const response = await fetch(APPS_SCRIPT_URL,{
     method:"POST",
     headers:{
       "Content-Type":"text/plain;charset=utf-8"
     },
-    body:JSON.stringify({
-      documentId:currentDocumentId,
-      parentEmail:parentEmail,
-      parentName:parentName,
-      participantName:participantName,
-      documentHtml:finalDocument.innerHTML
-    })
+    body:pendingDocumentRequest
   });
 
   const text = await response.text();
@@ -1399,6 +1408,10 @@ try{
 }
 
 async function finishFlow(){
+  const finishBtn = document.getElementById("finishBtn");
+  if(finishBtn.disabled) return;
+  clearError();
+
   if(!signatureHasContent){
     showError("Te rog să semnezi în chenar înainte de finalizare.");
     return;
@@ -1409,7 +1422,6 @@ async function finishFlow(){
     return;
   }
 
-  const finishBtn = document.getElementById("finishBtn");
   const sendingNotice = document.getElementById("sendingNotice");
 
   finishBtn.disabled = true;
@@ -1434,7 +1446,7 @@ async function finishFlow(){
   }catch(err){
     sendingNotice.classList.add("hidden");
     finishBtn.disabled = false;
-    finishBtn.textContent = "Trimite documentul semnat";
+    finishBtn.textContent = "Reîncearcă trimiterea";
 
     showError("Trimiterea automată a documentului a eșuat: " + err.message);
   }
