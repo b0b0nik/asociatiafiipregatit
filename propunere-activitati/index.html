@@ -186,6 +186,62 @@
  .page-nav .page-nav-link:hover,.page-nav .page-nav-link:active,.page-nav .page-nav-link:focus-visible{transform:none}
 }
 </style>
+<style>
+#recenzii{background:var(--cream-2);scroll-margin-top:110px}
+#recenzii .reviews-heading{text-align:center;margin-bottom:28px}
+#recenzii .t{color:var(--green-deep)}
+.reviews-viewport{scroll-behavior:auto;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:16px 12px 34px;margin:0 -12px}
+.reviews-viewport::-webkit-scrollbar{display:none}
+@media(hover:hover) and (pointer:fine){
+  #recenzii .reviews-viewport{scrollbar-width:thin;scrollbar-color:rgba(16,56,14,.25) transparent}
+  #recenzii .reviews-viewport::-webkit-scrollbar{display:block;height:5px}
+  #recenzii .reviews-viewport::-webkit-scrollbar-track{background:transparent}
+  #recenzii .reviews-viewport::-webkit-scrollbar-thumb{background:rgba(16,56,14,.25);border-radius:10px}
+  #recenzii .reviews-viewport::-webkit-scrollbar-thumb:hover{background:rgba(16,56,14,.45)}
+}
+.reviews-track{display:flex;gap:18px;align-items:flex-start}
+.review-card{flex:0 0 330px;max-width:calc(100vw - 44px);background:var(--green);border:1px solid var(--green);border-radius:10px;padding:24px;color:#c6d1bd;box-shadow:0 12px 24px rgba(16,56,14,.18),0 3px 7px rgba(16,56,14,.10)}
+.review-stars{color:var(--orange);letter-spacing:2px;margin-bottom:12px}
+.review-text{font-size:13px;line-height:1.7;white-space:pre-wrap;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden}
+.review-card.is-expanded .review-text{display:block;overflow:visible}
+.review-author{font-weight:600;font-size:13px;color:#fff;margin-top:18px}
+#recenzii .review-text,#recenzii .review-author{color:var(--cream)}
+.review-toggle,.reviews-pause{font:inherit;font-size:12px;font-weight:600;cursor:pointer;color:var(--green-deep);background:transparent;border:0;text-decoration:underline;text-underline-offset:3px;padding:8px 0}
+.review-toggle:focus-visible,.reviews-pause:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+.review-toggle[hidden]{display:none}
+.review-toggle{color:var(--orange-2);transition:transform .22s ease,color .22s ease}
+.review-toggle:hover{transform:translateY(-2px);color:#fff}
+.review-card:focus-within{border-color:var(--orange);box-shadow:0 16px 32px rgba(0,0,0,.16)}
+@media(prefers-reduced-motion:reduce){.review-card,.review-toggle{transition:none!important}.review-card:hover,.review-toggle:hover{transform:none!important}}
+.reviews-actions{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:600px){#recenzii .review-card{flex-basis:290px;max-width:calc(100vw - 44px);padding:20px}#recenzii .review-text{font-size:14px;overflow-wrap:anywhere}#recenzii .review-toggle,#recenzii .reviews-pause{min-height:44px;font-size:13px}#recenzii .reviews-actions{gap:8px}#recenzii .reviews-actions .btn{max-width:100%;text-align:center;white-space:normal}#recenzii{scroll-margin-top:150px}}
+
+#recenzii .review-card{height:294px;display:grid;grid-template-rows:18px minmax(0,1fr) 34px 22px;gap:12px}
+#recenzii .review-card .review-stars,#recenzii .review-card .review-text,#recenzii .review-card .review-author{margin:0}
+#recenzii .review-card .review-text{min-height:0}
+#recenzii .review-card .review-toggle{text-align:left;justify-self:start}
+#recenzii .review-card .review-toggle[hidden]{display:block;visibility:hidden;pointer-events:none}
+#recenzii .review-card.is-expanded{height:auto;min-height:294px;grid-template-rows:18px auto 34px 22px}
+@media(max-width:600px){#recenzii .review-card{height:320px;grid-template-rows:18px minmax(0,1fr) 44px 22px}#recenzii .review-card.is-expanded{height:auto;min-height:320px;grid-template-rows:18px auto 44px 22px}}
+
+</style>
+<style>
+.feedback-carousels{background:var(--cream-2)}
+#feedback-mesaje .reviews-heading{text-align:center;margin-bottom:28px}
+#feedback-mesaje .reviews-viewport{max-width:calc(100% + 24px)}
+#feedback-mesaje .feedback-image-card{display:flex;align-items:center;justify-content:center;flex:0 0 330px;max-width:calc(100vw - 44px);height:360px;padding:12px;background:#fff;border:1px solid #e6e0d2;border-radius:10px;box-shadow:0 12px 24px rgba(16,56,14,.18),0 3px 7px rgba(16,56,14,.10);transition:transform .22s ease,border-color .22s ease}
+#feedback-mesaje .feedback-image-card img{width:100%;height:100%;object-fit:contain;border-radius:6px}
+#feedback-mesaje .feedback-image-card:hover{transform:translateY(-2px);border-color:var(--orange)}
+#feedback-mesaje .feedback-image-card:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+#feedback #recenzii{padding:36px 0 0}
+@media(hover:hover) and (pointer:fine){
+ #feedback-mesaje .reviews-viewport{scrollbar-width:thin;scrollbar-color:rgba(16,56,14,.25) transparent}
+ #feedback-mesaje .reviews-viewport::-webkit-scrollbar{display:block;height:5px}
+ #feedback-mesaje .reviews-viewport::-webkit-scrollbar-thumb{background:rgba(16,56,14,.25);border-radius:10px}
+}
+@media(max-width:600px){#feedback-mesaje .feedback-image-card{flex-basis:290px;height:340px}}
+@media(prefers-reduced-motion:reduce){#feedback-mesaje .feedback-image-card{transition:none}#feedback-mesaje .feedback-image-card:hover{transform:none}}
+</style>
 </head>
 <body id="sus">
   <nav class="page-nav" aria-label="Meniu propunere activități">
@@ -637,21 +693,117 @@
 </div>
 </section>
 
-  <section id="feedback" class="sec">
+  <section id="feedback" class="sec feedback-carousels">
 <div class="wrap">
-<div class="eb">Ce spun părinții?</div>
-<h2 class="t disp" style="color:var(--green-deep)">Feedback direct din comunitate</h2>
-<div class="feedback-grid">
-<img src="media/photo-19.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-20.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-21.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-22.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-23.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-24.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-25.jpg" alt="Feedback părinte" loading="lazy" decoding="async">
-<img src="media/photo-26.jpg" alt="Mesajul echipei Fii Pregătit" loading="lazy" decoding="async">
+ <div id="feedback-mesaje">
+  <div class="reviews-heading"><div class="eb">Ce spun părinții?</div><h2 class="t disp" style="color:var(--green-deep)">Feedback direct din comunitate</h2></div>
+  <div class="reviews-viewport" role="region" aria-label="Mesaje din comunitate — 8 imagini" tabindex="0"><div class="reviews-track"><a class="feedback-image-card" href="media/photo-19.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 1 integral"><img src="media/photo-19.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-20.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 2 integral"><img src="media/photo-20.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-21.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 3 integral"><img src="media/photo-21.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-22.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 4 integral"><img src="media/photo-22.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-23.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 5 integral"><img src="media/photo-23.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-24.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 6 integral"><img src="media/photo-24.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-25.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 7 integral"><img src="media/photo-25.jpg" alt="Feedback părinte" loading="lazy" decoding="async"></a>
+<a class="feedback-image-card" href="media/photo-26.jpg" target="_blank" rel="noopener" aria-label="Deschide imaginea 8 integral"><img src="media/photo-26.jpg" alt="Mesajul echipei Fii Pregătit" loading="lazy" decoding="async"></a></div></div>
+ </div>
 </div>
-</div>
+<section id="recenzii" class="sec" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="reviews-heading"><h2 id="reviews-title" class="t disp">Recenzii publicate pe Google</h2></div>
+    <div class="reviews-viewport" role="region" aria-label="Recenziile părinților" tabindex="0">
+      <div class="reviews-track"><article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-0">Pentru mine, Asociația Fii Pregătit nu este doar un loc în care copiii merg la activități. Este un loc în care îi vezi cum cresc.
+Am avut bucuria să îi cunosc și să văd din apropiere câtă pasiune, răbdare și implicare pun oamenii de aici în fiecare experiență. La ei, copiii nu învață doar lucruri noi, ci învață să aibă încredere în ei, să se descurce, să lucreze împreună și să descopere cât de multe pot face atunci când ies din zona de confort.
+Și cred că unul dintre cele mai frumoase lucruri este că aceste lecții nu vin din „teorie”, ci din experiențe reale, trăite împreună, în natură. ❤️
+Ca părinte, am simțit că îmi las copilul într-un loc în care este văzut, încurajat și ghidat cu adevărat.
+Unele experiențe trec. Altele rămân cu tine mult timp după ce s-au terminat. Cele de la Fii Pregătit sunt din a doua categorie. 🌲
+Îi recomand cu toată încrederea oricărui părinte care își dorește pentru copilul său mai mult decât o activitate: își dorește experiențe care îl ajută să crească. ❤️</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-0" hidden>Citește integral</button>
+  <p class="review-author">Camelia C.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-1">Recomand din toată inima activitățile de la Fii Pregătit! De când merge cea mică la ei, am văzut-o schimbată. Vine acasă plină de energie și de povești, și am observat că a devenit mult mai încrezătoare în ea și mai independentă — lucruri pe care nu credeam că le poate învăța atât de repede. Cori și Lau sunt atenți la fiecare copil și se simte că le pasă cu adevărat, nu doar că &quot;își fac treaba&quot;. Ca mamă, m-am simțit liniștită lăsând-o în grija lor, iar ea abia așteaptă următoarea ieșire. Recomand cu toată încrederea!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-1" hidden>Citește integral</button>
+  <p class="review-author">Simona Ș.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-2">Recomand cu cea mai mare caldura! 🤩Desi nu ii cunosteam pe cei care organizeaza, profilul de instagram, pozele si video-urile mi-au transmis incredere maxima si m-am hotarat sa il trimit si pe baiatul meu la o activitate la Cheile Rasnoavei. Singura problema era ca neavand masina, am vrut sa anulam, iar Corina si Lau au fost foarte draguti si s-au oferit sa vina sa il ia si pe baiatul meu. N-am avut nici cea mai mica emotie, iar copilul meu, desi s-a dus singur si nu cunostea pe nimeni, a venit foarte entuziasmat si increzator. Toata ziua mi-a povestit despre aventura lui in padure. Din pacate n-am mai reusim sa ne sincronizam sa mai ajungem, dar abia asteptam sa mai mergem!🥰
+Faceti o treaba grozava!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-2" hidden>Citește integral</button>
+  <p class="review-author">Georgiana C.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-3">Recomand cu toata increderea tuturor parintilor care isi doresc pentru copiii lor aventura, conexiune cu natura si amintiri frumoase
+Ceea ce fac oamenii de aici merge mult dincolo de o simpla drumetie prin padure. Copiii invata tehnici practice de supravietuire, cum sa se orienteze, cum sa construiasca un adapost sau sa interactioneze in siguranta cu mediul, dar cel mai fain e cum colaboreaza intre ei, cum prind incredere si isi depasesc limitele.
+Mai mult decat atat, Corina si Lau au un talent extraordinar de a le insufla celor mici o iubire si un respect profund pentru natura.
+E o bucurie cand cei mici povestesc cu atata fascinatie despre plantele, insectele, animalele pe care le descopera, uitand complet de ecrane.
+Organizarea e impecabila, siguranta copiilor este mereu pe primul loc, iar rabdarea si dedicarea ghizilor sunt de nota 10.
+Felicitari pentru ceea ce faceti si pentru pasiunea cu care le oferiti copiilor aceste experiente!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-3" hidden>Citește integral</button>
+  <p class="review-author">Diana D.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-4">Fata noastra participa de aproape un an la activitățile organizate de, Fii pregatit!Asteapta de fiecare data sa afle tema activității, iar fiecare experienta este unica in felul ei. In cadrul activităților a devenit mai curajoasa, sigura pe ea,independenta, dar in același timp sa si lucreze in echipa cu colegii. Organizatorii sunt foarte bine pregătiți pentru orice situație, atenți la nevoile copiilor. Multumim ca faceți, ceea ce faceți pentru comunitatea Fii pregatit!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-4" hidden>Citește integral</button>
+  <p class="review-author">Constantin C.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-5">Suntem norocosi cu asa asociatie! Copiii sunt mereu in siguranta, se intorc intotdeauna entuziasmati de tot ce traiesc in natura, si in fiecare dimineata la trezirea pt scoala intreaba daca astazi e zi de explorare a naturii! Va multumim cu recunostinta pentru tot ceea ce faceti! Mult succes in tot ce intreprindeti!Noi,
+parintii ,va suntem alaturi!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-5" hidden>Citește integral</button>
+  <p class="review-author">Sorana M.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-6">O experiență minunată pentru copii! 🌿 ❤️
+
+Drumețiile organizate sunt o ocazie minunată pentru copii de a descoperi natura, de a face mișcare și, în același timp, de a învăța lucruri noi într-un mod plăcut și relaxat.
+Apreciez foarte mult implicarea, răbdarea și felul frumos în care sunt organizate aceste activități. Copiii învață să iubească natura, să fie mai independenți, să colaboreze, să se ajute între ei și să descopere bucuria lucrurilor simple.
+Aceste experiențe au contribuit atât la dezvoltarea fizică, cât și la cea emoțională și socială a copiilor mei ❤️ Am încredere deplină îi ai lăsa pe copii ,in drumeții cu voi. &quot;Repetiția este mama învățături&quot; , prin faptul că vin de mai multe ori cu voi, așa reușesc să își întipărească învățăturile.
+Felicitări pentru tot ceea ce faceți și pentru timpul frumos și valoros oferit copiilor! 🌳 🥾 ☀️</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-6" hidden>Citește integral</button>
+  <p class="review-author">Mihaela S.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-7">Sunt niște oameni extraordinari, foarte faini, deschiși și primitori, iar felul în care se implică în ceea ce fac se simte imediat. Drumurile prin pădure nu sunt doar simple drumeții, ci adevărate experiențe pentru copii, timp petrecut în natură, aventură, joacă, descoperit lucruri noi și, mai ales, amintiri pe care le vor ține minte.
+Se vede că fac totul cu mult suflet și că le pasă cu adevărat de copii. Mă bucur tare mult că i-am găsit și abia așteptăm următoarele aventuri!
+
+Îi recomand cu tot dragul!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-7" hidden>Citește integral</button>
+  <p class="review-author">Elena C.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-8">O echipă extraordinară de instructori! Copilul meu a câștigat multă încredere în sine , fiind la prima activitate. Felicitări pentru tot ceea ce faceți pentru copii! Recomand cu toată încrederea.”</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-8" hidden>Citește integral</button>
+  <p class="review-author">Cosmin B.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-9">Cea mai frumoasă modalitate prin care copiii pot explora și învăța! Ghizii sunt implicați, răbdători și reușesc să transforme fiecare plimbare în natură într-o lecție fascinantă despre mediu, supraviețuire și spirit de echipă. Felicitări pentru tot ceea ce faceți!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-9" hidden>Citește integral</button>
+  <p class="review-author">Cosmin M.</p>
+</article>
+<article class="review-card card hov">
+  <div class="review-stars" aria-label="5 din 5 stele"><span aria-hidden="true">★★★★★</span></div>
+  <p class="review-text" id="review-text-10">Niste oameni minunati,de incredere,profesionisti cu care fetita noastra de 8 ani a invatat foarte multe lucruri noi ce au ajutat-o sa fie independenta si sa se descurce in diverse medii si situatii.
+Multumim pentru tot,revenim cu drag!</p>
+  <button class="review-toggle" type="button" aria-expanded="false" aria-controls="review-text-10" hidden>Citește integral</button>
+  <p class="review-author">Natașa Ionela M.</p>
+</article></div>
+    </div>
+    <div class="reviews-actions">
+      <a class="btn btn-orange" href="https://maps.app.goo.gl/S9jeFsvnTLYEPa5t7" target="_blank" rel="noopener noreferrer">Vezi toate recenziile pe Google</a>
+    </div>
+  </div>
+</section>
 </section>
 
   <section id="oferta" class="sec offer">
@@ -787,6 +939,178 @@
   if ('ResizeObserver' in window) new ResizeObserver(syncNavHeight).observe(nav);
   else window.addEventListener('resize', syncNavHeight);
 })();
+</script>
+<script>
+(() => {
+  const section = document.getElementById('recenzii');
+  if (!section) return;
+  const viewport = section.querySelector('.reviews-viewport');
+  const track = section.querySelector('.reviews-track');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let hover = false, touching = false, last = 0, interactionUntil = 0;
+  let visible = true, frame = 0, position = viewport.scrollLeft;
+  const paused = () => hover || touching || performance.now() < interactionUntil || reduced.matches ||
+    !!section.querySelector('.is-expanded') ||
+    viewport.matches(':focus-visible') || !!viewport.querySelector(':focus-visible');
+  const updateToggles = () => section.querySelectorAll('.review-card').forEach(card => {
+    const text = card.querySelector('.review-text');
+    if (!card.classList.contains('is-expanded')) {
+      card.querySelector('.review-toggle').hidden = text.scrollHeight <= text.clientHeight + 1;
+    }
+  });
+  section.addEventListener('click', event => {
+    const button = event.target.closest('.review-toggle');
+    if (!button) return;
+    const card = button.closest('.review-card');
+    const expanded = card.classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', String(expanded));
+    button.textContent = expanded ? 'Restrânge' : 'Citește integral';
+  });
+  viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hover = true; });
+  viewport.addEventListener('pointerleave', () => { hover = false; });
+  viewport.addEventListener('pointerdown', () => { touching = true; });
+  const finishTouch = () => {
+    touching = false;
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  };
+  window.addEventListener('pointerup', finishTouch);
+  window.addEventListener('pointercancel', finishTouch);
+  viewport.addEventListener('touchstart', () => { touching = true; }, {passive:true});
+  viewport.addEventListener('touchend', finishTouch, {passive:true});
+  viewport.addEventListener('touchcancel', finishTouch, {passive:true});
+  viewport.addEventListener('wheel', () => {
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  }, {passive:true});
+  viewport.addEventListener('scroll', () => {
+    if (touching || hover || performance.now() < interactionUntil) {
+      position = viewport.scrollLeft;
+      interactionUntil = performance.now() + 1000;
+    }
+  }, {passive:true});
+  const animate = time => {
+    frame = 0;
+    const elapsed = last ? Math.min(time - last, 50) : 0;
+    last = time;
+    if (!paused()) {
+      position += elapsed * 0.042;
+      viewport.scrollLeft = position;
+      const first = track.firstElementChild;
+      const span = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
+      if (position >= span) {
+        const offset = position - span;
+        track.append(first);
+        position = offset;
+        viewport.scrollLeft = position;
+      }
+    } else {
+      position = viewport.scrollLeft;
+    }
+    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
+  };
+  const resume = () => {
+    last = 0;
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
+  };
+  const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; resume(); });
+  observer.observe(section);
+  document.addEventListener('visibilitychange', resume);
+  reduced.addEventListener('change', resume);
+  window.addEventListener('resize', updateToggles);
+  if (document.fonts) document.fonts.ready.then(updateToggles);
+  updateToggles();
+  resume();
+})();
+
+</script>
+<script>
+(() => {
+  const section = document.getElementById('feedback-mesaje');
+  if (!section) return;
+  const viewport = section.querySelector('.reviews-viewport');
+  const track = section.querySelector('.reviews-track');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let hover = false, touching = false, last = 0, interactionUntil = 0;
+  let visible = true, frame = 0, position = viewport.scrollLeft;
+  const paused = () => hover || touching || performance.now() < interactionUntil || reduced.matches ||
+    !!section.querySelector('.is-expanded') ||
+    viewport.matches(':focus-visible') || !!viewport.querySelector(':focus-visible');
+  const updateToggles = () => section.querySelectorAll('.review-card').forEach(card => {
+    const text = card.querySelector('.review-text');
+    if (!card.classList.contains('is-expanded')) {
+      card.querySelector('.review-toggle').hidden = text.scrollHeight <= text.clientHeight + 1;
+    }
+  });
+  section.addEventListener('click', event => {
+    const button = event.target.closest('.review-toggle');
+    if (!button) return;
+    const card = button.closest('.review-card');
+    const expanded = card.classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', String(expanded));
+    button.textContent = expanded ? 'Restrânge' : 'Citește integral';
+  });
+  viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hover = true; });
+  viewport.addEventListener('pointerleave', () => { hover = false; });
+  viewport.addEventListener('pointerdown', () => { touching = true; });
+  const finishTouch = () => {
+    touching = false;
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  };
+  window.addEventListener('pointerup', finishTouch);
+  window.addEventListener('pointercancel', finishTouch);
+  viewport.addEventListener('touchstart', () => { touching = true; }, {passive:true});
+  viewport.addEventListener('touchend', finishTouch, {passive:true});
+  viewport.addEventListener('touchcancel', finishTouch, {passive:true});
+  viewport.addEventListener('wheel', () => {
+    position = viewport.scrollLeft;
+    interactionUntil = performance.now() + 1000;
+  }, {passive:true});
+  viewport.addEventListener('scroll', () => {
+    if (touching || hover || performance.now() < interactionUntil) {
+      position = viewport.scrollLeft;
+      interactionUntil = performance.now() + 1000;
+    }
+  }, {passive:true});
+  const animate = time => {
+    frame = 0;
+    const elapsed = last ? Math.min(time - last, 50) : 0;
+    last = time;
+    if (!paused()) {
+      position += elapsed * 0.042;
+      viewport.scrollLeft = position;
+      const first = track.firstElementChild;
+      const span = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
+      if (position >= span) {
+        const offset = position - span;
+        track.append(first);
+        position = offset;
+        viewport.scrollLeft = position;
+      }
+    } else {
+      position = viewport.scrollLeft;
+    }
+    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
+  };
+  const resume = () => {
+    last = 0;
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
+  };
+  const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; resume(); });
+  observer.observe(section);
+  document.addEventListener('visibilitychange', resume);
+  reduced.addEventListener('change', resume);
+  window.addEventListener('resize', updateToggles);
+  if (document.fonts) document.fonts.ready.then(updateToggles);
+  updateToggles();
+  resume();
+})();
+
 </script>
 </body>
 </html>
