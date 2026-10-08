@@ -287,6 +287,18 @@ body.page-menu-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.page-menu[open]{animation:none}.page-menu-links a{transition:none}.page-menu-links a:hover{transform:none}}
 </style>
 <link rel="stylesheet" href="/header-buttons.css">
+<style>
+.age-group{background:var(--cream)}
+.age-group .lead{max-width:950px}
+.quick-nav .quick-info{gap:7px;padding:0 13px;min-height:44px;font-size:12px;font-weight:600;white-space:nowrap}
+.quick-nav .quick-info i{color:var(--orange-2);font-size:19px}
+.quick-nav .quick-info:hover,.quick-nav .quick-info:focus-visible{background:rgba(27,52,12,.98);border-color:var(--orange);transform:translateY(-2px)}
+.quick-nav .quick-info:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.quick-nav .quick-info:active{border-color:var(--orange);transform:scale(.98)}
+@media(max-width:520px){.quick-nav .quick-info{font-size:10px;gap:5px;padding:0 9px;min-height:40px}.quick-nav .quick-info i{font-size:16px}}
+@media(max-width:380px){.quick-nav{bottom:66px}}
+@media(prefers-reduced-motion:reduce){.quick-nav .quick-info{transition:none}.quick-nav .quick-info:hover,.quick-nav .quick-info:focus-visible,.quick-nav .quick-info:active{transform:none}}
+</style>
 </head>
 <body id="sus">
   <nav class="page-nav" aria-label="Navigare principală">
@@ -304,6 +316,7 @@ body.page-menu-open{overflow:hidden}
   <a href="#activitati">Activități</a>
   <a href="#informatii-organizare">Informații pentru organizare</a>
   <a href="#metoda">Metodă</a>
+  <a href="#de-ce-clasele">De ce clasele 0–IV?</a>
   <a href="#natura">De ce natura?</a>
   <a href="#siguranta">Siguranță</a>
   <a href="#feedback">Feedback</a>
@@ -656,6 +669,17 @@ body.page-menu-open{overflow:hidden}
 </div>
 </section>
 
+<section id="de-ce-clasele" class="sec age-group" aria-labelledby="age-group-title">
+<div class="wrap">
+<div class="eb">De ce clasele 0–IV?</div>
+<h2 id="age-group-title" class="t disp" style="color:var(--green-deep)">Alegem intenționat acest interval de vârstă, nu întâmplător.</h2>
+<p class="lead" style="color:var(--muted)">
+<strong>O etapă importantă de dezvoltare</strong> — Între aproximativ 6 și 11–12 ani, copiii își consolidează abilitățile motorii, învață să își regleze mai bine emoțiile și își dezvoltă autonomia, cooperarea și capacitatea de a funcționa într-un grup. Experiențele practice și activitățile outdoor structurate pot susține aceste procese.</p>
+<p class="lead" style="color:var(--muted);margin-top:16px">
+<strong>Deschidere pentru explorare și cooperare</strong> — În această etapă, copiii sunt foarte receptivi la învățarea prin experiență și la activitățile de grup. Este o perioadă potrivită pentru a exersa cooperarea, responsabilitatea și încrederea în sine, înainte ca preocupările legate de comparația socială, statutul în grup și imaginea personală să se intensifice odată cu preadolescența.</p>
+</div>
+</section>
+
   <section id="natura" class="sec">
 <div class="wrap">
 <div class="nature-grid">
@@ -697,12 +721,8 @@ body.page-menu-open{overflow:hidden}
   <section id="siguranta" class="sec safety">
 <div class="wrap safety-layout">
 <div>
-<div class="eb eb-light">De ce clasele 0–IV?</div>
-<h2 class="t disp" style="color:#fff">Alegem intenționat acest interval de vârstă, nu întâmplător.</h2>
-<p class="lead" style="color:#afbeaa">
-<strong>O etapă importantă de dezvoltare</strong> — Între aproximativ 6 și 11–12 ani, copiii își consolidează abilitățile motorii, învață să își regleze mai bine emoțiile și își dezvoltă autonomia, cooperarea și capacitatea de a funcționa într-un grup. Experiențele practice și activitățile outdoor structurate pot susține aceste procese.</p>
-<p class="lead" style="color:#afbeaa;margin-top:16px">
-<strong>Deschidere pentru explorare și cooperare</strong> — În această etapă, copiii sunt foarte receptivi la învățarea prin experiență și la activitățile de grup. Este o perioadă potrivită pentru a exersa cooperarea, responsabilitatea și încrederea în sine, înainte ca preocupările legate de comparația socială, statutul în grup și imaginea personală să se intensifice odată cu preadolescența.</p>
+<div class="eb eb-light">Siguranța copiilor</div>
+<h2 class="t disp" style="color:#fff">O echipă pregătită pentru fiecare activitate.</h2>
 <div class="team">
 <div class="team-card">
 <strong>Laurențiu</strong>
@@ -928,15 +948,12 @@ Multumim pentru tot,revenim cu drag!</p>
 <div class="eb eb-light">Pentru școala sau grupul vostru</div>
 <h2>Educația pentru viață nu se învață doar din cărți.</h2>
 <p>Unele lucruri trebuie trăite.</p>
-<a class="btn btn-orange" href="https://wa.me/40745482705?text=Bun%C4%83!%20Am%20v%C4%83zut%20propunerea%20de%20activit%C4%83%C8%9Bi%20%C8%99i%20doresc%20mai%20multe%20detalii." target="_blank" rel="noopener">
-<i class="ti ti-brand-whatsapp">
-</i>Scrie-ne pe WhatsApp</a>
-<a class="btn btn-email" href="mailto:contact@asociatiafiipregatit.ro"><i class="ti ti-mail" aria-hidden="true"></i>Scrie-ne pe e-mail</a>
 </div>
 </section>
 
   <nav class="quick-nav" aria-label="Navigare rapidă">
     <a href="#sus" aria-label="Mergi sus de tot" title="Sus"><i class="ti ti-arrow-up" aria-hidden="true"></i></a>
+    <a class="quick-info" href="#informatii-organizare"><i class="ti ti-info-circle" aria-hidden="true"></i><span>Înainte de activitate</span></a>
   </nav>
 
   <footer id="jos">
