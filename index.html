@@ -686,6 +686,39 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 @media(max-width:600px){#recenzii .review-card{height:320px;grid-template-rows:18px minmax(0,1fr) 44px 22px}#recenzii .review-card.is-expanded{height:auto;min-height:320px;grid-template-rows:18px auto 44px 22px}}
 
 </style>
+<style>
+/* Subtle green menu buttons shared by both pages */
+.nav-links-wrap,.page-nav-links{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0;margin-left:auto}
+.nav .navlink,.page-nav .page-nav-link{
+ display:inline-flex;align-items:center;justify-content:center;min-height:36px;
+ padding:7px 11px;border:1px solid rgba(169,197,149,.22);border-radius:7px;
+ background:rgba(66,104,46,.28);color:#e3ecdd;font-family:inherit;font-size:11.5px;
+ font-weight:500;line-height:1.4;text-decoration:none;white-space:nowrap;
+ box-shadow:0 3px 8px rgba(0,0,0,.08);
+ transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.nav .navlink:hover,.page-nav .page-nav-link:hover,
+.nav .navlink:focus-visible,.page-nav .page-nav-link:focus-visible{
+ transform:translateY(-2px);border-color:var(--orange);
+ background:rgba(66,104,46,.45);color:#fff;box-shadow:0 5px 12px rgba(0,0,0,.15);
+}
+.nav .navlink:focus-visible,.page-nav .page-nav-link:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.nav .navlink:active,.page-nav .page-nav-link:active{transform:translateY(0) scale(.97);border-color:var(--orange);background:rgba(66,104,46,.55)}
+@media(max-width:1200px){
+ .nav-links-wrap,.page-nav-links{width:100%;margin-left:0;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 7px;scrollbar-width:thin;scrollbar-color:rgba(207,224,197,.3) transparent}
+ .nav-links-wrap>*,.page-nav-links>*{flex-shrink:0}
+}
+@media(max-width:760px){
+ .nav-links-wrap,.page-nav-links{gap:6px}
+ .nav .navlink,.page-nav .page-nav-link{min-height:40px;padding:8px 10px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .nav .navlink,.page-nav .page-nav-link{transition:none}
+ .nav .navlink:hover,.nav .navlink:active,.nav .navlink:focus-visible,
+ .page-nav .page-nav-link:hover,.page-nav .page-nav-link:active,.page-nav .page-nav-link:focus-visible{transform:none}
+}
+
+section[id],#recenzii,header[id]{scroll-margin-top:calc(var(--home-nav-height,110px) + 16px)}</style>
 </head>
 <body>
 
@@ -694,13 +727,12 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
 <img src="assets/imagini-site/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit" style="height:clamp(52px,8vw,84px);width:auto">
 </a>
-  <div style="margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+  <div class="nav-links-wrap">
     <a class="navlink" href="#activitati">Activități</a>
     <a class="navlink" href="#recenzii">Recenzii</a>
     <a class="navlink" href="#sustine">Susține-ne</a>
     <a class="navlink" href="#contact">Contact</a>
     <a class="navlink" href="/documente/">Înscriere</a>
-    <a class="nav-cta" href="https://wa.me/40745482705" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </nav>
 
@@ -1491,6 +1523,15 @@ Multumim pentru tot,revenim cu drag!</p>
   resume();
 })();
 
+</script>
+<script>
+(() => {
+ const nav=document.querySelector('.nav');
+ const sync=()=>document.documentElement.style.setProperty('--home-nav-height',nav.offsetHeight+'px');
+ sync();
+ if('ResizeObserver' in window)new ResizeObserver(sync).observe(nav);
+ else window.addEventListener('resize',sync);
+})();
 </script>
 </body>
 </html>
