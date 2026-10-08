@@ -88,7 +88,7 @@
     .page-nav-cta{background:var(--orange);color:#fff;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;box-shadow:0 8px 18px rgba(255,85,2,.18)}
     .page-nav-cta:hover{background:#e64d02;box-shadow:0 12px 24px rgba(255,85,2,.28)}
     .page-nav a:focus-visible{outline:2px solid var(--orange-2);outline-offset:5px}
-    section[id],header[id],footer[id]{scroll-margin-top:calc(var(--page-nav-height) + 18px)}
+    section[id],header[id],footer[id],.quote-band[id]{scroll-margin-top:calc(var(--page-nav-height) + 18px)}
     .hero-inner{padding-top:90px}
     @media(max-width:1250px){.page-nav-links{gap:12px}.page-nav-link{font-size:12px}}
     @media(max-width:1100px){.page-nav{gap:10px}.page-nav-links{width:100%;margin-left:0;flex-wrap:nowrap;overflow-x:auto;padding:4px 0 6px;scrollbar-width:thin;scrollbar-color:rgba(207,224,197,.35) transparent}.page-nav-links>*{flex-shrink:0}}
@@ -445,11 +445,11 @@
 </div>
 </section>
 
-  <div class="quote-band">
+  <div id="metoda" class="quote-band">
 <p>„Un explorator adevărat nu este cel care ajunge primul, ci cel care își păstrează calmul, are grijă de ceilalți și nu lasă pe nimeni în urmă.”</p>
 </div>
 
-  <section id="metoda" class="sec method">
+  <section class="sec method">
 <div class="wrap">
 <div class="eb">Metodologie</div>
 <h2 class="t disp" style="color:var(--green-deep)">Natura este mediul. Experiența este metoda.</h2>
