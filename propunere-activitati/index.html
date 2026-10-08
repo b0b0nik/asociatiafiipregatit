@@ -76,6 +76,25 @@
 @media(max-width:400px){.contact-name-row{grid-template-columns:minmax(0,1fr);gap:0}}
 
 .contact-divider{margin-top:22px;font-size:12px;color:#d7dfd1}#contactForm{margin-top:18px}#contactForm a{color:#fff;text-decoration:underline}#contactForm input:focus,#contactForm textarea:focus{outline:3px solid var(--orange);outline-offset:2px}#contactForm button:disabled{opacity:.7;cursor:wait}#contactStatus:empty{display:none}.offer-contact{min-width:0}.offer-contact:hover{transform:none}
+
+    /* Shared homepage header style, with navigation within this page. */
+    :root{--page-nav-height:110px}
+    .page-nav{position:sticky;top:0;z-index:50;background:var(--green-deep);display:flex;align-items:center;gap:18px;padding:13px 30px;flex-wrap:wrap}
+    .page-nav-brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+    .page-nav-brand img{height:clamp(52px,8vw,84px);width:auto}
+    .page-nav-links{margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .page-nav-link{color:#cfe0c5;font-size:13px;text-decoration:none;font-weight:500;white-space:nowrap}
+    .page-nav-link:hover{color:var(--orange)}
+    .page-nav-cta{background:var(--orange);color:#fff;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;box-shadow:0 8px 18px rgba(255,85,2,.18)}
+    .page-nav-cta:hover{background:#e64d02;box-shadow:0 12px 24px rgba(255,85,2,.28)}
+    .page-nav a:focus-visible{outline:2px solid var(--orange-2);outline-offset:5px}
+    section[id],header[id],footer[id]{scroll-margin-top:calc(var(--page-nav-height) + 18px)}
+    .hero-inner{padding-top:90px}
+    @media(max-width:1250px){.page-nav-links{gap:12px}.page-nav-link{font-size:12px}}
+    @media(max-width:1100px){.page-nav{gap:10px}.page-nav-links{width:100%;margin-left:0;flex-wrap:nowrap;overflow-x:auto;padding:4px 0 6px;scrollbar-width:thin;scrollbar-color:rgba(207,224,197,.35) transparent}.page-nav-links>*{flex-shrink:0}}
+    @media(max-width:800px){.page-nav{padding:11px 18px;gap:8px}.page-nav-links{gap:14px}.hero-inner{padding-top:70px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -128,17 +147,23 @@
 </script>
 </head>
 <body>
-  <header class="hero" id="sus">
+  <nav class="page-nav" id="sus" aria-label="Meniu propunere activități">
+    <a class="page-nav-brand" href="/" aria-label="Asociația Fii Pregătit — Homepage"><img src="/assets/imagini-site/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
+    <div class="page-nav-links">
+      <a class="page-nav-link" href="/">Homepage</a>
+      <a class="page-nav-link" href="#cine-suntem">Cine suntem</a>
+      <a class="page-nav-link" href="#activitati">Activități</a>
+      <a class="page-nav-link" href="#metoda">Metodă</a>
+      <a class="page-nav-link" href="#natura">De ce natura?</a>
+      <a class="page-nav-link" href="#siguranta">Siguranță</a>
+      <a class="page-nav-link" href="#feedback">Feedback</a>
+      <a class="page-nav-link" href="#oferta">Ofertă și contact</a>
+      <a class="page-nav-cta" href="https://wa.me/40745482705?text=Bun%C4%83!%20Doresc%20detalii%20despre%20activit%C4%83%C8%9Bile%20pentru%20grupuri." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </nav>
+  <header class="hero">
     <div class="hero-bg" aria-hidden="true">
 </div>
-    <div class="topbar wrap">
-      <a href="/" aria-label="Mergi la pagina principală"><img src="/assets/imagini-site/LOGO-OFFICIAL.png" alt="Asociația Fii Pregătit"></a>
-      <a class="top-cta" href="https://wa.me/40745482705?text=Bun%C4%83!%20Doresc%20detalii%20despre%20activit%C4%83%C8%9Bile%20pentru%20grupuri." target="_blank" rel="noopener">
-<i class="ti ti-brand-whatsapp">
-</i>
-<span>Solicită detalii</span>
-</a>
-    </div>
     <div class="hero-inner wrap">
       <div class="hero-copy">
        <div class="eb eb-light">Școala Altfel · Săptămâna Verde · Excursii & grupuri organizate</div>
@@ -178,7 +203,7 @@
 </div>
 </div>
 
-  <section class="sec">
+  <section id="cine-suntem" class="sec">
 <div class="wrap about-layout">
 <div class="about-copy">
 <div class="eb">Cine suntem?</div>
@@ -424,7 +449,7 @@
 <p>„Un explorator adevărat nu este cel care ajunge primul, ci cel care își păstrează calmul, are grijă de ceilalți și nu lasă pe nimeni în urmă.”</p>
 </div>
 
-  <section class="sec method">
+  <section id="metoda" class="sec method">
 <div class="wrap">
 <div class="eb">Metodologie</div>
 <h2 class="t disp" style="color:var(--green-deep)">Natura este mediul. Experiența este metoda.</h2>
@@ -470,7 +495,7 @@
 </div>
 </section>
 
-  <section class="sec">
+  <section id="natura" class="sec">
 <div class="wrap">
 <div class="nature-grid">
 <article class="nature-card">
@@ -522,7 +547,7 @@
 </div>
 </section>
 
-  <section class="sec safety">
+  <section id="siguranta" class="sec safety">
 <div class="wrap safety-layout">
 <div>
 <div class="eb eb-light">De ce clasele 0–IV?</div>
@@ -571,7 +596,7 @@
 </div>
 </section>
 
-  <section class="sec">
+  <section id="feedback" class="sec">
 <div class="wrap">
 <div class="eb">Ce spun părinții?</div>
 <h2 class="t disp" style="color:var(--green-deep)">Feedback direct din comunitate</h2>
@@ -662,7 +687,6 @@
 </section>
 
   <nav class="quick-nav" aria-label="Navigare rapidă">
-    <a class="quick-home" href="/" aria-label="Mergi la homepage"><i class="ti ti-home" aria-hidden="true"></i><span>Homepage</span></a>
     <a href="#sus" aria-label="Mergi sus de tot" title="Sus"><i class="ti ti-arrow-up" aria-hidden="true"></i></a>
   </nav>
 
@@ -712,6 +736,15 @@
   }catch(error){status.textContent=error.name==='AbortError'?'Trimiterea durează mai mult. Încearcă din nou sau scrie-ne direct pe e-mail.':(error.message==='Failed to fetch'?'Nu am putut confirma trimiterea. Încearcă din nou sau scrie-ne direct pe e-mail.':error.message);}
   finally{clearTimeout(timeout);button.disabled=false;button.textContent='Trimite mesajul →';}
  });
+})();
+</script>
+<script>
+(() => {
+  const nav = document.querySelector('.page-nav');
+  const syncNavHeight = () => document.documentElement.style.setProperty('--page-nav-height', nav.offsetHeight + 'px');
+  syncNavHeight();
+  if ('ResizeObserver' in window) new ResizeObserver(syncNavHeight).observe(nav);
+  else window.addEventListener('resize', syncNavHeight);
 })();
 </script>
 </body>
