@@ -79,7 +79,7 @@
     watched = [];
     if (page === "homepage") {
       addSection("#top", "hero");
-      addSection('section[aria-label="Filosofia Fii Pregătit"]', "filosofie");
+      addSection('section[aria-label="Filozofia Fii Pregătit"]', "filozofie");
       addSection('[data-afp-section="experiente"]', "experiente");
       addSection("#cine-suntem", "cine_suntem");
       addSection("#metoda", "natura_si_metodologie");
