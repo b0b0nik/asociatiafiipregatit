@@ -747,7 +747,7 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 @media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-48px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
-</style></head>
+</style><style id="fp-reviews-smooth">#recenzii .reviews-viewport,#recenzii .reviews-track{overflow-anchor:none}#recenzii .reviews-track{will-change:transform;transition:none}</style></head>
 <body>
 <div class="fp-test-bar"><span>Previzualizare · Din stânga spre dreapta · Intrare fluidă</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
 <!-- NAV -->
@@ -1360,91 +1360,71 @@ Multumim pentru tot,revenim cu drag!</p>
     setAnthemPlayingState(false);
   });
 </script>
-<script>
-(() => {
-  const section = document.getElementById('recenzii');
-  if (!section) return;
-  const viewport = section.querySelector('.reviews-viewport');
-  const track = section.querySelector('.reviews-track');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let hover = false, touching = false, last = 0, interactionUntil = 0;
-  let visible = true, frame = 0, position = viewport.scrollLeft;
-  const paused = () => hover || touching || performance.now() < interactionUntil || reduced.matches ||
-    !!section.querySelector('.is-expanded') ||
-    viewport.matches(':focus-visible') || !!viewport.querySelector(':focus-visible');
-  const updateToggles = () => section.querySelectorAll('.review-card').forEach(card => {
-    const text = card.querySelector('.review-text');
-    if (!card.classList.contains('is-expanded')) {
-      card.querySelector('.review-toggle').hidden = text.scrollHeight <= text.clientHeight + 1;
-    }
-  });
-  section.addEventListener('click', event => {
-    const button = event.target.closest('.review-toggle');
-    if (!button) return;
-    const card = button.closest('.review-card');
-    const expanded = card.classList.toggle('is-expanded');
-    button.setAttribute('aria-expanded', String(expanded));
-    button.textContent = expanded ? 'Restrânge' : 'Citește integral';
-  });
-  viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hover = true; });
-  viewport.addEventListener('pointerleave', () => { hover = false; });
-  viewport.addEventListener('pointerdown', () => { touching = true; });
-  const finishTouch = () => {
-    touching = false;
-    position = viewport.scrollLeft;
-    interactionUntil = performance.now() + 1000;
-  };
-  window.addEventListener('pointerup', finishTouch);
-  window.addEventListener('pointercancel', finishTouch);
-  viewport.addEventListener('touchstart', () => { touching = true; }, {passive:true});
-  viewport.addEventListener('touchend', finishTouch, {passive:true});
-  viewport.addEventListener('touchcancel', finishTouch, {passive:true});
-  viewport.addEventListener('wheel', () => {
-    position = viewport.scrollLeft;
-    interactionUntil = performance.now() + 1000;
-  }, {passive:true});
-  viewport.addEventListener('scroll', () => {
-    if (touching || hover || performance.now() < interactionUntil) {
-      position = viewport.scrollLeft;
-      interactionUntil = performance.now() + 1000;
-    }
-  }, {passive:true});
-  const animate = time => {
-    frame = 0;
-    const elapsed = last ? Math.min(time - last, 50) : 0;
-    last = time;
-    if (!paused()) {
-      position += elapsed * 0.042;
-      viewport.scrollLeft = position;
-      const first = track.firstElementChild;
-      const span = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
-      if (position >= span) {
-        const offset = position - span;
-        track.append(first);
-        position = offset;
-        viewport.scrollLeft = position;
-      }
-    } else {
-      position = viewport.scrollLeft;
-    }
-    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
-  };
-  const resume = () => {
-    last = 0;
-    if (frame) cancelAnimationFrame(frame);
-    frame = 0;
-    if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(animate);
-  };
-  const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; resume(); });
-  observer.observe(section);
-  document.addEventListener('visibilitychange', resume);
-  reduced.addEventListener('change', resume);
-  window.addEventListener('resize', updateToggles);
-  if (document.fonts) document.fonts.ready.then(updateToggles);
-  updateToggles();
-  resume();
+<script id="fp-reviews-motion">
+(()=>{
+ const section=document.getElementById('recenzii');if(!section)return;
+ const viewport=section.querySelector('.reviews-viewport'),track=section.querySelector('.reviews-track');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ let hover=false,touching=false,visible=false,last=0,frame=0,interactionUntil=0;
+ let position=viewport.scrollLeft,span=0;
+ const measure=()=>{
+  const card=track.firstElementChild;
+  span=card?card.getBoundingClientRect().width+(parseFloat(getComputedStyle(track).gap)||0):0;
+ };
+ const updateToggles=()=>section.querySelectorAll('.review-card').forEach(card=>{
+  const text=card.querySelector('.review-text');
+  if(!card.classList.contains('is-expanded'))card.querySelector('.review-toggle').hidden=text.scrollHeight<=text.clientHeight+1;
+ });
+ const paused=()=>hover||touching||performance.now()<interactionUntil||reduced.matches||
+  !!section.querySelector('.is-expanded')||viewport.matches(':focus-visible')||!!viewport.querySelector(':focus-visible');
+ const manual=()=>{
+  interactionUntil=performance.now()+1400;
+  // The correction is always below one pixel; native scrolling stays available.
+  track.style.transform='';position=viewport.scrollLeft;
+ };
+ section.addEventListener('click',event=>{
+  const button=event.target.closest('.review-toggle');if(!button)return;
+  const card=button.closest('.review-card'),expanded=card.classList.toggle('is-expanded');
+  button.setAttribute('aria-expanded',String(expanded));button.textContent=expanded?'Restrânge':'Citește integral';
+ });
+ viewport.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){hover=true;manual()}});
+ viewport.addEventListener('pointerleave',()=>{hover=false});
+ viewport.addEventListener('pointerdown',()=>{touching=true;manual()});
+ const finish=()=>{if(touching){touching=false;manual()}};
+ window.addEventListener('pointerup',finish);window.addEventListener('pointercancel',finish);
+ viewport.addEventListener('touchstart',()=>{touching=true;manual()},{passive:true});
+ viewport.addEventListener('touchend',finish,{passive:true});viewport.addEventListener('touchcancel',finish,{passive:true});
+ viewport.addEventListener('wheel',manual,{passive:true});
+ viewport.addEventListener('keydown',manual);
+ viewport.addEventListener('scroll',()=>{if(touching||hover||performance.now()<interactionUntil){position=viewport.scrollLeft;interactionUntil=performance.now()+1400}},{passive:true});
+ const animate=time=>{
+  frame=0;const elapsed=last?Math.min(time-last,50):0;last=time;
+  if(!paused()&&span>0){
+   position-=elapsed*0.042;
+   if(position<0){
+    // Move a whole card behind the left edge and preserve its exact screen position.
+    track.prepend(track.lastElementChild);position+=span;
+   }
+   viewport.scrollLeft=position;
+   // Compensate native scroll rounding so every frame moves by a fractional pixel.
+   const correction=viewport.scrollLeft-position;
+   track.style.transform='translate3d('+correction+'px,0,0)';
+  }else{position=viewport.scrollLeft;track.style.transform=''}
+  if(visible&&!document.hidden&&!reduced.matches)frame=requestAnimationFrame(animate);
+ };
+ const resume=()=>{
+  last=0;if(frame)cancelAnimationFrame(frame);frame=0;
+  if(reduced.matches)track.style.transform='';
+  if(visible&&!document.hidden&&!reduced.matches)frame=requestAnimationFrame(animate);
+ };
+ new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;resume()}).observe(section);
+ document.addEventListener('visibilitychange',resume);reduced.addEventListener('change',resume);
+ const resize=()=>{measure();updateToggles();position=viewport.scrollLeft};
+ window.addEventListener('resize',resize);
+ if('ResizeObserver' in window)new ResizeObserver(resize).observe(viewport);
+ if(document.fonts)document.fonts.ready.then(resize);
+ measure();updateToggles();resume();
 })();
-
 </script>
 <script>
 (() => {
@@ -1498,7 +1478,7 @@ try{
   window.addEventListener('pageshow',event=>{if(event.persisted)revealAll()});
  }
  clearTimeout(window.fpMotionFallback);
- document.getElementById('fp-test-replay').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});location.replace(location.pathname+'?v=flow-6&replay='+Date.now())});
+ document.getElementById('fp-test-replay').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});location.replace(location.pathname+'?v=flow-7&replay='+Date.now())});
 }catch(error){revealAll()}
 })();</script></body>
 </html>
