@@ -733,23 +733,18 @@ section[id],#recenzii,header[id]{scroll-margin-top:calc(var(--home-nav-height,11
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.fp-test-bar{display:none}}
 </style>
-<style>
-html.fp-motion-ready [data-fp-flow]{opacity:0;translate:var(--fp-flow-from,-80px) 0;transition:opacity 990ms ease,translate 1155ms cubic-bezier(.22,.61,.36,1);transition-delay:var(--fp-flow-delay,0ms)}
+
+<style id="fp-reviews-smooth">#recenzii .reviews-viewport,#recenzii .reviews-track{overflow-anchor:none}#recenzii .reviews-track{will-change:transform;transition:none}</style><style id="fp-calm-motion">
+html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-24px 0}
+html.fp-motion-ready [data-fp-hero]{translate:-40px 0}
 html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 body{overflow-x:clip}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:var(--fp-flow-mobile,-48px) 0;transition-duration:880ms,1045ms}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
-@media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
-@media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
-</style>
-<style>section[data-fp-direction="left"]{--fp-flow-from:-80px;--fp-flow-mobile:-48px}section[data-fp-direction="right"]{--fp-flow-from:80px;--fp-flow-mobile:48px}html.fp-motion-ready [data-fp-flow].fp-flow-reset{transition:none!important}</style><style id="fp-single-direction">
-html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-80px 0;transition-property:transform,box-shadow,border-color!important;transition-delay:0ms!important}
-html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-48px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
-</style><style id="fp-reviews-smooth">#recenzii .reviews-viewport,#recenzii .reviews-track{overflow-anchor:none}#recenzii .reviews-track{will-change:transform;transition:none}</style></head>
+</style></head>
 <body>
-<div class="fp-test-bar"><span>Previzualizare · Din stânga spre dreapta · Intrare fluidă</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
+<div class="fp-test-bar"><span>Previzualizare · Ritm calm · Apariție o singură dată</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
 <!-- NAV -->
 <nav class="nav">
 <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
@@ -781,56 +776,56 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 </svg>
 <div class="frame"></div>
 <div class="inner">
-<div class="eyebrow" data-fp-flow="" style=";--fp-flow-delay:100ms"><span class="bar"></span><span class="tx">Dezvoltare personală în natură · Copii 7–12 ani · Brașov</span></div>
-<h1 class="disp" data-fp-flow="" style=";--fp-flow-delay:220ms">Experiențe în natură care îi pregătesc pentru <span style="color:#ff7a1f">viață.</span></h1>
-<p data-fp-flow="" style=";--fp-flow-delay:340ms">Activități outdoor pentru copii de 7–12 ani, în Brașov, construite ca experiențe de dezvoltare personală. Prin explorare, mișcare și provocări reale, copiii exersează autonomia, adaptabilitatea, autoreglarea emoțională, comunicarea și colaborarea.</p>
-<div class="row-btns" data-fp-flow="" style=";--fp-flow-delay:460ms">
+<div class="eyebrow" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:100ms"><span class="bar"></span><span class="tx">Dezvoltare personală în natură · Copii 7–12 ani · Brașov</span></div>
+<h1 class="disp" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:220ms">Experiențe în natură care îi pregătesc pentru <span style="color:#ff7a1f">viață.</span></h1>
+<p data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:340ms">Activități outdoor pentru copii de 7–12 ani, în Brașov, construite ca experiențe de dezvoltare personală. Prin explorare, mișcare și provocări reale, copiii exersează autonomia, adaptabilitatea, autoreglarea emoțională, comunicarea și colaborarea.</p>
+<div class="row-btns" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:460ms">
 <a class="btn btn-orange" href="#activitati">Vezi activitățile</a>
 <a class="btn btn-ghost" href="https://wa.me/40745482705" rel="noopener noreferrer" target="_blank">Vreau să participăm</a>
 </div>
 </div>
 </header>
-<section aria-label="Filosofia Fii Pregătit" style="background:var(--cream);padding:36px 40px" data-fp-direction="left">
+<section aria-label="Filosofia Fii Pregătit" data-fp-direction="left" style="background:var(--cream);padding:36px 40px"><div data-fp-flow="">
 <div class="wrap" style="text-align:center;max-width:900px">
-<div class="eb" data-fp-flow="" style="margin-bottom:12px;--fp-flow-delay:0ms">Filosofia noastră</div>
-<blockquote class="disp" data-fp-flow="" style="color:var(--green-deep);font-size:clamp(24px,3.8vw,36px);font-weight:600;line-height:1.25;margin:0 auto 12px;--fp-flow-delay:0ms">
+<div class="eb" style="margin-bottom:12px;">Filosofia noastră</div>
+<blockquote class="disp" style="color:var(--green-deep);font-size:clamp(24px,3.8vw,36px);font-weight:600;line-height:1.25;margin:0 auto 12px;">
       „Dacă vrei să ajungi repede, mergi singur. Dacă vrei să ajungi departe, mergeți împreună.”
     </blockquote>
-<p data-fp-flow="" style="color:#6a725e;font-size:13px;line-height:1.7;max-width:680px;margin:0 auto;--fp-flow-delay:180ms">
+<p style="color:#6a725e;font-size:13px;line-height:1.7;max-width:680px;margin:0 auto;">
       Un proverb african care stă la baza filozofiei Ubuntu: „Sunt ceea ce sunt pentru că noi suntem ceea ce suntem.”
     </p>
 </div>
-</section>
+</div></section>
 <!-- PILONI -->
-<section class="sec" style="background:var(--green)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--green)">
 <div class="wrap">
-<div data-fp-flow="" style="text-align:center;margin-bottom:30px;--fp-flow-delay:0ms">
-<div class="eb eb-light" style="margin-bottom:8px">Pilonii noștri</div>
-<h2 class="t disp" style="color:#fff">Siguranță · Sănătate · Educație</h2>
+<div style="text-align:center;margin-bottom:30px;">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light" style="margin-bottom:8px">Pilonii noștri</div><h2 class="t disp" style="color:#fff">Siguranță · Sănătate · Educație</h2></div>
+
 <p style="color:#c3d0b8;font-size:13.5px;line-height:1.7;max-width:620px;margin:14px auto 0">
         La Asociația „Fii Pregătit” construim activități în natură pentru copii de 7–12 ani din Brașov, așezate pe trei piloni pe care nu-i negociem: siguranță, sănătate și educație.
       </p>
 </div>
 <div class="grid3 pillars-grid">
-<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-shield-check" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Siguranță</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Cel puțin doi instructori la fiecare activitate, trasee verificate și grijă constantă față de fiecare copil.</p></div>
-<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-heartbeat" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Sănătate</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Mișcare, aer curat și o conexiune reală cu natura, departe de ecran.</p></div>
-<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-book" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Educație</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Învățare prin experiență — autonomie, decizii inteligente și cunoaștere practică.</p></div>
+<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;"><i aria-hidden="true" class="ti ti-shield-check" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Siguranță</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Cel puțin doi instructori la fiecare activitate, trasee verificate și grijă constantă față de fiecare copil.</p></div>
+<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;"><i aria-hidden="true" class="ti ti-heartbeat" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Sănătate</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Mișcare, aer curat și o conexiune reală cu natura, departe de ecran.</p></div>
+<div class="card hov pillar-card" data-fp-flow="" style="text-align:center;"><i aria-hidden="true" class="ti ti-book" style="color:var(--orange-2);font-size:30px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:12px 0 7px">Educație</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6">Învățare prin experiență — autonomie, decizii inteligente și cunoaștere practică.</p></div>
 </div>
 </div>
 </section>
-<section class="sec" data-afp-section="experiente" style="background:var(--cream-2)" data-fp-direction="left">
+<section class="sec" data-afp-section="experiente" data-fp-direction="left" style="background:var(--cream-2)">
 <div class="wrap" style="max-width:900px;text-align:center">
-<div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Mai mult decât activități</div>
-<h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);max-width:760px;margin:0 auto 16px;--fp-flow-delay:90ms">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Mai mult decât activități</div><h2 class="t disp" style="color:var(--green-deep);max-width:760px;margin:0 auto 16px;">
       Copiii nu au nevoie doar de informații. Au nevoie de experiențe.
-    </h2>
-<p class="lead" data-fp-flow="" style="color:#4c5440;max-width:760px;margin:0 auto;--fp-flow-delay:180ms">
+    </h2><p class="lead" style="color:#4c5440;max-width:760px;margin:0 auto;">
       Experiențe prin care să descopere cine sunt, ce pot face și cum pot reacționa atunci când lucrurile nu se întâmplă așa cum și-au imaginat. Un spațiu în care pot explora, încerca, decide, crea, greși, reflecta și încerca din nou.
-    </p>
+    </p></div>
+
+
 </div>
 </section>
 <!-- CINE SUNTEM -->
-<section class="sec" id="cine-suntem" style="background:var(--cream)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" id="cine-suntem" style="background:var(--cream)">
 <style>
     #cine-suntem .cs-grid{
       display:grid;
@@ -886,9 +881,9 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
     }
   </style>
 <div class="wrap cs-grid">
-<div class="cs-text" data-fp-flow="" style=";--fp-flow-delay:0ms">
-<div class="eb">Cine suntem</div>
-<h2 class="t disp" style="color:var(--green-deep)">Doi părinți, doi instructori și natura ca sală de clasă.</h2>
+<div class="cs-text" style=";">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb">Cine suntem</div><h2 class="t disp" style="color:var(--green-deep)">Doi părinți, doi instructori și natura ca sală de clasă.</h2></div>
+
 <p><strong>Asociația „Fii Pregătit”</strong> este o organizație non-guvernamentală, non-profit, cu sediul în Brașov, înființată în 2024. Ne-am propus un singur lucru: să creștem copii de 7–12 ani care prind curaj, devin autonomi, își înțeleg emoțiile și învață să ia decizii responsabile — nu dintr-un manual, ci pe munte, în situații reale.</p>
 <p><strong>Misiunea noastră:</strong> să contribuim la educația și dezvoltarea personală și fizică a copiilor prin experiențe practice în natură, care dezvoltă autonomia, curajul, responsabilitatea, cooperarea și capacitatea de a lua decizii în siguranță.</p>
 <p>Totul a început cu cei doi băieți ai noștri și o întrebare simplă: „Cum îi pregătim pentru viață?” Am înțeles repede că un copil are nevoie de mai mult decât de activități frumoase. Are nevoie de contexte adevărate în care să dea piept cu neprevăzutul, să capete încredere și să descopere că se poate baza pe el însuși.</p>
@@ -896,7 +891,7 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 <p><strong>Eu, Corina,</strong> am o formare pedagogică, iar practica în școli a rămas cea mai frumoasă experiență din anii de facultate. De când am devenit mamă, am înțeles însă mult mai multe — lucruri pe care nu le prinzi la niciun curs. Ani la rând am construit o carieră în corporație, dar de când au apărut băieții am simțit tot mai limpede că viața nu încape într-un birou în care îmi vedeam copiii prea rar. În 2025 am ales altceva: să fiu prezentă. Aduc în „Fii Pregătit” grija și ritmul care țin tribul unit, ca fiecare copil să se simtă văzut și niciunul să nu rămână în urmă.</p>
 <p><strong>Lau</strong> aduce cealaltă jumătate: calmul și deciziile clare atunci când apare neprevăzutul. Este cadru în Ministerul Afacerilor Interne (M.A.I.), cu ani de experiență în intervenții speciale și negociere în situații de criză — o pregătire care ne ajută să gândim fiecare activitate în natură până la cel mai mic detaliu, ca totul să fie sigur, clar și potrivit pentru copii.</p>
 </div>
-<div class="cs-media" data-fp-flow="" style=";--fp-flow-delay:0ms">
+<div class="cs-media" data-fp-flow="" style=";">
 <div class="cs-frame">
 <img alt="Familia Fii Pregătit într-un adăpost construit în natură" decoding="async" loading="lazy" src="/assets/imagini-homepage/adapost-noi.jpg"/>
 </div>
@@ -904,49 +899,49 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 </div>
 </section>
 <!-- METODA -->
-<section class="sec" id="metoda" style="background:var(--green)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" id="metoda" style="background:var(--green)">
 <div class="wrap">
-<div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">De ce natura?</div>
-<h2 class="t disp" data-fp-flow="" style="color:#fff;max-width:820px;--fp-flow-delay:90ms">Natura nu este decorul. Este mediul în care învățarea se întâmplă.</h2>
-<p class="lead" data-fp-flow="" style="color:#aebda3;max-width:760px;margin-bottom:34px;--fp-flow-delay:180ms">Vremea se schimbă, traseul se schimbă, corpul obosește, o soluție poate să nu funcționeze, iar grupul trebuie să se adapteze. Sunt contexte reale în care copilul observă, gândește, comunică și acționează.</p>
-<div data-fp-flow="" style="border-top:1px solid rgba(255,255,255,.12);padding-top:30px;--fp-flow-delay:0ms">
-<div class="eb eb-light">Metoda din spatele activităților</div>
-<h2 class="t disp" style="color:#fff">CONNECT → EXPERIENCE → CHALLENGE → CREATE → REFLECT → TRANSFER</h2>
-<p class="lead" style="color:#aebda3;margin-bottom:30px">Șase pași, în fiecare experiență — de la întâlnire, până la întrebarea care contează cu adevărat: unde îmi este util ce am descoperit aici?</p>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light" style=";">De ce natura?</div><h2 class="t disp" style="color:#fff;max-width:820px;">Natura nu este decorul. Este mediul în care învățarea se întâmplă.</h2><p class="lead" style="color:#aebda3;max-width:760px;margin-bottom:34px;">Vremea se schimbă, traseul se schimbă, corpul obosește, o soluție poate să nu funcționeze, iar grupul trebuie să se adapteze. Sunt contexte reale în care copilul observă, gândește, comunică și acționează.</p></div>
+
+
+<div style="border-top:1px solid rgba(255,255,255,.12);padding-top:30px;">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light">Metoda din spatele activităților</div><h2 class="t disp" style="color:#fff">CONNECT → EXPERIENCE → CHALLENGE → CREATE → REFLECT → TRANSFER</h2><p class="lead" style="color:#aebda3;margin-bottom:30px">Șase pași, în fiecare experiență — de la întâlnire, până la întrebarea care contează cu adevărat: unde îmi este util ce am descoperit aici?</p></div>
+
+
 </div>
 <div class="grid4-auto stop-grid" style="gap:10px">
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">01</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Connect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne întâlnim, ne ascultăm și stabilim cadrul experienței.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">02</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Experience</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Intrăm în contact direct cu natura prin mișcare, explorare și joacă.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">03</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Challenge</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Apare o situație care cere efort, decizie, cooperare sau adaptare.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">04</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Create</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Copilul transformă o idee în acțiune: construiește, testează, propune o soluție.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">05</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Reflect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne oprim: ce s-a întâmplat, ce am simțit, ce iau cu mine?</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;--fp-flow-delay:0ms"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">06</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Transfer</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Unde îmi poate fi util ceea ce am descoperit aici — acasă, la școală, în viața de zi cu zi?</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">01</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Connect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne întâlnim, ne ascultăm și stabilim cadrul experienței.</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">02</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Experience</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Intrăm în contact direct cu natura prin mișcare, explorare și joacă.</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">03</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Challenge</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Apare o situație care cere efort, decizie, cooperare sau adaptare.</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">04</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Create</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Copilul transformă o idee în acțiune: construiește, testează, propune o soluție.</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">05</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Reflect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne oprim: ce s-a întâmplat, ce am simțit, ce iau cu mine?</div></div>
+<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">06</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Transfer</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Unde îmi poate fi util ceea ce am descoperit aici — acasă, la școală, în viața de zi cu zi?</div></div>
 </div>
 </div>
 </section>
 <!-- CELE 5 DIMENSIUNI -->
-<section class="sec" style="background:var(--cream)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--cream)">
 <div class="wrap">
-<div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Ce dezvoltăm</div>
-<h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);--fp-flow-delay:90ms">Nu cine ajunge primul. Cine crește pe dinăuntru.</h2>
-<p class="lead" data-fp-flow="" style="color:#4c5440;margin-bottom:30px;--fp-flow-delay:180ms">Fiecare activitate Fii Pregătit conține toate cele patru direcții deodată, în proporții diferite — niciodată doar una singură.</p>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Ce dezvoltăm</div><h2 class="t disp" style="color:var(--green-deep);">Nu cine ajunge primul. Cine crește pe dinăuntru.</h2><p class="lead" style="color:#4c5440;margin-bottom:30px;">Fiecare activitate Fii Pregătit conține toate cele patru direcții deodată, în proporții diferite — niciodată doar una singură.</p></div>
+
+
 <div class="grid4-auto dimensions-grid" style="gap:10px;margin-bottom:26px">
-<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-shield" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">SAFE</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Siguranță și adaptabilitate. Să știe ce să facă atunci când lucrurile nu merg conform planului.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Știu ce fac atunci când ceva nu merge conform planului.”</span></div></div>
-<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-heartbeat" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">WELL</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Corp, natură și echilibru. Să fie bine în propriul corp și în relație cu natura.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Îmi înțeleg corpul, mintea și emoțiile.”</span></div></div>
-<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-compass" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">GROW</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Explorare, decizie și rezolvarea problemelor. Să poată acționa atunci când nu există o soluție gata făcută.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Nu mă opresc la primul «nu pot».”</span></div></div>
-<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-users" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">CONNECT</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Firul care leagă totul. Copilul are nevoie să simtă că poate, că poate alege și că aparține unui grup.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Nu sunt singur.”</span></div></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;"><i aria-hidden="true" class="ti ti-shield" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">SAFE</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Siguranță și adaptabilitate. Să știe ce să facă atunci când lucrurile nu merg conform planului.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Știu ce fac atunci când ceva nu merge conform planului.”</span></div></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;"><i aria-hidden="true" class="ti ti-heartbeat" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">WELL</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Corp, natură și echilibru. Să fie bine în propriul corp și în relație cu natura.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Îmi înțeleg corpul, mintea și emoțiile.”</span></div></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;"><i aria-hidden="true" class="ti ti-compass" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">GROW</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Explorare, decizie și rezolvarea problemelor. Să poată acționa atunci când nu există o soluție gata făcută.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Nu mă opresc la primul «nu pot».”</span></div></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green);border:1px solid var(--green);border-radius:9px;padding:18px 15px;"><i aria-hidden="true" class="ti ti-users" style="color:var(--orange-2);font-size:24px"></i><div style="color:#fff;font-weight:600;font-size:14px;margin:10px 0 6px">CONNECT</div><div style="color:#a4b399;font-size:11.5px;line-height:1.55">Firul care leagă totul. Copilul are nevoie să simtă că poate, că poate alege și că aparține unui grup.<span style="display:block;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.12);color:#c6d1bd;font-style:italic">„Nu sunt singur.”</span></div></div>
 </div>
 </div>
 </section>
 <!-- DE CE 7-12 ANI -->
-<section class="sec" style="background:var(--green)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--green)">
 <div class="wrap">
-<div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">De ce 7–12 ani</div>
-<h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Nu este o vârstă aleasă la întâmplare.</h2>
-<p class="lead" data-fp-flow="" style="color:#c4cfbb;max-width:880px;margin-bottom:30px;--fp-flow-delay:180ms">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light" style=";">De ce 7–12 ani</div><h2 class="t disp" style="color:#fff;">Nu este o vârstă aleasă la întâmplare.</h2><p class="lead" style="color:#c4cfbb;max-width:880px;margin-bottom:30px;">
       Între 7 și 12 ani, copiii își consolidează abilitățile motorii, autoreglarea emoțională și relaționarea în grup. Experiențele practice pot susține aceste procese.
-    </p>
-<div data-fp-flow="" style="display:grid;gap:18px;max-width:900px;--fp-flow-delay:0ms">
+    </p></div>
+
+
+<div style="display:grid;gap:18px;max-width:900px;">
 <div style="display:flex;gap:14px;align-items:flex-start">
 <i aria-hidden="true" class="ti ti-square-rounded-check" style="color:var(--orange-2);font-size:21px;line-height:1.5;flex:0 0 auto"></i>
 <p style="color:#d7e0cd;font-size:14px;line-height:1.7"><strong style="color:#fff;font-weight:600">Concentrare și atenție:</strong> într-un <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02652/full" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px" target="_blank">studiu realizat la Universitatea Dalhousie în 2019</a>, o plimbare de 30 de minute în natură a îmbunătățit anumite componente ale atenției copiilor, comparativ cu o plimbare într-un mediu urban.</p>
@@ -959,14 +954,14 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 </div>
 </section>
 <!-- ACTIVITATI -->
-<section class="sec" id="activitati" style="background:var(--cream-2)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" id="activitati" style="background:var(--cream-2)">
 <div class="wrap">
-<div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Tipuri de activități</div>
-<h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);margin-bottom:30px;--fp-flow-delay:90ms">Explorăm natura în mai multe feluri.</h2>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Tipuri de activități</div><h2 class="t disp" style="color:var(--green-deep);margin-bottom:30px;">Explorăm natura în mai multe feluri.</h2></div>
+
 <div class="grid2">
-<div class="card hov activity-overview" data-fp-flow="" style="background:#fff;border:1px solid #e6e0d2;padding:24px;--fp-flow-delay:0ms"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Copii 7–12 · weekend</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Activități pentru copii</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Dezvoltare personală, doar pentru cei mici. Copiii sunt aduși și preluați de părinți la punctul de întâlnire. Aici lucrăm autonomia, curajul și deciziile inteligente.</div></div><div class="activity-overview-media"><img alt="Copii explorând pădurea" loading="lazy" src="/assets/imagini-homepage/children.webp"/></div></div>
-<div class="card hov activity-overview" data-fp-flow="" style="background:#fff;border:1px solid #e6e0d2;padding:24px;--fp-flow-delay:0ms"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Familie · de la 5 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Drumeții de familie</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Mergem pe traseu împreună cu părinții și ne bucurăm de natură ca o familie mare. La unele drumeții pot veni și copilași începând cu 5 ani.</div></div><div class="activity-overview-media"><img alt="Familie pe un traseu montan" loading="lazy" src="/assets/imagini-homepage/family-v2.webp"/></div></div>
-<a class="card hov activity-link-card education-card" data-fp-flow="" href="/propunere-activitati/" style=";--fp-flow-delay:0ms">
+<div class="card hov activity-overview" data-fp-flow="" style="background:#fff;border:1px solid #e6e0d2;padding:24px;"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Copii 7–12 · weekend</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Activități pentru copii</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Dezvoltare personală, doar pentru cei mici. Copiii sunt aduși și preluați de părinți la punctul de întâlnire. Aici lucrăm autonomia, curajul și deciziile inteligente.</div></div><div class="activity-overview-media"><img alt="Copii explorând pădurea" loading="lazy" src="/assets/imagini-homepage/children.webp"/></div></div>
+<div class="card hov activity-overview" data-fp-flow="" style="background:#fff;border:1px solid #e6e0d2;padding:24px;"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Familie · de la 5 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Drumeții de familie</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Mergem pe traseu împreună cu părinții și ne bucurăm de natură ca o familie mare. La unele drumeții pot veni și copilași începând cu 5 ani.</div></div><div class="activity-overview-media"><img alt="Familie pe un traseu montan" loading="lazy" src="/assets/imagini-homepage/family-v2.webp"/></div></div>
+<a class="card hov activity-link-card education-card" data-fp-flow="" href="/propunere-activitati/" style=";">
 <div class="education-card-copy">
 <div class="education-card-kicker">ȘCOLI · AFTER-SCHOOL-URI · CENTRE EDUCAȚIONALE · TABERE · GRUPURI ORGANIZATE</div>
 <h3 class="disp">Săptămâna Verde / Școala Altfel / Activități Tematice</h3>
@@ -983,26 +978,26 @@ html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 </div>
 </section>
 <!-- SIGURANTA -->
-<section class="sec" style="background:var(--green-deep)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--green-deep)">
 <div class="wrap">
-<div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">Pentru părinți</div>
-<h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Siguranța nu se negociază.</h2>
-<p class="lead" data-fp-flow="" style="color:#aebda3;margin-bottom:26px;--fp-flow-delay:180ms">Pentru un părinte care ne încredințează copilul prima dată, asta cântărește cel mai mult. La noi siguranța nu stă în vorbe frumoase — o construim în fiecare detaliu, de la traseu până la ultimul pas înapoi acasă.</p>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light" style=";">Pentru părinți</div><h2 class="t disp" style="color:#fff;">Siguranța nu se negociază.</h2><p class="lead" style="color:#aebda3;margin-bottom:26px;">Pentru un părinte care ne încredințează copilul prima dată, asta cântărește cel mai mult. La noi siguranța nu stă în vorbe frumoase — o construim în fiecare detaliu, de la traseu până la ultimul pas înapoi acasă.</p></div>
+
+
 <div class="grid2" style="gap:12px;max-width:680px">
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-shield-check" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Cel puțin 2 instructori la fiecare activitate</span></div>
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-route" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Trasee verificate, supraveghere permanentă</span></div>
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-first-aid-kit" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Pregătire tehnică reală, inclusiv spray anti-urs</span></div>
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-star" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Lau: instructor cu experiență în Serviciul pentru Acțiuni Speciale (SAS) — specialist în situații de criză</span></div>
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-friends" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Exerciții adaptate vârstei și ritmului grupului</span></div>
-<div data-fp-flow="" style="display:flex;gap:10px;align-items:flex-start;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-clock" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Activități de weekend: 11:00–15:00, în zone de lângă Brașov.</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-shield-check" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Cel puțin 2 instructori la fiecare activitate</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-route" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Trasee verificate, supraveghere permanentă</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-first-aid-kit" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Pregătire tehnică reală, inclusiv spray anti-urs</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-star" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Lau: instructor cu experiență în Serviciul pentru Acțiuni Speciale (SAS) — specialist în situații de criză</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-friends" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Exerciții adaptate vârstei și ritmului grupului</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start;"><i aria-hidden="true" class="ti ti-clock" style="color:var(--orange-2);font-size:18px;flex-shrink:0"></i><span style="color:#d7e0cd;font-size:13px;line-height:1.5">Activități de weekend: 11:00–15:00, în zone de lângă Brașov.</span></div>
 </div>
 </div>
 </section>
 <!-- RECENZII: selecție manuală, copie de lucru -->
-<section aria-labelledby="reviews-title" class="sec" id="recenzii" data-fp-direction="left">
+<section aria-labelledby="reviews-title" class="sec" data-fp-direction="left" id="recenzii">
 <div class="wrap">
-<div class="reviews-heading" data-fp-flow="" style=";--fp-flow-delay:0ms"><h2 class="t disp" id="reviews-title">Ce spun părinții?</h2></div>
-<div aria-label="Recenziile părinților" class="reviews-viewport" data-fp-flow="" role="region" style=";--fp-flow-delay:0ms" tabindex="0">
+<div class="reviews-heading" style=";"><h2 class="t disp" id="reviews-title">Ce spun părinții?</h2></div>
+<div aria-label="Recenziile părinților" class="reviews-viewport" role="region" style=";" tabindex="0">
 <div class="reviews-track"><article class="review-card card hov">
 <div aria-label="5 din 5 stele" class="review-stars"><span aria-hidden="true">★★★★★</span></div>
 <p class="review-text" id="review-text-0">Pentru mine, Asociația Fii Pregătit nu este doar un loc în care copiii merg la activități. Este un loc în care îi vezi cum cresc.
@@ -1091,23 +1086,23 @@ Multumim pentru tot,revenim cu drag!</p>
 <p class="review-author">Natașa Ionela M.</p>
 </article></div>
 </div>
-<div class="reviews-actions" data-fp-flow="" style=";--fp-flow-delay:0ms">
+<div class="reviews-actions" style=";">
 <a class="btn btn-orange" href="https://maps.app.goo.gl/S9jeFsvnTLYEPa5t7" rel="noopener noreferrer" target="_blank">Vezi toate recenziile pe Google</a>
 </div>
 </div>
 </section>
 <!-- IMNUL -->
-<section class="sec" style="background:var(--cream);padding-top:52px;padding-bottom:52px" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--cream);padding-top:52px;padding-bottom:52px">
 <div class="wrap" style="background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
-<button aria-label="Ascultă imnul Fii Pregătit" aria-pressed="false" class="anthem-play" data-fp-flow="" id="anthemPlayButton" style=";--fp-flow-delay:0ms" type="button">
+<button aria-label="Ascultă imnul Fii Pregătit" aria-pressed="false" class="anthem-play" id="anthemPlayButton" style=";" type="button">
 <i aria-hidden="true" class="ti ti-player-play" id="anthemPlayIcon"></i>
 <span id="anthemButtonText">Ascultă</span>
 </button>
-<audio data-fp-flow="" id="anthemAudio" preload="metadata" style=";--fp-flow-delay:0ms">
+<audio id="anthemAudio" preload="metadata" style=";">
 <source src="/IMN_FII_PREGATIT.mp3" type="audio/mpeg"/>
   Browserul tău nu poate reda acest fișier audio.
 </audio>
-<div data-fp-flow="" style="flex:1;min-width:200px;--fp-flow-delay:0ms">
+<div style="flex:1;min-width:200px;">
 <div class="eb" style="margin-bottom:6px">Imnul nostru</div>
 <h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:22px;margin-bottom:4px">
         Fii Pregătit
@@ -1131,7 +1126,7 @@ Multumim pentru tot,revenim cu drag!</p>
 <span class="anthem-time" id="anthemTime">0:00 / 0:00</span>
 </div>
 </div>
-<div data-fp-flow="" style="display:flex;gap:10px;flex-wrap:wrap;--fp-flow-delay:0ms">
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
 <a href="https://www.youtube.com/watch?v=2oHKmTc8qtg" rel="noopener" style="background:var(--green-deep);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px" target="_blank">
 <i aria-hidden="true" class="ti ti-brand-youtube"></i>
         YouTube
@@ -1144,15 +1139,15 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- DOCUMENTE SI REGULAMENT -->
-<section class="sec" style="background:var(--cream-2)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" style="background:var(--cream-2)">
 <div class="wrap">
-<div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Înainte de activitate</div>
-<h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);--fp-flow-delay:90ms">Documente necesare pentru participare</h2>
-<p class="lead" data-fp-flow="" style="color:#5a624c;margin-bottom:26px;--fp-flow-delay:180ms">
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Înainte de activitate</div><h2 class="t disp" style="color:var(--green-deep);">Documente necesare pentru participare</h2><p class="lead" style="color:#5a624c;margin-bottom:26px;">
       Pentru siguranța copiilor și buna desfășurare a activităților, părinții și participanții completează documentele necesare înainte de participare și confirmă că au luat la cunoștință regulamentul.
-    </p>
+    </p></div>
+
+
 <div class="grid2" style="gap:12px">
-<a class="card hov" data-fp-flow="" href="/regulament/" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block;--fp-flow-delay:0ms">
+<a class="card hov" data-fp-flow="" href="/regulament/" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block;">
 <i aria-hidden="true" class="ti ti-file-text" style="color:var(--orange);font-size:26px"></i>
 <h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:20px;margin:10px 0 8px">Regulament participanți</h3>
 <p style="color:#5a624c;font-size:13px;line-height:1.65;margin-bottom:10px">
@@ -1160,7 +1155,7 @@ Multumim pentru tot,revenim cu drag!</p>
         </p>
 <span style="color:var(--orange);font-size:12.5px;font-weight:600">Vezi regulamentul →</span>
 </a>
-<a class="card hov" data-fp-flow="" href="/documente/" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block;--fp-flow-delay:0ms">
+<a class="card hov" data-fp-flow="" href="/documente/" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:24px;text-decoration:none;display:block;">
 <i aria-hidden="true" class="ti ti-clipboard-check" style="color:var(--orange);font-size:26px"></i>
 <h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:20px;margin:10px 0 8px">Documente de participare</h3>
 <p style="color:#5a624c;font-size:13px;line-height:1.65;margin-bottom:10px">
@@ -1172,16 +1167,16 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- SUSTINE-NE -->
-<section class="sec" id="sustine" style="background:var(--green)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" id="sustine" style="background:var(--green)">
 <div class="wrap">
-<div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">Susține-ne</div>
-<h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Ajută-ne să creștem copii curajoși. <br/> Fiecare gest contează.</h2>
-<p class="lead" data-fp-flow="" style="color:#aebda3;margin-bottom:30px;--fp-flow-delay:180ms">În spatele fiecărei ieșiri în natură sunt ore de pregătire, echipament verificat și oameni care veghează la siguranța copiilor. Sprijinul tău ne ajută să facem toate acestea posibile — și să ducem mai departe o asociație care formează copii încrezători, calmi și pregătiți pentru viață.</p>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light" style=";">Susține-ne</div><h2 class="t disp" style="color:#fff;">Ajută-ne să creștem copii curajoși. <br/> Fiecare gest contează.</h2><p class="lead" style="color:#aebda3;margin-bottom:30px;">În spatele fiecărei ieșiri în natură sunt ore de pregătire, echipament verificat și oameni care veghează la siguranța copiilor. Sprijinul tău ne ajută să facem toate acestea posibile — și să ducem mai departe o asociație care formează copii încrezători, calmi și pregătiți pentru viață.</p></div>
+
+
 <div class="grid2" style="gap:12px;margin-bottom:12px">
-<div class="card hov" data-fp-flow="" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație.<br/><strong>Nu te costă nimic — banii oricum merg la stat.</strong></p><a href="https://formular230.ro/asociatiafiipregatit" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none" target="_blank">Completează formularul →</a></div>
-<div class="card hov" data-fp-flow="" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-building" style="color:var(--orange-2);font-size:24px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none" target="_blank">Hai să discutăm →</a></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px;"><i aria-hidden="true" class="ti ti-file-percent" style="color:var(--orange-2);font-size:24px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Formularul 230</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Redirecționezi un procent din impozitul tău pe venit către asociație.<br/><strong>Nu te costă nimic — banii oricum merg la stat.</strong></p><a href="https://formular230.ro/asociatiafiipregatit" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none" target="_blank">Completează formularul →</a></div>
+<div class="card hov" data-fp-flow="" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:22px;"><i aria-hidden="true" class="ti ti-building" style="color:var(--orange-2);font-size:24px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px;margin:10px 0 6px">Sponsorizări firme</h3><p style="color:#a4b399;font-size:12.5px;line-height:1.6;margin-bottom:14px">Firmele pot redirecționa o parte din impozit către asociație, printr-un contract de sponsorizare.</p><a href="https://wa.me/40745482705" rel="noopener" style="color:var(--orange-2);font-size:12.5px;font-weight:600;text-decoration:none" target="_blank">Hai să discutăm →</a></div>
 </div>
-<div class="card hov" data-afp-public="" data-fp-flow="" id="afp-donatii-bancare" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px;--fp-flow-delay:0ms">
+<div class="card hov" data-afp-public="" data-fp-flow="" id="afp-donatii-bancare" style="background:var(--green-2);border:1px solid #2b5520;border-radius:10px;padding:24px;">
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i aria-hidden="true" class="ti ti-building-bank" style="color:var(--orange-2);font-size:24px"></i><h3 class="disp" style="color:#fff;font-weight:600;font-size:18px">Donații prin transfer bancar</h3></div>
 <div class="grid2" style="gap:14px">
 <div style="border-left:2px solid var(--orange);padding-left:14px"><div style="color:var(--orange-2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Cont RON (Lei)</div><div style="color:#d7e0cd;font-size:12px;line-height:1.9">Titular: Asociația Fii Pregătit<button aria-label="Copiază titularul" class="afp-bank-copy" data-afp-copy="Asociatia Fii Pregatit" data-afp-copy-label="Copiază titularul" title="Copiază" type="button"><i aria-hidden="true" class="ti ti-copy"></i></button><br/><span style="font-family:monospace;color:#fff">RO18 RZBR 0000 0600 3067 4282</span><button aria-label="Copiază contul RON" class="afp-bank-copy" data-afp-copy="RO18RZBR0000060030674282" data-afp-copy-label="Copiază contul RON" title="Copiază" type="button"><i aria-hidden="true" class="ti ti-copy"></i></button><br/>Raiffeisen Bank · SWIFT: RZBRROBU</div></div>
@@ -1192,18 +1187,18 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- CONTACT -->
-<section class="sec" id="contact" style="background:var(--cream)" data-fp-direction="left">
+<section class="sec" data-fp-direction="left" id="contact" style="background:var(--cream)">
 <div class="wrap contact-wrap">
 <img alt="" aria-hidden="true" class="contact-patch" src="/assets/imagini-site/LOGO-PATCH.png"/>
-<div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Contact</div>
-<h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);--fp-flow-delay:90ms">Scrie-ne!</h2>
-<p class="lead" data-fp-flow="" style="color:#4c5440;margin-bottom:28px;--fp-flow-delay:180ms">Cel mai rapid răspuns vine pe WhatsApp. <br/> Spune-ne numele și vârsta copilului, <br/>iar noi îți zicem când e următoarea ieșire.</p>
+<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Contact</div><h2 class="t disp" style="color:var(--green-deep);">Scrie-ne!</h2><p class="lead" style="color:#4c5440;margin-bottom:28px;">Cel mai rapid răspuns vine pe WhatsApp. <br/> Spune-ne numele și vârsta copilului, <br/>iar noi îți zicem când e următoarea ieșire.</p></div>
+
+
 <div class="grid3" style="gap:10px;margin-bottom:24px">
-<a class="card hov" data-fp-flow="" href="https://wa.me/40745482705" rel="noopener" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;--fp-flow-delay:0ms" target="_blank"><i aria-hidden="true" class="ti ti-brand-whatsapp" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">WhatsApp</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
-<a class="card hov" data-fp-flow="" href="tel:+40745482705" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-phone" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Telefon</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
-<a class="card hov contact-email-card" data-fp-flow="" href="mailto:contact@asociatiafiipregatit.ro" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;--fp-flow-delay:0ms"><i aria-hidden="true" class="ti ti-mail" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Email</div><div style="color:#7a8268;font-size:11px;white-space:nowrap">contact@asociatiafiipregatit.ro</div></a>
+<a class="card hov" data-fp-flow="" href="https://wa.me/40745482705" rel="noopener" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;" target="_blank"><i aria-hidden="true" class="ti ti-brand-whatsapp" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">WhatsApp</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
+<a class="card hov" data-fp-flow="" href="tel:+40745482705" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;"><i aria-hidden="true" class="ti ti-phone" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Telefon</div><div style="color:#7a8268;font-size:12px">0745.482.705</div></a>
+<a class="card hov contact-email-card" data-fp-flow="" href="mailto:contact@asociatiafiipregatit.ro" style="background:#fff;border:1px solid #e6e0d2;border-radius:10px;padding:18px;text-decoration:none;display:block;"><i aria-hidden="true" class="ti ti-mail" style="color:var(--orange);font-size:22px"></i><div style="color:var(--green-deep);font-weight:600;font-size:13px;margin:8px 0 3px">Email</div><div style="color:#7a8268;font-size:11px;white-space:nowrap">contact@asociatiafiipregatit.ro</div></a>
 </div>
-<div data-fp-flow="" style="display:flex;gap:12px;flex-wrap:wrap;--fp-flow-delay:0ms">
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
 <a aria-label="Facebook" class="soc" href="https://www.facebook.com/fiipregatit.bv/" rel="noopener" target="_blank"><i aria-hidden="true" class="ti ti-brand-facebook"></i></a>
 <a aria-label="Instagram" class="soc" href="https://www.instagram.com/fiipregatit.bv/" rel="noopener" target="_blank"><i aria-hidden="true" class="ti ti-brand-instagram"></i></a>
 <a aria-label="TikTok" class="soc" href="https://www.tiktok.com/@fiipregatit.bv" rel="noopener" target="_blank"><i aria-hidden="true" class="ti ti-brand-tiktok"></i></a>
@@ -1436,50 +1431,41 @@ Multumim pentru tot,revenim cu drag!</p>
 })();
 </script>
 <script id="fp-motion-script">(()=>{
-const root=document.documentElement;
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const mobile=matchMedia('(max-width:760px)');
-const targets=Array.from(document.querySelectorAll('[data-fp-flow]'));
-const active=new Map();
-const revealAll=()=>{root.classList.remove('fp-motion-ready');active.forEach(a=>a.cancel());active.clear();targets.forEach(el=>el.classList.add('fp-flow-visible'))};
-try{
- if(reduced.matches||!('IntersectionObserver' in window)||!Element.prototype.animate){revealAll()}
- else{
-  document.querySelectorAll('.grid2,.grid3,.grid4-auto,.cs-grid').forEach(grid=>{
-   let top=-Infinity,col=0;
-   Array.from(grid.children).forEach(el=>{
-    const y=el.getBoundingClientRect().top;col=Math.abs(y-top)<8?col+1:0;top=y;
-    if(el.hasAttribute('data-fp-flow'))el.style.setProperty('--fp-flow-delay',Math.min(col*130,390)+'ms');
+ const root=document.documentElement,reduced=matchMedia("(prefers-reduced-motion: reduce)"),mobile=matchMedia("(max-width:760px)");
+ const targets=Array.from(document.querySelectorAll("[data-fp-flow]")),active=new Map();
+ const showAll=()=>{root.classList.remove("fp-motion-ready");active.forEach(a=>a.cancel());active.clear();targets.forEach(el=>el.classList.add("fp-flow-visible"))};
+ try{
+  if(reduced.matches||!("IntersectionObserver" in window)||!Element.prototype.animate){showAll()}
+  else{
+   document.querySelectorAll(".grid2,.grid3,.grid4-auto").forEach(grid=>{
+    let top=-Infinity,col=0;
+    Array.from(grid.children).forEach(el=>{
+     const y=el.getBoundingClientRect().top;col=Math.abs(y-top)<8?col+1:0;top=y;
+     if(el.hasAttribute("data-fp-flow"))el.style.setProperty("--fp-flow-delay",Math.min(col*85,255)+"ms");
+    });
    });
-  });
-  const enter=new IntersectionObserver(entries=>entries.forEach(entry=>{
-   const el=entry.target;
-   if(!entry.isIntersecting||el.classList.contains('fp-flow-visible'))return;
-   el.classList.add('fp-flow-visible');
-   const delay=parseFloat(getComputedStyle(el).getPropertyValue('--fp-flow-delay'))||0;
-   const animation=el.animate([{opacity:0,translate:(mobile.matches?'-48px':'-80px')+' 0'},{opacity:1,translate:'0px 0px'}],
-    {duration:mobile.matches?1045:1155,delay,easing:'cubic-bezier(.22,.61,.36,1)',fill:'backwards'});
-   active.set(el,animation);
-   animation.onfinish=()=>{active.delete(el);animation.cancel()};
-  }),{threshold:0,rootMargin:'0px'});
-  const reset=new IntersectionObserver(entries=>entries.forEach(entry=>{
-   const el=entry.target;
-   if(entry.isIntersecting||el.contains(document.activeElement))return;
-   const a=active.get(el);if(a){a.cancel();active.delete(el)}
-   el.classList.remove('fp-flow-visible');
-  }),{threshold:0,rootMargin:'100px 0px'});
-  targets.forEach(el=>{enter.observe(el);reset.observe(el)});
-  document.addEventListener('focusin',event=>{
-   const el=event.target.closest('[data-fp-flow]');if(!el)return;
-   const a=active.get(el);if(a){a.cancel();active.delete(el)}
-   el.classList.add('fp-flow-visible');
-  });
-  reduced.addEventListener('change',()=>{if(reduced.matches){enter.disconnect();reset.disconnect();revealAll()}});
-  window.addEventListener('pageshow',event=>{if(event.persisted)revealAll()});
- }
- clearTimeout(window.fpMotionFallback);
- document.getElementById('fp-test-replay').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});location.replace(location.pathname+'?v=flow-7&replay='+Date.now())});
-}catch(error){revealAll()}
-})();</script></body>
+   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;observer.unobserve(el);
+    if(el.classList.contains("fp-flow-visible"))return;
+    el.classList.add("fp-flow-visible");
+    const hero=el.hasAttribute("data-fp-hero"),distance=hero?(mobile.matches?24:40):(mobile.matches?16:24);
+    const delay=parseFloat(getComputedStyle(el).getPropertyValue("--fp-flow-delay"))||0;
+    const animation=el.animate([{opacity:0,translate:-distance+"px 0"},{opacity:1,translate:"0px 0px"}],
+     {duration:hero?1050:760,delay,easing:"cubic-bezier(.22,.61,.36,1)",fill:"backwards"});
+    active.set(el,animation);animation.onfinish=()=>{active.delete(el);animation.cancel()};
+   }),{threshold:0,rootMargin:"0px 0px -24px 0px"});
+   targets.forEach(el=>observer.observe(el));
+   document.addEventListener("focusin",event=>{
+    const el=event.target.closest("[data-fp-flow]");if(!el)return;
+    observer.unobserve(el);const a=active.get(el);if(a){a.cancel();active.delete(el)}el.classList.add("fp-flow-visible");
+   });
+   reduced.addEventListener("change",()=>{if(reduced.matches){observer.disconnect();showAll()}});
+   window.addEventListener("pageshow",event=>{if(event.persisted)showAll()});
+  }
+  clearTimeout(window.fpMotionFallback);
+  document.getElementById("fp-test-replay").addEventListener("click",()=>{window.scrollTo({top:0,behavior:"instant"});location.replace(location.pathname+"?v=calm-8&replay="+Date.now())});
+ }catch(error){showAll()}
+})();
+</script></body>
 </html>
-
