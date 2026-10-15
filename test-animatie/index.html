@@ -741,9 +741,15 @@ body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
 </style>
-<style>section[data-fp-direction="left"]{--fp-flow-from:-80px;--fp-flow-mobile:-48px}section[data-fp-direction="right"]{--fp-flow-from:80px;--fp-flow-mobile:48px}html.fp-motion-ready [data-fp-flow].fp-flow-reset{transition:none!important}</style></head>
+<style>section[data-fp-direction="left"]{--fp-flow-from:-80px;--fp-flow-mobile:-48px}section[data-fp-direction="right"]{--fp-flow-from:80px;--fp-flow-mobile:48px}html.fp-motion-ready [data-fp-flow].fp-flow-reset{transition:none!important}</style><style id="fp-single-direction">
+html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-80px 0;transition-property:transform,box-shadow,border-color!important;transition-delay:0ms!important}
+html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-48px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
+@media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
+</style></head>
 <body>
-<div class="fp-test-bar"><span>Previzualizare · Din stânga spre dreapta · Ritm lin · Animații la revenire</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
+<div class="fp-test-bar"><span>Previzualizare · Din stânga spre dreapta · Intrare fluidă</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
 <!-- NAV -->
 <nav class="nav">
 <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
@@ -1449,65 +1455,51 @@ Multumim pentru tot,revenim cu drag!</p>
  else window.addEventListener('resize',sync);
 })();
 </script>
-<script id="fp-motion-script">(() => {
-  const root = document.documentElement;
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const targets = Array.from(document.querySelectorAll("[data-fp-flow]"));
-  const showAll = () => {
-    root.classList.remove("fp-motion-ready");
-    targets.forEach(el => el.classList.add("fp-flow-visible"));
-  };
-  try {
-    if (reduced.matches || !("IntersectionObserver" in window)) {
-      showAll();
-    } else {
-      // Delay adjacent cards only when they occupy the same visible row.
-      document.querySelectorAll(".grid2,.grid3,.grid4-auto,.cs-grid").forEach(grid => {
-        let lastTop = -Infinity, row = [];
-        const assignRow = () => {
-          const right = grid.closest("section")?.dataset.fpDirection === "right";
-          row.forEach((el,i) => {
-            if(el.hasAttribute("data-fp-flow")) el.style.setProperty("--fp-flow-delay",Math.min((right ? row.length-1-i : i)*130,390)+"ms");
-          });
-        };
-        Array.from(grid.children).forEach(el => {
-          const top = el.getBoundingClientRect().top;
-          if(Math.abs(top-lastTop)>=8){assignRow();row=[];}
-          row.push(el);
-          lastTop = top;
-        });
-        assignRow();
-      });
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const el = entry.target;
-          if(entry.isIntersecting){
-            el.classList.remove("fp-flow-reset");
-            el.classList.add("fp-flow-visible");
-          }else if((entry.boundingClientRect.bottom<=0 || entry.boundingClientRect.top>=window.innerHeight) && !el.contains(document.activeElement)){
-            // Reset only outside the screen, without a visible exit animation.
-            el.classList.add("fp-flow-reset");
-            el.classList.remove("fp-flow-visible");
-          }
-        });
-      }, {threshold: 0, rootMargin: "0px"});
-      targets.forEach(el => observer.observe(el));
-      document.addEventListener("focusin", event => {
-        const target = event.target.closest("[data-fp-flow]");
-        if (target) { target.classList.remove("fp-flow-reset"); target.classList.add("fp-flow-visible"); }
-      });
-      reduced.addEventListener("change", () => {
-        if (reduced.matches) { observer.disconnect(); showAll(); }
-      });
-      window.addEventListener("pageshow", event => { if(event.persisted) showAll(); });
-    }
-    clearTimeout(window.fpMotionFallback);
-    document.getElementById("fp-test-replay").addEventListener("click", () => {
-      window.scrollTo({top:0,behavior:"instant"});
-      location.replace(location.pathname + "?v=flow-5&replay=" + Date.now());
-    });
-  } catch (error) { showAll(); }
-})();
-</script></body>
+<script id="fp-motion-script">(()=>{
+const root=document.documentElement;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const mobile=matchMedia('(max-width:760px)');
+const targets=Array.from(document.querySelectorAll('[data-fp-flow]'));
+const active=new Map();
+const revealAll=()=>{root.classList.remove('fp-motion-ready');active.forEach(a=>a.cancel());active.clear();targets.forEach(el=>el.classList.add('fp-flow-visible'))};
+try{
+ if(reduced.matches||!('IntersectionObserver' in window)||!Element.prototype.animate){revealAll()}
+ else{
+  document.querySelectorAll('.grid2,.grid3,.grid4-auto,.cs-grid').forEach(grid=>{
+   let top=-Infinity,col=0;
+   Array.from(grid.children).forEach(el=>{
+    const y=el.getBoundingClientRect().top;col=Math.abs(y-top)<8?col+1:0;top=y;
+    if(el.hasAttribute('data-fp-flow'))el.style.setProperty('--fp-flow-delay',Math.min(col*130,390)+'ms');
+   });
+  });
+  const enter=new IntersectionObserver(entries=>entries.forEach(entry=>{
+   const el=entry.target;
+   if(!entry.isIntersecting||el.classList.contains('fp-flow-visible'))return;
+   el.classList.add('fp-flow-visible');
+   const delay=parseFloat(getComputedStyle(el).getPropertyValue('--fp-flow-delay'))||0;
+   const animation=el.animate([{opacity:0,translate:(mobile.matches?'-48px':'-80px')+' 0'},{opacity:1,translate:'0px 0px'}],
+    {duration:mobile.matches?1045:1155,delay,easing:'cubic-bezier(.22,.61,.36,1)',fill:'backwards'});
+   active.set(el,animation);
+   animation.onfinish=()=>{active.delete(el);animation.cancel()};
+  }),{threshold:0,rootMargin:'0px'});
+  const reset=new IntersectionObserver(entries=>entries.forEach(entry=>{
+   const el=entry.target;
+   if(entry.isIntersecting||el.contains(document.activeElement))return;
+   const a=active.get(el);if(a){a.cancel();active.delete(el)}
+   el.classList.remove('fp-flow-visible');
+  }),{threshold:0,rootMargin:'100px 0px'});
+  targets.forEach(el=>{enter.observe(el);reset.observe(el)});
+  document.addEventListener('focusin',event=>{
+   const el=event.target.closest('[data-fp-flow]');if(!el)return;
+   const a=active.get(el);if(a){a.cancel();active.delete(el)}
+   el.classList.add('fp-flow-visible');
+  });
+  reduced.addEventListener('change',()=>{if(reduced.matches){enter.disconnect();reset.disconnect();revealAll()}});
+  window.addEventListener('pageshow',event=>{if(event.persisted)revealAll()});
+ }
+ clearTimeout(window.fpMotionFallback);
+ document.getElementById('fp-test-replay').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});location.replace(location.pathname+'?v=flow-6&replay='+Date.now())});
+}catch(error){revealAll()}
+})();</script></body>
 </html>
 
