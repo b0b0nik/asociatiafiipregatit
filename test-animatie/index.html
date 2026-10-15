@@ -734,16 +734,16 @@ section[id],#recenzii,header[id]{scroll-margin-top:calc(var(--home-nav-height,11
 @media print{.fp-test-bar{display:none}}
 </style>
 <style>
-html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-80px 0;transition:opacity 900ms ease,translate 1050ms cubic-bezier(.22,.61,.36,1);transition-delay:var(--fp-flow-delay,0ms)}
+html.fp-motion-ready [data-fp-flow]{opacity:0;translate:var(--fp-flow-from,-80px) 0;transition:opacity 900ms ease,translate 1050ms cubic-bezier(.22,.61,.36,1);transition-delay:var(--fp-flow-delay,0ms)}
 html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 body{overflow-x:clip}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-48px 0;transition-duration:800ms,950ms}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:var(--fp-flow-mobile,-48px) 0;transition-duration:800ms,950ms}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none;transition:none}}
 </style>
-</head>
+<style>section[data-fp-direction="left"]{--fp-flow-from:-80px;--fp-flow-mobile:-48px}section[data-fp-direction="right"]{--fp-flow-from:80px;--fp-flow-mobile:48px}html.fp-motion-ready [data-fp-flow].fp-flow-reset{transition:none!important}</style></head>
 <body>
-<div class="fp-test-bar"><span>Previzualizare · Curgere din stânga spre dreapta</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
+<div class="fp-test-bar"><span>Previzualizare · Direcții alternate · Animații la revenire</span><button id="fp-test-replay" type="button">↻ Reia animațiile</button><a href="/">Înapoi la site</a></div>
 <!-- NAV -->
 <nav class="nav">
 <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
@@ -784,7 +784,7 @@ body{overflow-x:clip}
 </div>
 </div>
 </header>
-<section aria-label="Filosofia Fii Pregătit" style="background:var(--cream);padding:36px 40px">
+<section aria-label="Filosofia Fii Pregătit" style="background:var(--cream);padding:36px 40px" data-fp-direction="left">
 <div class="wrap" style="text-align:center;max-width:900px">
 <div class="eb" data-fp-flow="" style="margin-bottom:12px;--fp-flow-delay:0ms">Filosofia noastră</div>
 <blockquote class="disp" data-fp-flow="" style="color:var(--green-deep);font-size:clamp(24px,3.8vw,36px);font-weight:600;line-height:1.25;margin:0 auto 12px;--fp-flow-delay:0ms">
@@ -796,7 +796,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- PILONI -->
-<section class="sec" style="background:var(--green)">
+<section class="sec" style="background:var(--green)" data-fp-direction="right">
 <div class="wrap">
 <div data-fp-flow="" style="text-align:center;margin-bottom:30px;--fp-flow-delay:0ms">
 <div class="eb eb-light" style="margin-bottom:8px">Pilonii noștri</div>
@@ -812,7 +812,7 @@ body{overflow-x:clip}
 </div>
 </div>
 </section>
-<section class="sec" data-afp-section="experiente" style="background:var(--cream-2)">
+<section class="sec" data-afp-section="experiente" style="background:var(--cream-2)" data-fp-direction="left">
 <div class="wrap" style="max-width:900px;text-align:center">
 <div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Mai mult decât activități</div>
 <h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);max-width:760px;margin:0 auto 16px;--fp-flow-delay:90ms">
@@ -824,7 +824,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- CINE SUNTEM -->
-<section class="sec" id="cine-suntem" style="background:var(--cream)">
+<section class="sec" id="cine-suntem" style="background:var(--cream)" data-fp-direction="right">
 <style>
     #cine-suntem .cs-grid{
       display:grid;
@@ -898,7 +898,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- METODA -->
-<section class="sec" id="metoda" style="background:var(--green)">
+<section class="sec" id="metoda" style="background:var(--green)" data-fp-direction="left">
 <div class="wrap">
 <div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">De ce natura?</div>
 <h2 class="t disp" data-fp-flow="" style="color:#fff;max-width:820px;--fp-flow-delay:90ms">Natura nu este decorul. Este mediul în care învățarea se întâmplă.</h2>
@@ -919,7 +919,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- CELE 5 DIMENSIUNI -->
-<section class="sec" style="background:var(--cream)">
+<section class="sec" style="background:var(--cream)" data-fp-direction="right">
 <div class="wrap">
 <div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Ce dezvoltăm</div>
 <h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);--fp-flow-delay:90ms">Nu cine ajunge primul. Cine crește pe dinăuntru.</h2>
@@ -933,7 +933,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- DE CE 7-12 ANI -->
-<section class="sec" style="background:var(--green)">
+<section class="sec" style="background:var(--green)" data-fp-direction="left">
 <div class="wrap">
 <div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">De ce 7–12 ani</div>
 <h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Nu este o vârstă aleasă la întâmplare.</h2>
@@ -953,7 +953,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- ACTIVITATI -->
-<section class="sec" id="activitati" style="background:var(--cream-2)">
+<section class="sec" id="activitati" style="background:var(--cream-2)" data-fp-direction="right">
 <div class="wrap">
 <div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Tipuri de activități</div>
 <h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);margin-bottom:30px;--fp-flow-delay:90ms">Explorăm natura în mai multe feluri.</h2>
@@ -977,7 +977,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- SIGURANTA -->
-<section class="sec" style="background:var(--green-deep)">
+<section class="sec" style="background:var(--green-deep)" data-fp-direction="left">
 <div class="wrap">
 <div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">Pentru părinți</div>
 <h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Siguranța nu se negociază.</h2>
@@ -993,7 +993,7 @@ body{overflow-x:clip}
 </div>
 </section>
 <!-- RECENZII: selecție manuală, copie de lucru -->
-<section aria-labelledby="reviews-title" class="sec" id="recenzii">
+<section aria-labelledby="reviews-title" class="sec" id="recenzii" data-fp-direction="right">
 <div class="wrap">
 <div class="reviews-heading" data-fp-flow="" style=";--fp-flow-delay:0ms"><h2 class="t disp" id="reviews-title">Ce spun părinții?</h2></div>
 <div aria-label="Recenziile părinților" class="reviews-viewport" data-fp-flow="" role="region" style=";--fp-flow-delay:0ms" tabindex="0">
@@ -1091,7 +1091,7 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- IMNUL -->
-<section class="sec" style="background:var(--cream);padding-top:52px;padding-bottom:52px">
+<section class="sec" style="background:var(--cream);padding-top:52px;padding-bottom:52px" data-fp-direction="left">
 <div class="wrap" style="background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
 <button aria-label="Ascultă imnul Fii Pregătit" aria-pressed="false" class="anthem-play" data-fp-flow="" id="anthemPlayButton" style=";--fp-flow-delay:0ms" type="button">
 <i aria-hidden="true" class="ti ti-player-play" id="anthemPlayIcon"></i>
@@ -1138,7 +1138,7 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- DOCUMENTE SI REGULAMENT -->
-<section class="sec" style="background:var(--cream-2)">
+<section class="sec" style="background:var(--cream-2)" data-fp-direction="right">
 <div class="wrap">
 <div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Înainte de activitate</div>
 <h2 class="t disp" data-fp-flow="" style="color:var(--green-deep);--fp-flow-delay:90ms">Documente necesare pentru participare</h2>
@@ -1166,7 +1166,7 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- SUSTINE-NE -->
-<section class="sec" id="sustine" style="background:var(--green)">
+<section class="sec" id="sustine" style="background:var(--green)" data-fp-direction="left">
 <div class="wrap">
 <div class="eb eb-light" data-fp-flow="" style=";--fp-flow-delay:0ms">Susține-ne</div>
 <h2 class="t disp" data-fp-flow="" style="color:#fff;--fp-flow-delay:90ms">Ajută-ne să creștem copii curajoși. <br/> Fiecare gest contează.</h2>
@@ -1186,7 +1186,7 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </section>
 <!-- CONTACT -->
-<section class="sec" id="contact" style="background:var(--cream)">
+<section class="sec" id="contact" style="background:var(--cream)" data-fp-direction="right">
 <div class="wrap contact-wrap">
 <img alt="" aria-hidden="true" class="contact-patch" src="/assets/imagini-site/LOGO-PATCH.png"/>
 <div class="eb" data-fp-flow="" style=";--fp-flow-delay:0ms">Contact</div>
@@ -1453,7 +1453,6 @@ Multumim pentru tot,revenim cu drag!</p>
   const root = document.documentElement;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const targets = Array.from(document.querySelectorAll("[data-fp-flow]"));
-  const pending = new Set(targets);
   const showAll = () => {
     root.classList.remove("fp-motion-ready");
     targets.forEach(el => el.classList.add("fp-flow-visible"));
@@ -1464,26 +1463,38 @@ Multumim pentru tot,revenim cu drag!</p>
     } else {
       // Delay adjacent cards only when they occupy the same visible row.
       document.querySelectorAll(".grid2,.grid3,.grid4-auto,.cs-grid").forEach(grid => {
-        let lastTop = -Infinity, column = 0;
+        let lastTop = -Infinity, row = [];
+        const assignRow = () => {
+          const right = grid.closest("section")?.dataset.fpDirection === "right";
+          row.forEach((el,i) => {
+            if(el.hasAttribute("data-fp-flow")) el.style.setProperty("--fp-flow-delay",Math.min((right ? row.length-1-i : i)*130,390)+"ms");
+          });
+        };
         Array.from(grid.children).forEach(el => {
           const top = el.getBoundingClientRect().top;
-          column = Math.abs(top - lastTop) < 8 ? column + 1 : 0;
+          if(Math.abs(top-lastTop)>=8){assignRow();row=[];}
+          row.push(el);
           lastTop = top;
-          if (el.hasAttribute("data-fp-flow")) el.style.setProperty("--fp-flow-delay", Math.min(column * 130, 390) + "ms");
         });
+        assignRow();
       });
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("fp-flow-visible");
-          pending.delete(entry.target);
-          observer.unobserve(entry.target);
+          const el = entry.target;
+          if(entry.isIntersecting){
+            el.classList.remove("fp-flow-reset");
+            el.classList.add("fp-flow-visible");
+          }else if((entry.boundingClientRect.bottom<=0 || entry.boundingClientRect.top>=window.innerHeight) && !el.contains(document.activeElement)){
+            // Reset only outside the screen, without a visible exit animation.
+            el.classList.add("fp-flow-reset");
+            el.classList.remove("fp-flow-visible");
+          }
         });
-      }, {threshold: 0, rootMargin: "0px 0px -45px 0px"});
+      }, {threshold: 0, rootMargin: "0px"});
       targets.forEach(el => observer.observe(el));
       document.addEventListener("focusin", event => {
         const target = event.target.closest("[data-fp-flow]");
-        if (target) { target.classList.add("fp-flow-visible"); observer.unobserve(target); }
+        if (target) { target.classList.remove("fp-flow-reset"); target.classList.add("fp-flow-visible"); }
       });
       reduced.addEventListener("change", () => {
         if (reduced.matches) { observer.disconnect(); showAll(); }
@@ -1493,9 +1504,10 @@ Multumim pentru tot,revenim cu drag!</p>
     clearTimeout(window.fpMotionFallback);
     document.getElementById("fp-test-replay").addEventListener("click", () => {
       window.scrollTo({top:0,behavior:"instant"});
-      location.replace(location.pathname + "?v=flow-2&replay=" + Date.now());
+      location.replace(location.pathname + "?v=flow-3&replay=" + Date.now());
     });
   } catch (error) { showAll(); }
 })();
 </script></body>
 </html>
+
