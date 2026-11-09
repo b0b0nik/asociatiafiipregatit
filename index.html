@@ -737,6 +737,13 @@ body{overflow-x:clip}
 @media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
+
+/* Hero — indicatori de experiență și siguranță */
+.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.28);max-width:540px}
+.hero-proof-item{min-width:0;display:flex;flex-direction:column;gap:5px}
+.hero-proof-number{font-family:Fraunces,Georgia,serif;font-size:clamp(27px,3vw,34px);font-weight:700;line-height:1;color:#ff7a1f;font-variant-numeric:lining-nums}
+.hero-proof-item span{font-size:12px;line-height:1.45;color:#e6e9df}
+@media(max-width:560px){.hero-proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:28px;padding-top:18px}.hero-proof-number{font-size:clamp(23px,6vw,29px)}.hero-proof-item span{font-size:11px;line-height:1.4}}
 </style></head>
 <body>
 <!-- NAV -->
@@ -776,6 +783,11 @@ body{overflow-x:clip}
 <div class="row-btns" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:460ms">
 <a class="btn btn-orange" href="#activitati">Vezi activitățile</a>
 <a class="btn btn-ghost" href="https://wa.me/40745482705" rel="noopener noreferrer" target="_blank">Vreau să participăm</a>
+</div>
+<div class="hero-proof" aria-label="Fii Pregătit în cifre" data-fp-flow="" data-fp-hero="" style="--fp-flow-delay:580ms">
+  <div class="hero-proof-item"><strong class="hero-proof-number">4+</strong><span>ani de activități în natură</span></div>
+  <div class="hero-proof-item"><strong class="hero-proof-number">2.000+</strong><span>copii alături de noi</span></div>
+  <div class="hero-proof-item"><strong class="hero-proof-number">2</strong><span>instructori minimum la fiecare activitate</span></div>
 </div>
 </div>
 </header>
