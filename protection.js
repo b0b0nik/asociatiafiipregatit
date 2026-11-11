@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const allowHomepageText = window.location.pathname === "/" || window.location.pathname === "/index.html";
+  const allowTextCopy = ["/", "/index.html", "/propunere-activitati", "/propunere-activitati/", "/propunere-activitati/index.html"].includes(window.location.pathname);
 
   const isEditable = (target) => target && target.closest("input, textarea, select, [contenteditable='true']");
 
@@ -14,7 +14,7 @@
     return !!(selection && !selection.isCollapsed &&
       publicArea(selection.anchorNode) && publicArea(selection.focusNode));
   };
-  const canCopy = event => allowHomepageText || isEditable(event.target) || publicArea(event.target) || publicSelection();
+  const canCopy = event => allowTextCopy || isEditable(event.target) || publicArea(event.target) || publicSelection();
   document.addEventListener("contextmenu", event => {
     if (!canCopy(event)) event.preventDefault();
   });
@@ -39,7 +39,7 @@
 
   const style = document.createElement("style");
   style.textContent = `
-    ${allowHomepageText ? "" : `html, body, body *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+    ${allowTextCopy ? "" : `html, body, body *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
       -webkit-user-select: none;
       user-select: none;
       -webkit-touch-callout: none;
