@@ -1,0 +1,35 @@
+name: Optimize cerc-adapost-dreapta (one-time)
+on:
+  push:
+    paths:
+      - ".github/workflows/optimize-cerc-adapost-dreapta.yml"
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Convert original PNG to lightweight WebP
+        run: |
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          from PIL import Image, ImageOps
+          from pathlib import Path
+          original = Path("propunere-activitati/media/cerc-copii-adapost-dreapta.png")
+          target = original.with_suffix(".webp")
+          photo = ImageOps.exif_transpose(Image.open(original)).convert("RGB")
+          if photo.width > 1600:
+              photo = photo.resize((1600, round(photo.height * 1600/photo.width)), Image.Resampling.LANCZOS)
+          photo.save(target, "WEBP", quality=84, method=6)
+          print(f"Original: {original.stat().st_size:,} bytes; optimized: {target.stat().st_size:,} bytes; size: {photo.size}")
+          PY
+      - name: Save optimized file to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add propunere-activitati/media/cerc-copii-adapost-dreapta.webp
+          git diff --cached --quiet || (git commit -m "Add optimized cerc-copii-adapost-dreapta image" && git push)
