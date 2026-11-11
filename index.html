@@ -939,19 +939,31 @@ body{overflow-x:clip}
 <p class="lead" style="color:#aebda3;max-width:760px;margin-bottom:34px;">Nu doar discută despre responsabilitate. <strong style="color:#fff;">Trebuie să ia o decizie și să îi observe consecințele.</strong></p></div>
 
 
-<div style="border-top:1px solid rgba(255,255,255,.12);padding-top:30px;">
-<div class="fp-reading-intro" data-fp-flow=""><div class="eb eb-light">Metoda din spatele activităților</div><h2 class="t disp" style="color:#fff">CONNECT → EXPERIENCE → CHALLENGE → CREATE → REFLECT → TRANSFER</h2><p class="lead" style="color:#aebda3;margin-bottom:30px">Șase pași, în fiecare experiență — de la întâlnire, până la întrebarea care contează cu adevărat: unde îmi este util ce am descoperit aici?</p></div>
-
-
+<div class="method-heading" style="border-top:1px solid rgba(255,255,255,.12);padding-top:30px">
+  <div class="fp-reading-intro" data-fp-flow="">
+    <div class="eb eb-light">Metoda din spatele activităților</div>
+    <h2 class="t disp" style="color:#fff">Natura este mediul. Experiența este metoda.</h2>
+    <p class="lead" style="color:#aebda3;max-width:780px;margin-bottom:12px">Nu le spunem copiilor doar ce să facă. Îi punem în situația de a descoperi.</p>
+    <p class="lead" style="color:#aebda3;max-width:780px;margin-bottom:30px">Șase pași, în fiecare experiență - de la întâlnire, până la întrebarea care contează cu adevărat: unde îmi este util ce am descoperit aici?</p>
+  </div>
 </div>
-<div class="grid4-auto stop-grid" style="gap:10px">
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">01</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Connect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne întâlnim, ne ascultăm și stabilim cadrul experienței.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">02</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Experience</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Intrăm în contact direct cu natura prin mișcare, explorare și joacă.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">03</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Challenge</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Apare o situație care cere efort, decizie, cooperare sau adaptare.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">04</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Create</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Copilul transformă o idee în acțiune: construiește, testează, propune o soluție.</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">05</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Reflect</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Ne oprim: ce s-a întâmplat, ce am simțit, ce iau cu mine?</div></div>
-<div class="card hov" data-fp-flow="" style="background:#16481294;border:1px solid #2b5520;border-radius:8px;padding:18px;"><div class="disp" style="color:var(--orange-2);font-size:34px;font-weight:900;line-height:1;margin-bottom:8px">06</div><div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:5px">Transfer</div><div style="color:#a4b399;font-size:11.5px;line-height:1.5">Unde îmi poate fi util ceea ce am descoperit aici — acasă, la școală, în viața de zi cu zi?</div></div>
-</div>
+<style>
+  #metoda .method-steps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  #metoda .method-card{background:rgba(255,255,255,.025);border:1px solid #2b5520;border-radius:11px;padding:25px 24px 28px;min-width:0;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+  #metoda .method-card:hover{transform:translateY(-2px);border-color:rgba(255,122,31,.45);box-shadow:0 12px 25px rgba(0,0,0,.1)}
+  #metoda .method-number{color:var(--orange-2);font-size:44px;font-weight:900;line-height:1;margin-bottom:14px}
+  #metoda .method-card h3{color:#fff;font-size:clamp(21px,2.6vw,25px);line-height:1.2;margin:0 0 6px;font-weight:700}
+  #metoda .method-en{color:#a4b399;font-size:11px;letter-spacing:2px;font-weight:700;margin-bottom:16px}
+  #metoda .method-card p{color:#a4b399;font-size:14px;line-height:1.7}
+  @media(max-width:760px){#metoda .method-steps-grid{grid-template-columns:1fr;gap:12px}#metoda .method-card{padding:21px 20px 23px}#metoda .method-number{font-size:39px}}
+  @media(prefers-reduced-motion:reduce){#metoda .method-card{transition:none}#metoda .method-card:hover{transform:none}}
+</style>
+<div class="method-steps-grid"><article class="method-card" data-fp-flow=""><div class="method-number disp">01</div><h3 class="disp">Ne conectăm</h3><div class="method-en">CONNECT</div><p>Ne adunăm în cerc. Fiecare spune cum se simte azi, apoi aflăm povestea zilei și regulile de siguranță. Așa începe orice negociere reușită și la fel începe fiecare tură.</p></article>
+<article class="method-card" data-fp-flow=""><div class="method-number disp">02</div><h3 class="disp">Explorăm</h3><div class="method-en">EXPERIENCE</div><p>Pornim prin pădure și descoperim locul cu tot corpul: prin mișcare, descoperire și joacă.</p></article>
+<article class="method-card" data-fp-flow=""><div class="method-number disp">03</div><h3 class="disp">Încercăm</h3><div class="method-en">CHALLENGE</div><p>O provocare adevărată, care nu se rezolvă de unul singur: o direcție de găsit pe hartă, un coleg de dus pe o targă, un mesaj de descifrat.</p></article>
+<article class="method-card" data-fp-flow=""><div class="method-number disp">04</div><h3 class="disp">Construim</h3><div class="method-en">CREATE</div><p>Copiii găsesc o soluție, o încearcă și o ajustează până când funcționează.</p></article>
+<article class="method-card" data-fp-flow=""><div class="method-number disp">05</div><h3 class="disp">Înțelegem</h3><div class="method-en">REFLECT</div><p>Ne oprim și vorbim despre ce a fost greu, ce a mers și ce am simțit. Fiecare alege dacă vrea să vorbească în fața grupului.</p></article>
+<article class="method-card" data-fp-flow=""><div class="method-number disp">06</div><h3 class="disp">Ducem mai departe</h3><div class="method-en">TRANSFER</div><p>Fiecare alege un lucru pe care îl ia cu el acasă.</p></article></div>
 </div>
 </section>
 <!-- CELE 5 DIMENSIUNI -->
