@@ -65,6 +65,35 @@ img{max-width:100%;display:block}
   padding:74px 40px 64px;
   max-width:580px;
 }
+
+/* Fotografia Hero este doar pentru ecrane desktop; pe mobil păstrăm varianta originală. */
+.hero .hero-photo{display:none}
+@media (min-width:1100px){
+  .hero .inner{
+    display:grid;
+    grid-template-columns:minmax(0,550px) minmax(0,1fr);
+    align-items:center;
+    gap:clamp(36px,4vw,68px);
+    width:100%;
+    max-width:1500px;
+    margin:0 auto;
+    padding:62px clamp(40px,4vw,68px) 66px;
+  }
+  .hero .hero-copy{min-width:0}
+  .hero .hero-photo{
+    display:block;
+    min-width:0;
+    width:100%;
+    aspect-ratio:4/3;
+    max-height:580px;
+    border:1px solid rgba(255,255,255,.26);
+    border-radius:18px;
+    background-image:linear-gradient(90deg,rgba(16,56,14,.16),transparent 40%),url("/assets/imagini-homepage/cori-lau-copiicerc.jpg");
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 24px 52px rgba(0,0,0,.28);
+  }
+}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px}
 .eyebrow span.bar{width:26px;height:3px;background:var(--orange);display:inline-block}
 .eyebrow span.tx{color:#ffd9a0;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600}
@@ -777,6 +806,7 @@ body{overflow-x:clip}
 </svg>
 <div class="frame"></div>
 <div class="inner">
+<div class="hero-copy">
 <div class="eyebrow" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:100ms"><span class="bar"></span><span class="tx"><span style="display:block">Dezvoltare personală în natură</span><span style="display:block;margin-top:4px;white-space:nowrap">Copii 7–12 ani · Brașov</span></span></div>
 <h1 class="disp" data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:220ms">Experiențe în natură care îi pregătesc <span style="color:#ff7a1f;font-style:italic">pentru viață.</span></h1>
 <p data-fp-flow="" data-fp-hero="" style=";;--fp-flow-delay:340ms">Activități în aer liber pentru copii de 7–12 ani, în pădurile și pe munții din jurul Brașovului. Prin explorare, mișcare și provocări reale, copiii învață să se descurce singuri, să se adapteze, să-și gestioneze emoțiile și să lucreze în echipă.</p>
@@ -789,6 +819,8 @@ body{overflow-x:clip}
   <div class="hero-proof-item"><strong class="hero-proof-number">2.000+</strong><span>copii alături de noi</span></div>
   <div class="hero-proof-item"><strong class="hero-proof-number">2</strong><span>instructori minimum la fiecare activitate</span></div>
 </div>
+</div>
+<div class="hero-photo" role="img" aria-label="Corina, Laurențiu și copii în cerc, la o activitate Fii Pregătit în natură"></div>
 </div>
 </header>
 <section class="home-philosophy" aria-label="Filozofia Fii Pregătit" data-fp-direction="left" style="background:var(--cream)">
