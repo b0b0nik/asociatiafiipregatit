@@ -10,6 +10,7 @@
 <meta content="Asociația Fii Pregătit · Brașov" property="og:title"/>
 <meta content="Activități outdoor pentru copii de 7–12 ani în Brașov. Siguranță · Sănătate · Educație." property="og:description"/>
 <meta content="website" property="og:type"/>
+<meta content="Asociația Fii Pregătit" property="og:site_name"/>
 <meta content="https://asociatiafiipregatit.ro/" property="og:url"/>
 <meta content="https://asociatiafiipregatit.ro/assets/imagini-share/og-homepage-fii-pregatit-brasov.JPG" property="og:image"/>
 <meta content="image/jpeg" property="og:image:type"/>
@@ -713,6 +714,9 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 <script defer="" src="/copy-public.js"></script>
 <script defer="" src="/protection.js"></script>
 <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://asociatiafiipregatit.ro/#website","name":"Asociația Fii Pregătit","alternateName":["Fii Pregătit","asociatiafiipregatit.ro"],"url":"https://asociatiafiipregatit.ro/","inLanguage":"ro-RO","publisher":{"@id":"https://asociatiafiipregatit.ro/#organization"}}
+</script>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "NGO",
@@ -1125,6 +1129,16 @@ body{overflow-x:clip}
       }
       #cine-suntem .cs-text p{font-size:14.5px}
     }
+    /* Butoanele „mai multe detalii” din cele două carduri: mai mici, fiecare intră separat */
+    #activitati .activity-overview .activity-card-details,.education-card .activity-card-details{min-height:40px;padding:9px 18px;margin-top:18px;gap:9px;font-size:14px;transition:background .2s ease,box-shadow .2s ease,transform .25s ease}
+    #activitati .activity-overview .activity-card-details span,.education-card .activity-card-details span{font-size:18px;transition:transform .25s ease}
+    #activitati .activity-overview:hover .activity-card-details,#activitati .activity-overview:focus-visible .activity-card-details,.education-card:hover .activity-card-details,.education-card:focus-visible .activity-card-details{transform:translateY(-2px)}
+    #activitati .activity-overview:hover .activity-card-details span,#activitati .activity-overview:focus-visible .activity-card-details span,.education-card:hover .activity-card-details span,.education-card:focus-visible .activity-card-details span{transform:translateX(4px)}
+    @media(prefers-reduced-motion:reduce){#activitati .activity-overview .activity-card-details,.education-card .activity-card-details,#activitati .activity-overview .activity-card-details span,.education-card .activity-card-details span{transition:none;transform:none!important}}
+    /* Poza se adaptează la fereastră: ia lățimea coloanei și încape mereu pe ecran */
+    @media(min-width:761px){
+      #cine-suntem .cs-frame{max-width:none;aspect-ratio:auto;height:clamp(340px,calc(100vh - var(--home-nav-height,110px) - 64px),680px)}
+    }
   </style>
 <div class="wrap cs-grid">
 <div class="cs-text" style=";">
@@ -1168,7 +1182,7 @@ body{overflow-x:clip}
 <div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Programele noastre</div><h2 class="t disp" style="color:var(--green-deep);margin-bottom:30px;">Pentru familii, școli și grupuri.</h2></div>
 
 <div class="grid2">
-<a class="card hov activity-overview" data-fp-flow="" href="/activitati-copii-weekend-brasov/" style="background:#fff;border:1px solid #e6e0d2;padding:24px;text-decoration:none;color:inherit"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Program de weekend · Copii 7–12 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Fii Pregătit · din natură, pentru viață</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Program de educație nonformală în natură, doar pentru cei mici: aceiași copii și aceiași instructori, de la o tură la alta. Copiii au un trib unit și stabil, iar voi, o comunitate de părinți. Aici lucrăm autonomia, curajul și deciziile bune în neprevăzut. Copiii sunt aduși și preluați de părinți la punctul de întâlnire.</div><span class="activity-card-details">mai multe detalii <span aria-hidden="true">→</span></span></div><div class="activity-overview-media"><img alt="Copii explorând pădurea" loading="lazy" decoding="async" src="/assets/imagini-homepage/program-weekend-copii-brasov.webp"/></div></a>
+<a class="card hov activity-overview" data-fp-flow="" href="/activitati-copii-weekend-brasov/" style="background:#fff;border:1px solid #e6e0d2;padding:24px;text-decoration:none;color:inherit"><div class="activity-overview-copy"><div style="color:var(--orange);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px">Program de weekend · Copii 7–12 ani</div><h3 class="disp" style="color:var(--green-deep);font-weight:600;font-size:19px;margin-bottom:8px">Fii Pregătit · din natură, pentru viață</h3><div style="color:#5a624c;font-size:12.5px;line-height:1.65">Program de educație nonformală în natură, doar pentru cei mici: aceiași copii și aceiași instructori, de la o tură la alta. Copiii au un trib unit și stabil, iar voi, o comunitate de părinți. Aici lucrăm autonomia, curajul și deciziile bune în neprevăzut. Copiii sunt aduși și preluați de părinți la punctul de întâlnire.</div><span class="activity-card-details" data-fp-flow="" style="--fp-flow-delay:320ms">mai multe detalii <span aria-hidden="true">→</span></span></div><div class="activity-overview-media"><img alt="Copii explorând pădurea" loading="lazy" decoding="async" src="/assets/imagini-homepage/program-weekend-copii-brasov.webp"/></div></a>
 <a class="card hov activity-link-card education-card" data-fp-flow="" href="/propunere-activitati/" style=";">
 <div class="education-card-copy">
 <div class="education-card-kicker">ȘCOLI · AFTER-SCHOOL-URI · CENTRE EDUCAȚIONALE · TABERE · GRUPURI ORGANIZATE</div>
@@ -1178,7 +1192,7 @@ body{overflow-x:clip}
 <p>Experiența devine învățare atunci când copilul înțelege ce a trăit și poate duce mai departe ceea ce a descoperit.</p>
 <p>Educația pentru viață nu se învață doar din cărți. Unele lucruri trebuie trăite.</p>
 </div>
-<span class="activity-card-details">mai multe detalii <span aria-hidden="true">→</span></span>
+<span class="activity-card-details" data-fp-flow="" style="--fp-flow-delay:320ms">mai multe detalii <span aria-hidden="true">→</span></span>
 </div>
 <div class="education-card-media"><img alt="Copii descoperind împreună peisajul montan" class="education-card-photo" loading="lazy" src="/assets/imagini-homepage/scoli-saptamana-verde-scoala-altfel.webp"/></div>
 </a>
