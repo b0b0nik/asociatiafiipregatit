@@ -129,3 +129,23 @@ body:has(.home-pillars) {
   .page-nav .page-nav-link:focus-visible,
   .page-nav .page-nav-link:active {transform:none}
 }
+
+/* Use the site green for the wooded landscape and retain depth between the ridges. */
+#top .bg #sky stop:first-child {
+  stop-color:var(--green-background);
+}
+#top .bg #sky stop:nth-child(2) {
+  stop-color:color-mix(in srgb, var(--green-background) 92%, white);
+}
+#top .bg [fill="#173a10"] {
+  fill:color-mix(in srgb, var(--green-background) 96%, white);
+}
+#top .bg [fill="#10380e"] {
+  fill:var(--green-background);
+}
+#top .bg [fill="#0c2c0a"] {
+  fill:color-mix(in srgb, var(--green-background) 82%, black);
+}
+#top .bg [fill="#071c07"] {
+  fill:color-mix(in srgb, var(--green-background) 56%, black);
+}
