@@ -1125,6 +1125,10 @@ body{overflow-x:clip}
       }
       #cine-suntem .cs-text p{font-size:14.5px}
     }
+    /* Poza se adaptează la fereastră: ia lățimea coloanei și încape mereu pe ecran */
+    @media(min-width:761px){
+      #cine-suntem .cs-frame{max-width:none;aspect-ratio:auto;height:clamp(340px,calc(100vh - var(--home-nav-height,110px) - 64px),680px)}
+    }
   </style>
 <div class="wrap cs-grid">
 <div class="cs-text" style=";">
