@@ -448,7 +448,7 @@
         display:flex;
         align-items:center;
         gap:7px;
-        background:#1b340c;
+        background:var(--green-background);
         color:#fff;
         border:1px solid rgba(255,255,255,.2);
         border-radius:999px;

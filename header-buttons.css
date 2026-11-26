@@ -1,3 +1,8 @@
+:root {
+  --green-background-rgb:23 48 26;
+  --green-background:rgb(var(--green-background-rgb));
+}
+
 /* Shared appearance for navigation buttons across all site pages. */
 .nav .navlink,
 .nav .nav-cta,
