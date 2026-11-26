@@ -461,7 +461,7 @@
       }
 
       #afpCookiePreferences:hover{
-        background:#10380e;
+        border-color:#ff7a1f;
       }
 
       #afpCookiePreferences i{
