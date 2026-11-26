@@ -373,6 +373,65 @@ canvas{cursor:crosshair;touch-action:none;display:block}
   transform:translateY(-3px) scale(1.03);
   box-shadow:0 18px 34px rgba(255,85,2,.34);
 }
+/* Buton YouTube imn: luciu periodic + hover */
+.anthem-yt{
+  position:relative;
+  overflow:hidden;
+  background:var(--green-deep);
+  color:#fff;
+  font-size:13px;
+  font-weight:500;
+  padding:11px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 6px 16px rgba(27,52,12,.18);
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.anthem-yt::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-75%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-20deg);
+  animation:anthemYtShine 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.anthem-yt .ti{
+  font-size:17px;
+  transition:transform .25s ease;
+}
+.anthem-yt:hover,
+.anthem-yt:focus-visible{
+  background:var(--orange);
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(255,85,2,.35);
+}
+.anthem-yt:hover .ti,
+.anthem-yt:focus-visible .ti{
+  animation:anthemYtWiggle .5s ease;
+  transform:scale(1.2);
+}
+.anthem-yt:focus-visible{
+  outline:2px solid var(--orange-2);
+  outline-offset:3px;
+}
+@keyframes anthemYtShine{
+  0%{left:-75%}
+  22%{left:130%}
+  100%{left:130%}
+}
+@keyframes anthemYtWiggle{
+  0%{transform:scale(1.2) rotate(0)}
+  30%{transform:scale(1.2) rotate(-12deg)}
+  60%{transform:scale(1.2) rotate(10deg)}
+  100%{transform:scale(1.2) rotate(0)}
+}
 
 .anthem-play:active{
   transform:scale(.96);
@@ -1218,7 +1277,7 @@ Multumim pentru tot,revenim cu drag!</p>
 </div>
 </div>
 <div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a href="https://www.youtube.com/watch?v=vqXyhVFyDtM" rel="noopener" style="background:var(--green-deep);color:#fff;font-size:13px;font-weight:500;padding:11px 18px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:7px" target="_blank">
+<a class="anthem-yt" href="https://www.youtube.com/watch?v=vqXyhVFyDtM" rel="noopener" target="_blank">
 <i aria-hidden="true" class="ti ti-brand-youtube"></i>
         YouTube
       </a>
