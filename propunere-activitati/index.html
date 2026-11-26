@@ -316,11 +316,15 @@ body{overflow-x:clip}
 @media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
-</style><style>.reviews-viewport,.reviews-track{overflow-anchor:none}.reviews-track{will-change:transform;transition:none}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}</style><style id="fp-feedback-once">#feedback-mesaje .reviews-track{flex-direction:row-reverse}#feedback-mesaje .reviews-viewport{scroll-behavior:auto;overflow-anchor:none}#feedback-mesaje .feedback-image-card{flex-shrink:0}</style></head>
+</style><style>.reviews-viewport,.reviews-track{overflow-anchor:none}.reviews-track{will-change:transform;transition:none}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}</style><style id="fp-feedback-once">#feedback-mesaje .reviews-track{flex-direction:row-reverse}#feedback-mesaje .reviews-viewport{scroll-behavior:auto;overflow-anchor:none}#feedback-mesaje .feedback-image-card{flex-shrink:0}</style><style>/* Butonul „Articole”: în meniul de sus pe ecrane late, în panoul „Explorează pagina” pe telefon */
+.page-menu-links a.menu-articole{display:none}
+@media(max-width:640px){.page-nav .page-nav-link.nav-articole{display:none!important}.page-menu-links a.menu-articole{display:block;color:var(--orange)}}
+</style>
+</head>
 <body id="sus"><nav aria-label="Navigare principală" class="page-nav">
 <a aria-label="Asociația Fii Pregătit — Acasă" class="page-nav-brand" href="/"><img alt="Asociația Fii Pregătit" src="/assets/imagini-site/LOGO-OFFICIAL.png"/></a>
 <div class="page-nav-actions">
-<a class="page-nav-link" href="/">Acasă</a>
+<a class="page-nav-link" href="/">Acasă</a> <a class="page-nav-link nav-articole" href="/articole/">Articole</a>
 <button aria-controls="page-menu" aria-expanded="false" aria-haspopup="dialog" class="page-nav-link page-menu-toggle" type="button">Explorează pagina <span aria-hidden="true">☰</span></button>
 </div>
 </nav>
@@ -337,6 +341,7 @@ body{overflow-x:clip}
 <a href="#siguranta">Siguranță</a>
 <a href="#feedback">Feedback</a>
 <a href="#oferta">Ofertă și contact</a>
+<a class="menu-articole" href="/articole/">Articole educative →</a>
 </nav>
 </dialog>
 <header class="hero">

@@ -36,7 +36,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"FAQPage","@id":"https://asociatiafiipregatit.ro/ghid-echipament/#intrebari","url":"https://asociatiafiipregatit.ro/ghid-echipament/","inLanguage":"ro-RO","isPartOf":{"@id":"https://asociatiafiipregatit.ro/#website"},"publisher":{"@id":"https://asociatiafiipregatit.ro/#organization"},"mainEntity":[{"@type":"Question","name":"Trebuie să cumpăr echipament scump?","acceptedAnswer":{"@type":"Answer","text":"Nu. Porniți cu ce aveți acasă. Cel mai mult contează încălțămintea potrivită și o geacă de ploaie, iar restul se adaugă treptat, pe măsură ce copilul descoperă ce îi trebuie."}},{"@type":"Question","name":"Ce se întâmplă dacă plouă?","acceptedAnswer":{"@type":"Answer","text":"Protecția de ploaie e pe listă tocmai pentru că vremea se poate schimba pe traseu. Ieșim doar când vremea ne permite: dacă ploaia sau alte situații pun siguranța în pericol, modificăm traseul ori amânăm tura și vă anunțăm din timp."}},{"@type":"Question","name":"Cât de greu ar trebui să fie rucsacul?","acceptedAnswer":{"@type":"Answer","text":"Cât mai ușor. Pentru ghiozdanele de școală, medicii și kinetoterapeuții recomandă maximum 10–20% din greutatea copilului. Pe traseu, unde rucsacul e purtat ore întregi, cu cât e mai ușor, cu atât mai bine. Copilul ia doar ce îi trebuie pentru tura respectivă: apă, gustare, haine de schimb și protecție după vreme."}}]},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Acasă","item":"https://asociatiafiipregatit.ro/"},{"@type":"ListItem","position":2,"name":"Ghid de echipament","item":"https://asociatiafiipregatit.ro/ghid-echipament/"}]}
+{"@type":"Article","@id":"https://asociatiafiipregatit.ro/ghid-echipament/#articol","headline":"Echipamentul copilului, pentru fiecare anotimp","url":"https://asociatiafiipregatit.ro/ghid-echipament/","image":"https://asociatiafiipregatit.ro/assets/imagini-share/og-ghid-echipament-copii-natura.jpg","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"ro-RO","articleSection":"Educație montană","author":{"@id":"https://asociatiafiipregatit.ro/#organization"},"publisher":{"@id":"https://asociatiafiipregatit.ro/#organization"},"mainEntityOfPage":"https://asociatiafiipregatit.ro/ghid-echipament/","isPartOf":{"@id":"https://asociatiafiipregatit.ro/articole/#pagina"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Acasă","item":"https://asociatiafiipregatit.ro/"},{"@type":"ListItem","position":2,"name":"Articole educative","item":"https://asociatiafiipregatit.ro/articole/"},{"@type":"ListItem","position":3,"name":"Ghid de echipament","item":"https://asociatiafiipregatit.ro/ghid-echipament/"}]}
 ]}
 </script>
 <style>[hidden]{display:none!important}
@@ -518,8 +519,8 @@ body{overflow-x:clip}
 .layers>div{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
 @media(hover:hover) and (pointer:fine){.layers>div:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 16px 32px rgba(0,0,0,.16)}}
 /* Butonul spre pagina de weekend: în meniul de sus pe ecrane late, în panoul „Explorează pagina” pe telefon */
-.page-menu-links a.menu-weekend{display:none}
-@media(max-width:640px){.page-nav .page-nav-link.nav-weekend{display:none!important}.page-menu-links a.menu-weekend{display:block;color:var(--orange)}}
+.page-menu-links a.menu-weekend,.page-menu-links a.menu-articole{display:none}
+@media(max-width:640px){.page-nav .page-nav-link.nav-weekend,.page-nav .page-nav-link.nav-articole{display:none!important}.page-menu-links a.menu-weekend,.page-menu-links a.menu-articole{display:block;color:var(--orange)}}
 /* Butoanele portocalii: se ridică și strălucesc ușor la trecerea cu mouse-ul */
 .btn.p{transition:background .2s ease,transform .22s ease,box-shadow .22s ease}
 @media(hover:hover) and (pointer:fine){.btn.p:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(255,90,0,.32)}}
@@ -577,6 +578,7 @@ body>*:not(#rucsac){display:none!important}
 <div class="page-nav-actions">
 <a class="page-nav-link" href="/">Acasă</a>
 <a class="page-nav-link nav-weekend" href="/activitati-copii-weekend-brasov/">Activități de weekend</a>
+<a class="page-nav-link nav-articole" href="/articole/">Articole</a>
 <button aria-controls="page-menu" aria-expanded="false" aria-haspopup="dialog" class="page-nav-link page-menu-toggle" type="button">Explorează pagina <span aria-hidden="true">☰</span></button>
 </div>
 </nav>
@@ -593,6 +595,7 @@ body>*:not(#rucsac){display:none!important}
 <a href="#intrebari">Întrebări frecvente</a>
 <a href="#contact">Mai aveți întrebări?</a>
 <a class="menu-weekend" href="/activitati-copii-weekend-brasov/">Activități de weekend →</a>
+<a class="menu-articole" href="/articole/">Articole educative →</a>
 </nav>
 </dialog>
 <header class="hero2">
