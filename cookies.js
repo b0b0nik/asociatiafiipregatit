@@ -196,6 +196,37 @@
     document.body.appendChild(button);
   }
 
+  /* După alegere nu mai rămâne niciun buton plutitor: alegerea se poate schimba
+     oricând din linkul „Preferințe cookie” din subsolul fiecărei pagini. */
+  function addFooterSettingsLink() {
+    if (document.getElementById("afpCookieSettings")) return;
+
+    const policyLink = document.querySelector('footer a[href="/cookies/"]');
+
+    if (!policyLink) {
+      addPreferencesButton();
+      return;
+    }
+
+    const look = window.getComputedStyle(policyLink);
+    const button = document.createElement("button");
+
+    button.id = "afpCookieSettings";
+    button.type = "button";
+    button.textContent = "Preferințe cookie";
+    button.style.cssText =
+      "font:inherit;font-size:" + look.fontSize + ";color:" + look.color +
+      ";background:none;border:0;padding:0;margin:0;cursor:pointer;text-decoration:none";
+
+    button.addEventListener("click", function () {
+      deleteCookie(COOKIE_NAME);
+      withdrawAnalytics();
+      showBanner();
+    });
+
+    policyLink.insertAdjacentElement("afterend", button);
+  }
+
   function addSocialButtons() {
     if (document.getElementById("afpSocialDock")) return;
 
@@ -586,7 +617,7 @@
       showBanner();
     }
 
-    addPreferencesButton();
+    addFooterSettingsLink();
     addSocialButtons();
   }
 
