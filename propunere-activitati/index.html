@@ -311,10 +311,10 @@ body.page-menu-open{overflow:hidden}
 <!-- Publication refresh: approved layout 2026-10-08. -->
 <style id="fp-calm-motion">
 html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-24px 0}
-html.fp-motion-ready [data-fp-hero]{translate:-40px 0}
+html.fp-motion-ready [data-fp-hero]{opacity:1;translate:none;transition:none}
 html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 body{overflow-x:clip}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:none}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 </style><style>.reviews-viewport,.reviews-track{overflow-anchor:none}.reviews-track{will-change:transform;transition:none}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}</style><style id="fp-feedback-once">#feedback-mesaje .reviews-track{flex-direction:row-reverse}#feedback-mesaje .reviews-viewport{scroll-behavior:auto;overflow-anchor:none}#feedback-mesaje .feedback-image-card{flex-shrink:0}</style><style>/* Butonul „Articole” e vizibil în meniul de sus pe toate ecranele; pe telefon „Explorează pagina” rămâne doar ☰ */
@@ -1183,6 +1183,7 @@ Multumim pentru tot,revenim cu drag!</p>
     const el=entry.target;observer.unobserve(el);
     if(el.classList.contains("fp-flow-visible"))return;
     el.classList.add("fp-flow-visible");
+    if(el.hasAttribute("data-fp-hero"))return; /* primul ecran apare direct, fără animație */
     const hero=el.hasAttribute("data-fp-hero"),distance=hero?(mobile.matches?24:40):(mobile.matches?16:24);
     const delay=parseFloat(getComputedStyle(el).getPropertyValue("--fp-flow-delay"))||0;
     const animation=el.animate([{opacity:0,translate:-distance+"px 0"},{opacity:1,translate:"0px 0px"}],
