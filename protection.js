@@ -71,7 +71,7 @@
   const protectImages = () => {
     document.querySelectorAll("img").forEach((image) => {
       const source = image.currentSrc || image.getAttribute("src") || "";
-      if (/logo|patch/i.test(source) || image.classList.contains("afp-watermark") || image.closest(".afp-protected-image")) return;
+      if (/logo|patch/i.test(source) || image.hasAttribute("data-fara-filigran") || image.classList.contains("afp-watermark") || image.closest(".afp-protected-image")) return;
 
       const anchor = image.closest("a");
       if (anchor && /\.(?:jpe?g|png|webp|gif|avif)(?:[?#].*)?$/i.test(anchor.getAttribute("href") || "")) {
