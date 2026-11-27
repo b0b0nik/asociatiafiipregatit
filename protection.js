@@ -1,8 +1,6 @@
 (function () {
   "use strict";
 
-  const allowTextCopy = ["/", "/index.html", "/propunere-activitati", "/propunere-activitati/", "/propunere-activitati/index.html"].includes(window.location.pathname);
-
   const isEditable = (target) => target && target.closest("input, textarea, select, [contenteditable='true']");
 
   const publicArea = node => {
@@ -14,7 +12,7 @@
     return !!(selection && !selection.isCollapsed &&
       publicArea(selection.anchorNode) && publicArea(selection.focusNode));
   };
-  const canCopy = event => allowTextCopy || isEditable(event.target) || publicArea(event.target) || publicSelection();
+  const canCopy = event => isEditable(event.target) || publicArea(event.target) || publicSelection();
   document.addEventListener("contextmenu", event => {
     if (!canCopy(event)) event.preventDefault();
   });
@@ -39,11 +37,11 @@
 
   const style = document.createElement("style");
   style.textContent = `
-    ${allowTextCopy ? "" : `html, body, body *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+    html, body, body *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
       -webkit-user-select: none;
       user-select: none;
       -webkit-touch-callout: none;
-    }`}
+    }
     body footer, body footer *, body [data-afp-public], body [data-afp-public] *,
     body a[href^="tel:"], body a[href^="mailto:"] {
       -webkit-user-select: text !important; user-select: text !important;
