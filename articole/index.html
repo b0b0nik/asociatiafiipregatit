@@ -495,10 +495,10 @@ footer a{color:inherit}
 @media(max-width:800px){.footer-grid{grid-template-columns:1fr}.footer-contact{text-align:left}.footer-links{padding-right:0}footer{padding:38px 22px 85px}}
 /* Animații calme la derulare, ca pe homepage */
 html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-24px 0}
-html.fp-motion-ready [data-fp-hero]{translate:-40px 0}
+html.fp-motion-ready [data-fp-hero]{opacity:1;translate:none;transition:none}
 html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 body{overflow-x:clip}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:none}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}.page-nav,.page-menu,footer{display:none!important}}
 /* Titlul din hero ca pe homepage: a doua parte pe rând separat, mai mică */
@@ -754,6 +754,7 @@ body>*:not(#rucsac){display:none!important}
     const el=entry.target;observer.unobserve(el);
     if(el.classList.contains("fp-flow-visible"))return;
     el.classList.add("fp-flow-visible");
+    if(el.hasAttribute("data-fp-hero"))return; /* primul ecran apare direct, fără animație */
     const hero=el.hasAttribute("data-fp-hero"),distance=hero?(mobile.matches?24:40):(mobile.matches?16:24);
     const delay=parseFloat(getComputedStyle(el).getPropertyValue("--fp-flow-delay"))||0;
     const animation=el.animate([{opacity:0,translate:-distance+"px 0"},{opacity:1,translate:"0px 0px"}],

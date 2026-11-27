@@ -943,10 +943,10 @@ section[id],#recenzii,header[id]{scroll-margin-top:calc(var(--home-nav-height,11
 
 <style id="fp-reviews-smooth">#recenzii .reviews-viewport,#recenzii .reviews-track{overflow-anchor:none}#recenzii .reviews-track{will-change:transform;transition:none}</style><style id="fp-calm-motion">
 html.fp-motion-ready [data-fp-flow]{opacity:0;translate:-24px 0}
-html.fp-motion-ready [data-fp-hero]{translate:-40px 0}
+html.fp-motion-ready [data-fp-hero]{opacity:1;translate:none;transition:none}
 html.fp-motion-ready [data-fp-flow].fp-flow-visible{opacity:1;translate:0 0}
 body{overflow-x:clip}
-@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:-24px 0}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
+@media(max-width:760px){html.fp-motion-ready [data-fp-flow]{translate:-16px 0}html.fp-motion-ready [data-fp-hero]{translate:none}html.fp-motion-ready [data-fp-flow].fp-flow-visible{translate:0 0}}
 @media(prefers-reduced-motion:reduce){html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 @media print{html.fp-motion-ready [data-fp-flow]{opacity:1;translate:none}}
 
@@ -1629,6 +1629,7 @@ Se vede că fac totul cu mult suflet și că le pasă cu adevărat de copii. Mă
     const el=entry.target;observer.unobserve(el);
     if(el.classList.contains("fp-flow-visible"))return;
     el.classList.add("fp-flow-visible");
+    if(el.hasAttribute("data-fp-hero"))return; /* primul ecran apare direct, fără animație */
     const hero=el.hasAttribute("data-fp-hero"),distance=hero?(mobile.matches?24:40):(mobile.matches?16:24);
     const delay=parseFloat(getComputedStyle(el).getPropertyValue("--fp-flow-delay"))||0;
     const animation=el.animate([{opacity:0,translate:-distance+"px 0"},{opacity:1,translate:"0px 0px"}],
