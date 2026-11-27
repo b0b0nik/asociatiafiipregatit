@@ -578,6 +578,8 @@ body>*:not(#rucsac){display:none!important}
 @media(max-width:640px){.page-nav .page-nav-link.nav-weekend{display:none!important}}
 .blog-hero{min-height:auto!important;background:radial-gradient(120% 90% at 85% 10%,#24452a 0%,var(--forest) 55%,#0E1F10 100%)}
 .blog-hero:after{display:none!important}
+/* Cercul portocaliu din colț, ca pe paginile Regulament și Documente; se mărește odată cu fereastra */
+.blog-hero::before{content:"";position:absolute;right:calc(clamp(240px,26vw,460px) * -.25);bottom:calc(clamp(240px,26vw,460px) * -.33);width:clamp(240px,26vw,460px);height:clamp(240px,26vw,460px);border-radius:50%;background:rgba(255,85,2,.22);pointer-events:none;z-index:0}
 .blog-hero .wrap{padding-block:clamp(70px,10vw,120px) clamp(48px,7vw,80px)}
 @media(max-width:640px){.blog-hero p{font-size:16px;line-height:1.6;margin-top:18px}}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 6px}
