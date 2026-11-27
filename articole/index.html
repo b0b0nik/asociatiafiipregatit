@@ -596,6 +596,18 @@ body>*:not(#rucsac){display:none!important}
 @media(min-width:900px){.post-mare{grid-column:1/-1}.post-mare .post-link{display:grid;grid-template-columns:1.15fr 1fr}.post-mare .post-img{aspect-ratio:auto;min-height:100%}.post-mare .post-body{padding:clamp(28px,3.5vw,48px);justify-content:center}.post-mare .post-title{font-size:clamp(28px,3vw,40px)}}
 .posts-empty{margin-top:20px;color:var(--mute)}
 @media(prefers-reduced-motion:reduce){.post-link,.post-img img:not(.afp-watermark),.post-cta span{transition:none}.post-link:hover{transform:none}.post-link:hover .post-img img:not(.afp-watermark){transform:none}}
+.sug-lead{max-width:56ch;margin:14px auto 0;color:var(--onf2)}
+.sug-form{max-width:560px;margin:26px auto 0;text-align:left}
+.sug-label{display:block;font-size:14px;font-weight:600;color:var(--onf);margin-bottom:8px}
+.sug-form textarea{display:block;width:100%;min-height:96px;border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:13px 15px;font:inherit;font-size:16px;line-height:1.5;color:#22301a;background:#fff;resize:vertical}
+.sug-form textarea:focus{outline:3px solid var(--orange);outline-offset:2px}
+.sug-form .btn{display:flex;justify-content:center;width:100%;margin-top:14px;border:0;cursor:pointer;font-family:inherit}
+.sug-form .btn:disabled{opacity:.7;cursor:wait}
+.sug-note{margin-top:12px;font-size:13px;color:var(--onf2);text-align:center}
+.sug-note a{color:#fff;text-decoration:underline}
+.sug-status{margin-top:12px;font-weight:600;color:#fff;text-align:center}
+.sug-status:empty{display:none}
+.sug-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 </style>
 <nav aria-label="Navigare principală" class="page-nav">
 <a aria-label="Asociația Fii Pregătit — Acasă" class="page-nav-brand" href="/"><img alt="Asociația Fii Pregătit" src="/assets/imagini-site/LOGO-OFFICIAL.png"/></a>
@@ -634,13 +646,18 @@ body>*:not(#rucsac){display:none!important}
   <p class="posts-empty" hidden>Încă nu avem articole în această categorie.</p>
 </div></section>
 
-<section class="band fo center" id="contact"><div class="wrap">
-  <div data-fp-flow="" class="eb c">Aveți o întrebare?</div>
-  <h2 data-fp-flow="">Scrieți-ne despre ce ați vrea să citiți.</h2>
-  <div data-fp-flow="" class="btns" style="justify-content:center;margin-top:24px">
-    <a class="btn p" href="https://wa.me/40745482705" target="_blank" rel="noopener">Scrieți-ne pe WhatsApp</a>
-    <a class="btn p" href="/activitati-copii-weekend-brasov/">Despre programul Fii Pregătit</a>
-  </div>
+<section class="band fo center" id="sugestii"><div class="wrap">
+  <div data-fp-flow="" class="eb c">Ce ați vrea să citiți?</div>
+  <h2 data-fp-flow="">Spuneți-ne despre ce să scriem.</h2>
+  <p data-fp-flow="" class="sug-lead">Citim fiecare sugestie și alegem din ele subiectele următoarelor articole. Nu aveți nevoie de nume sau de e-mail.</p>
+  <form data-fp-flow="" class="sug-form" id="sugestieForm">
+    <label class="sug-label" for="sugestie">Subiectul care vă interesează</label>
+    <textarea id="sugestie" maxlength="1000" minlength="5" name="sugestie" placeholder="De exemplu: ce gustări punem în rucsac pentru o zi întreagă pe munte" required="" rows="3"></textarea>
+    <label aria-hidden="true" class="sug-trap">Website<input autocomplete="off" name="website" tabindex="-1"/></label>
+    <button class="btn p" type="submit">Trimite sugestia →</button>
+    <p class="sug-note">Vă rugăm să nu scrieți date personale. <a href="/confidentialitate/">Politica de confidențialitate</a></p>
+    <p aria-live="polite" class="sug-status" id="sugestieStatus" role="status"></p>
+  </form>
 </div></section>
 
 <footer id="jos">
@@ -678,6 +695,34 @@ body>*:not(#rucsac){display:none!important}
     ps.forEach(function(p){var ok=c==='toate'||p.dataset.cat===c;p.hidden=!ok;if(ok)n++});
     gol.hidden=n>0;
   })});
+})();
+</script>
+<script>
+(function(){
+  var URL_SUGESTII = "";
+  var f=document.getElementById('sugestieForm'); if(!f) return;
+  var st=document.getElementById('sugestieStatus'), b=f.querySelector('button'), rid='', prev='';
+  function id(){return window.crypto&&crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(16).slice(2)}
+  f.addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    if(!f.reportValidity()||b.disabled) return;
+    if(!URL_SUGESTII){st.textContent='Formularul va funcționa după publicare.';return;}
+    var d={type:'sugestie', sugestie:f.sugestie.value.trim(), website:f.website.value};
+    var fp=JSON.stringify(d); if(fp!==prev){rid=id();prev=fp;}
+    d.requestId=rid;
+    b.disabled=true; b.textContent='Se trimite…'; st.textContent='';
+    var c=new AbortController(), t=setTimeout(function(){c.abort()},30000);
+    try{
+      var r=await fetch(URL_SUGESTII,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),signal:c.signal});
+      var j=await r.json();
+      if(!r.ok||!j.success) throw new Error(j.error||'Sugestia nu a putut fi trimisă.');
+      st.textContent='Mulțumim! Am primit sugestia dumneavoastră. 💚';
+      if(window.afpTrackEvent) window.afpTrackEvent('article_suggestion',{source_page:'articole'});
+      f.reset(); prev=''; rid='';
+    }catch(e){
+      st.textContent=(e.name==='AbortError'||e.message==='Failed to fetch')?'Nu am putut confirma trimiterea. Încercați din nou peste câteva momente.':e.message;
+    }finally{clearTimeout(t); b.disabled=false; b.textContent='Trimite sugestia →';}
+  });
 })();
 </script>
 <script>
