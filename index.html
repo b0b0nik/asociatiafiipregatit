@@ -710,7 +710,7 @@ canvas{cursor:crosshair;touch-action:none;display:block}
 }
 
 </style>
-<script defer="" src="/cookies.js"></script>
+<script defer="" src="/cookies.js?v=3"></script>
 <script defer="" src="/analytics.js"></script>
 <script defer="" src="/copy-public.js"></script>
 <script defer="" src="/protection.js"></script>
@@ -962,24 +962,29 @@ body{overflow-x:clip}
 @media(max-width:360px){.nav .nav-links-wrap{gap:4px}.nav .nav-links-wrap .navlink{font-size:10px;padding:8px 3px}}
 </style>
 <style>:where(img[width][height]){width:auto;height:auto}</style>
-<link href="/butoane-evidentiate.css?v=5" rel="stylesheet"/>
+<link href="/butoane-evidentiate.css?v=7" rel="stylesheet"/>
 <style id="afp-alege-css">
-#activitati .afp-alege{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,2.4vw,24px)}
-.afp-alege-box{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e0d2;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-.afp-alege-box:hover,.afp-alege-box:focus-visible{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 14px 28px rgba(23,48,26,.12)}
+#activitati .afp-alege{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto 1fr auto;column-gap:clamp(10px,2.4vw,24px);row-gap:0;--pad:clamp(12px,2.4vw,24px)}
+.afp-alege-box{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;background:#fff;border:1px solid #e6e0d2;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+@media(hover:hover){.afp-alege-box:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 14px 28px rgba(23,48,26,.12)}}
 .afp-alege-box:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 .afp-alege-media{display:block;position:relative;overflow:hidden;aspect-ratio:16/9;background:#fff}
 .afp-alege-media .afp-protected-image{position:absolute!important;inset:0}
 .afp-alege-media img:not(.afp-watermark){position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:contain;padding:8px}
-.afp-alege-copy{display:flex;flex-direction:column;gap:8px;padding:clamp(12px,2.4vw,24px);flex:1}
-.afp-alege-kicker{color:#c24000;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;line-height:1.4}
-.afp-alege-title{font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-weight:600;font-size:clamp(17px,2.2vw,25px);line-height:1.2}
-.afp-alege-desc{color:#5a624c;font-size:13.5px;line-height:1.65}
-.afp-alege-p{display:block}.afp-alege-p+.afp-alege-p{margin-top:8px}
-.afp-alege-cta{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:15px;padding:10px 16px;border-radius:7px}
-@media(max-width:760px){.afp-alege-media{aspect-ratio:4/3}.afp-alege-desc{display:none}.afp-alege-kicker{font-size:10px;letter-spacing:.6px}.afp-alege-cta{align-self:stretch;justify-content:center;font-size:13px;padding:9px 8px}}
+.afp-alege-kicker{display:block;padding:var(--pad) var(--pad) 8px;color:#c24000;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;line-height:1.5}
+.afp-nowrap{white-space:nowrap}
+.afp-alege-title{display:block;padding:0 var(--pad) 10px;font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-weight:600;font-size:clamp(17px,2.2vw,25px);line-height:1.2}
+.afp-alege-desc{display:block;padding:0 var(--pad) 16px;color:#5a624c;font-size:13.5px;line-height:1.65}
+.afp-alege-p{display:block}
+.afp-alege-cta{align-self:end;justify-self:start;margin:0 var(--pad) var(--pad);display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:15px;padding:10px 16px;border-radius:7px}
+@media(max-width:760px){.afp-alege-media{aspect-ratio:4/3}.afp-alege-kicker{font-size:10px;letter-spacing:.6px}.afp-alege-desc{font-size:12.5px;line-height:1.6}.afp-alege-cta{justify-self:stretch;justify-content:center;font-size:13px;padding:9px 8px}}
 @media(prefers-reduced-motion:reduce){.afp-alege-box{transition:none}.afp-alege-box:hover{transform:none}}
+/* Poza din partea de sus: pe ecranele înguste apare sub cifre, în interiorul ramei */
+@media(min-width:900px) and (max-width:1099.98px){.hero .inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:32px;width:100%;max-width:none;padding:62px 40px 66px}.hero .hero-copy{min-width:0}.hero .hero-photo{margin-top:0!important}}
+@media(max-width:1099.98px){.hero .hero-photo{display:block;width:100%;aspect-ratio:4/3;margin-top:28px;border:1px solid rgba(255,255,255,.26);border-radius:16px;background:linear-gradient(90deg,rgba(23,48,26,.16),transparent 40%),url("/assets/imagini-homepage/hero-copii-natura-brasov-1400.webp") center/cover no-repeat;box-shadow:0 18px 40px rgba(0,0,0,.25)}}
+@media(max-width:600px){.hero .hero-photo{background-image:linear-gradient(90deg,rgba(23,48,26,.16),transparent 40%),url("/assets/imagini-homepage/hero-copii-natura-brasov-800.webp")}}
 </style>
+<script defer src="/meniu.js?v=2"></script>
 </head>
 <body>
 <!-- NAV -->
@@ -1204,26 +1209,22 @@ body{overflow-x:clip}
 <!-- ACTIVITATI -->
 <section class="sec" data-fp-direction="left" id="activitati" style="background:var(--cream-2)">
 <div class="wrap">
-<div class="fp-reading-intro" data-fp-flow=""><div class="eb" style=";">Activitățile noastre</div><h2 class="t disp" style="color:var(--green-deep);margin-bottom:30px;">Pentru familii, școli și grupuri.</h2></div>
+<div class="fp-reading-intro" data-fp-flow="" style="margin-bottom:22px"><div class="eb" style=";">Activitățile noastre</div></div>
 
 <div class="afp-alege">
 <a class="afp-alege-box" data-fp-flow="" href="/activitati-copii-weekend-brasov/">
 <span class="afp-alege-media"><img alt="Copii explorând pădurea" data-fara-filigran="" loading="lazy" decoding="async" src="/assets/imagini-homepage/program-weekend-copii-brasov-600.webp" width="600" height="608"/></span>
-<span class="afp-alege-copy">
-<span class="afp-alege-kicker">Program de weekend · Copii 7–12 ani</span>
+<span class="afp-alege-kicker">Program de weekend&nbsp;· Copii 7–12 ani</span>
 <span class="afp-alege-title">Fii Pregătit · din natură, pentru viață</span>
 <span class="afp-alege-desc">Program de educație nonformală în natură, doar pentru cei mici: aceiași copii și aceiași instructori, de la o tură la alta. Copiii au un trib unit și stabil, iar voi, o comunitate de părinți. Aici lucrăm autonomia, curajul și deciziile bune în neprevăzut. Copiii sunt aduși și preluați de părinți la punctul de întâlnire.</span>
 <span class="afp-alege-cta">Vezi detalii <span aria-hidden="true">→</span></span>
-</span>
 </a>
 <a class="afp-alege-box" data-fp-flow="" href="/propunere-activitati/" style="--fp-flow-delay:120ms">
 <span class="afp-alege-media"><img alt="Copii descoperind împreună peisajul montan" data-fara-filigran="" loading="lazy" decoding="async" src="/assets/imagini-homepage/scoli-saptamana-verde-scoala-altfel-900.webp" width="900" height="600"/></span>
-<span class="afp-alege-copy">
-<span class="afp-alege-kicker">Școli · After-school-uri · Centre educaționale · Tabere · Grupuri organizate</span>
+<span class="afp-alege-kicker">Școli&nbsp;· <span class="afp-nowrap">After-school-uri</span>&nbsp;· Centre educaționale&nbsp;· Tabere&nbsp;· Grupuri organizate</span>
 <span class="afp-alege-title">Săptămâna Verde / Școala Altfel / activități tematice</span>
 <span class="afp-alege-desc"><span class="afp-alege-p">Copiii explorează, iau decizii și descoperă că pot mai mult.</span><span class="afp-alege-p">Experiența devine învățare atunci când copilul înțelege ce a trăit și poate duce mai departe ceea ce a descoperit.</span><span class="afp-alege-p">Educația pentru viață nu se învață doar din cărți. Unele lucruri trebuie trăite.</span></span>
 <span class="afp-alege-cta">Vezi detalii <span aria-hidden="true">→</span></span>
-</span>
 </a>
 </div>
 </div>
@@ -1672,5 +1673,6 @@ Se vede că fac totul cu mult suflet și că le pasă cu adevărat de copii. Mă
   clearTimeout(window.fpMotionFallback);
  }catch(error){showAll()}
 })();
-</script></body>
+</script><a aria-label="Mergi sus de tot" class="afp-sus" href="#" title="Sus"><i aria-hidden="true" class="ti ti-arrow-up"></i></a>
+</body>
 </html>
