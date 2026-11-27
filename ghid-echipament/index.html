@@ -520,7 +520,8 @@ body{overflow-x:clip}
 @media(hover:hover) and (pointer:fine){.layers>div:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 16px 32px rgba(0,0,0,.16)}}
 /* Butonul spre pagina de weekend: în meniul de sus pe ecrane late, în panoul „Explorează pagina” pe telefon */
 .page-menu-links a.menu-weekend,.page-menu-links a.menu-articole{display:none}
-@media(max-width:640px){.page-nav .page-nav-link.nav-weekend,.page-nav .page-nav-link.nav-articole{display:none!important}.page-menu-links a.menu-weekend,.page-menu-links a.menu-articole{display:block;color:var(--orange)}}
+@media(max-width:640px){.page-nav .page-nav-link.nav-weekend{display:none!important}.page-menu-links a.menu-weekend{display:block;color:var(--orange)}}
+@media(max-width:640px){.page-nav .page-menu-toggle{font-size:0!important;gap:0;padding-inline:13px}.page-nav .page-menu-toggle span{font-size:18px;line-height:1}}
 /* Butoanele portocalii: se ridică și strălucesc ușor la trecerea cu mouse-ul */
 .btn.p{transition:background .2s ease,transform .22s ease,box-shadow .22s ease}
 @media(hover:hover) and (pointer:fine){.btn.p:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(255,90,0,.32)}}
