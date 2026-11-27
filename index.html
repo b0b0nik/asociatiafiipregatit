@@ -956,7 +956,11 @@ body{overflow-x:clip}
 .hero-proof-number{font-family:Fraunces,Georgia,serif;font-size:clamp(27px,3vw,34px);font-weight:700;line-height:1;color:#ff7a1f;font-variant-numeric:lining-nums}
 .hero-proof-item span{font-size:12px;line-height:1.45;color:#e6e9df}
 @media(max-width:560px){.hero-proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:28px;padding-top:18px}.hero-proof-number{font-size:clamp(23px,6vw,29px)}.hero-proof-item span{font-size:11px;line-height:1.4}}
-</style></head>
+</style><style>/* Meniul homepage pe telefon: un singur rând */
+@media(max-width:760px){.nav .nav-links-wrap{display:flex;flex-wrap:nowrap;overflow:visible;gap:5px;width:100%;padding:4px 0 2px}.nav .nav-links-wrap .navlink{flex:1 1 auto;min-width:0;padding:8px 4px;white-space:nowrap}}
+@media(max-width:360px){.nav .nav-links-wrap{gap:4px}.nav .nav-links-wrap .navlink{font-size:10px;padding:8px 3px}}
+</style>
+</head>
 <body>
 <!-- NAV -->
 <nav class="nav">
@@ -965,10 +969,10 @@ body{overflow-x:clip}
 </a>
 <div class="nav-links-wrap">
 <a class="navlink" href="#activitati">Activități</a>
-<a class="navlink" href="#recenzii">Recenzii</a> <a class="navlink" href="/articole/">Articole</a>
+<a class="navlink" href="/articole/">Articole</a>
+<a class="navlink" href="#recenzii">Recenzii</a>
 <a class="navlink" href="#sustine">Susține-ne</a>
 <a class="navlink" href="#contact">Contact</a>
-<a class="navlink" href="/documente/">Documente</a>
 </div>
 </nav>
 <!-- HERO -->
