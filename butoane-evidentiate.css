@@ -1,0 +1,8 @@
+/* Butoanele spre Articole și spre programul de weekend: aspectul lor obișnuit, plus bordură aurie și undă aurie la 3 secunde */
+.afp-evidentiat{position:relative;isolation:isolate}
+.afp-evidentiat::after{content:"";position:absolute;inset:-1px;border:2px solid #e2ae55;border-radius:inherit;pointer-events:none;animation:afpUnda 3s ease-out infinite}
+@keyframes afpUnda{0%{box-shadow:0 0 0 0 rgba(226,174,85,.75)}35%{box-shadow:0 0 0 12px rgba(226,174,85,0)}100%{box-shadow:0 0 0 0 rgba(226,174,85,0)}}
+@media(prefers-reduced-motion:reduce){.afp-evidentiat::after{animation:none}}
+/* Butoanele portocalii: unda e portocalie */
+.afp-evidentiat.afp-unda-portocalie::after{animation-name:afpUndaPortocalie}
+@keyframes afpUndaPortocalie{0%{box-shadow:0 0 0 0 rgba(255,85,2,.7)}35%{box-shadow:0 0 0 12px rgba(255,85,2,0)}100%{box-shadow:0 0 0 0 rgba(255,85,2,0)}}
