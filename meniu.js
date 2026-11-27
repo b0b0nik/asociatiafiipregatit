@@ -23,7 +23,7 @@
   document.querySelectorAll("nav.nav, nav.page-nav").forEach(setup);
 
   /* Butonul „sus” apare după ce ai coborât cam un ecran */
-  var sus = document.querySelector(".afp-sus");
+  var sus = document.querySelector(".afp-sus, .quick-nav a[href=\"#sus\"]");
   if (sus) {
     var toggle = function () { sus.classList.toggle("afp-sus-vizibil", window.scrollY > window.innerHeight * 0.8); };
     toggle();
