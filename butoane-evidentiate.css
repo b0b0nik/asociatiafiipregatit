@@ -8,5 +8,8 @@
 @keyframes afpUndaPortocalie{0%{box-shadow:0 0 0 0 rgba(255,85,2,.7)}35%{box-shadow:0 0 0 12px rgba(255,85,2,0)}100%{box-shadow:0 0 0 0 rgba(255,85,2,0)}}
 /* În meniu pulsează un singur buton („Descoperă activitățile”); „Articole” păstrează doar bordura aurie */
 .afp-evidentiat.afp-fara-unda::after{animation:none}
-/* Telefon: logo pe primul rând, toate butoanele meniului pe al doilea */
-@media(max-width:640px){.page-nav{flex-wrap:wrap!important;row-gap:8px}.page-nav .page-nav-actions{width:100%;margin-left:0;justify-content:flex-start}}
+/* Meniu: butoanele stau în dreapta logoului cât timp încap; trec pe rândul următor doar când nu mai încap și rămân aliniate la dreapta */
+.nav,.page-nav{flex-wrap:wrap!important;row-gap:8px}
+.nav .nav-links-wrap,.nav .afp-header-links,.page-nav .page-nav-actions{margin-left:auto!important;width:auto!important;max-width:100%;min-width:0;justify-content:flex-end;overflow:visible!important}
+.page-nav .page-nav-actions{flex-wrap:nowrap}
+@media(min-width:761px){.nav .nav-links-wrap{flex-wrap:wrap!important}}
