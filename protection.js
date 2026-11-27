@@ -86,7 +86,7 @@
       wrapper.appendChild(image);
 
       const watermark = document.createElement("img");
-      watermark.src = "/assets/imagini-site/LOGO-OFFICIAL.png";
+      watermark.src = "/assets/imagini-site/LOGO-OFFICIAL-600.webp";
       watermark.alt = "";
       watermark.setAttribute("aria-hidden", "true");
       watermark.className = "afp-watermark";
