@@ -962,7 +962,7 @@ body{overflow-x:clip}
 @media(max-width:360px){.nav .nav-links-wrap{gap:4px}.nav .nav-links-wrap .navlink{font-size:10px;padding:8px 3px}}
 </style>
 <style>:where(img[width][height]){width:auto;height:auto}</style>
-<link href="/butoane-evidentiate.css?v=7" rel="stylesheet"/>
+<link href="/butoane-evidentiate.css?v=8" rel="stylesheet"/>
 <style id="afp-alege-css">
 #activitati .afp-alege{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto 1fr auto;column-gap:clamp(10px,2.4vw,24px);row-gap:0;--pad:clamp(12px,2.4vw,24px)}
 .afp-alege-box{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;background:#fff;border:1px solid #e6e0d2;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
@@ -973,6 +973,7 @@ body{overflow-x:clip}
 .afp-alege-media img:not(.afp-watermark){position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:contain;padding:8px}
 .afp-alege-kicker{display:block;padding:var(--pad) var(--pad) 8px;color:#c24000;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;line-height:1.5}
 .afp-nowrap{white-space:nowrap}
+.afp-grup{display:inline-block;max-width:100%}
 .afp-alege-title{display:block;padding:0 var(--pad) 10px;font-family:'Fraunces',Georgia,serif;color:var(--green-deep);font-weight:600;font-size:clamp(17px,2.2vw,25px);line-height:1.2}
 .afp-alege-desc{display:block;padding:0 var(--pad) 16px;color:#5a624c;font-size:13.5px;line-height:1.65}
 .afp-alege-p{display:block}
@@ -984,7 +985,7 @@ body{overflow-x:clip}
 @media(max-width:1099.98px){.hero .hero-photo{display:block;width:100%;aspect-ratio:4/3;margin-top:28px;border:1px solid rgba(255,255,255,.26);border-radius:16px;background:linear-gradient(90deg,rgba(23,48,26,.16),transparent 40%),url("/assets/imagini-homepage/hero-copii-natura-brasov-1400.webp") center/cover no-repeat;box-shadow:0 18px 40px rgba(0,0,0,.25)}}
 @media(max-width:600px){.hero .hero-photo{background-image:linear-gradient(90deg,rgba(23,48,26,.16),transparent 40%),url("/assets/imagini-homepage/hero-copii-natura-brasov-800.webp")}}
 </style>
-<script defer src="/meniu.js?v=2"></script>
+<script defer src="/meniu.js?v=3"></script>
 </head>
 <body>
 <!-- NAV -->
@@ -1092,7 +1093,7 @@ body{overflow-x:clip}
   </div>
 
   <p class="disp" data-fp-flow="" style="color:var(--orange-2);font-weight:700;font-style:italic;font-size:clamp(23px,3.4vw,34px);line-height:1.28;max-width:780px;margin:40px 0 14px">Nu le arătăm copiilor drumul. <br/> Îi ghidăm să-și găsească propria cale.</p>
-  <a data-fp-flow="" href="/activitati-copii-weekend-brasov/" style="color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-bottom:1px solid var(--orange-2);padding-bottom:2px">Cum lucrăm, pas cu pas →</a>
+  <a class="btn btn-ghost afp-unda" data-fp-flow="" href="/activitati-copii-weekend-brasov/">Cum lucrăm, pas cu pas →</a>
 </div>
 </section>
 
@@ -1214,15 +1215,15 @@ body{overflow-x:clip}
 <div class="afp-alege">
 <a class="afp-alege-box" data-fp-flow="" href="/activitati-copii-weekend-brasov/">
 <span class="afp-alege-media"><img alt="Copii explorând pădurea" data-fara-filigran="" loading="lazy" decoding="async" src="/assets/imagini-homepage/program-weekend-copii-brasov-600.webp" width="600" height="608"/></span>
-<span class="afp-alege-kicker">Program de weekend&nbsp;· Copii 7–12 ani</span>
-<span class="afp-alege-title">Fii Pregătit · din natură, pentru viață</span>
+<span class="afp-alege-kicker"><span class="afp-grup">Program de weekend&nbsp;·</span> <span class="afp-grup">Copii 7–12 ani</span></span>
+<span class="afp-alege-title"><span class="afp-grup">Fii Pregătit&nbsp;·</span> <span class="afp-grup">din natură, pentru viață</span></span>
 <span class="afp-alege-desc">Program de educație nonformală în natură, doar pentru cei mici: aceiași copii și aceiași instructori, de la o tură la alta. Copiii au un trib unit și stabil, iar voi, o comunitate de părinți. Aici lucrăm autonomia, curajul și deciziile bune în neprevăzut. Copiii sunt aduși și preluați de părinți la punctul de întâlnire.</span>
 <span class="afp-alege-cta">Vezi detalii <span aria-hidden="true">→</span></span>
 </a>
 <a class="afp-alege-box" data-fp-flow="" href="/propunere-activitati/" style="--fp-flow-delay:120ms">
 <span class="afp-alege-media"><img alt="Copii descoperind împreună peisajul montan" data-fara-filigran="" loading="lazy" decoding="async" src="/assets/imagini-homepage/scoli-saptamana-verde-scoala-altfel-900.webp" width="900" height="600"/></span>
-<span class="afp-alege-kicker">Școli&nbsp;· <span class="afp-nowrap">After-school-uri</span>&nbsp;· Centre educaționale&nbsp;· Tabere&nbsp;· Grupuri organizate</span>
-<span class="afp-alege-title">Săptămâna Verde / Școala Altfel / activități tematice</span>
+<span class="afp-alege-kicker"><span class="afp-grup">Școli&nbsp;·</span> <span class="afp-grup">After-school-uri&nbsp;·</span> <span class="afp-grup">Centre educaționale&nbsp;·</span> <span class="afp-grup">Tabere&nbsp;·</span> <span class="afp-grup">Grupuri organizate</span></span>
+<span class="afp-alege-title"><span class="afp-grup">Săptămâna Verde /</span> <span class="afp-grup">Școala Altfel /</span> <span class="afp-grup">activități tematice</span></span>
 <span class="afp-alege-desc"><span class="afp-alege-p">Copiii explorează, iau decizii și descoperă că pot mai mult.</span><span class="afp-alege-p">Experiența devine învățare atunci când copilul înțelege ce a trăit și poate duce mai departe ceea ce a descoperit.</span><span class="afp-alege-p">Educația pentru viață nu se învață doar din cărți. Unele lucruri trebuie trăite.</span></span>
 <span class="afp-alege-cta">Vezi detalii <span aria-hidden="true">→</span></span>
 </a>

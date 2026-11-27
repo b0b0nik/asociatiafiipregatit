@@ -27,3 +27,10 @@ nav.afp-meniu-rand-nou .nav-links-wrap>*,nav.afp-meniu-rand-nou .afp-header-link
 .afp-sus:focus-visible{outline:2px solid #ff5502;outline-offset:3px}
 @media(max-width:520px){.afp-sus{left:9px;bottom:10px;height:32px;min-width:32px}.afp-sus i{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.afp-sus{transition:none}.afp-sus:hover{transform:none}}
+/* Undă aurie fără bordură (ex. „Cum lucrăm, pas cu pas”) */
+.afp-unda{position:relative;isolation:isolate}
+.afp-unda::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;animation:afpUnda 3s ease-out infinite}
+@media(prefers-reduced-motion:reduce){.afp-unda::after{animation:none}}
+/* Pagina pentru școli: săgeata „sus” apare tot după primul ecran */
+.quick-nav a[href="#sus"]{opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease,transform .2s ease,background .2s ease,box-shadow .2s ease}
+.quick-nav a[href="#sus"].afp-sus-vizibil{opacity:1;visibility:visible}
