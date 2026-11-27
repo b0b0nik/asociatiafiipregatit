@@ -637,7 +637,7 @@ body>*:not(#rucsac){display:none!important}
     <span class="post-body">
       <span class="post-cat">Educație montană</span>
       <span class="post-title">Echipamentul copilului, pentru fiecare anotimp</span>
-      <span class="post-sum">Cu ce îmbrăcați copilul pentru o tură în natură, ce pune în rucsac și ce asigurăm noi. Ghid pe anotimpuri, cu listă de bifat și de tipărit.</span>
+      <span class="post-sum">Cu ce îmbraci copilul pentru o tură în natură, ce pune în rucsac și ce asigurăm noi. Ghid pe anotimpuri, cu listă de bifat și de tipărit.</span>
       <span class="post-meta"><time datetime="2026-11-26">26 noiembrie 2026</time> · ~6 minute de citit</span>
       <span class="post-cta">Citește articolul <span aria-hidden="true">→</span></span>
     </span>
@@ -648,15 +648,15 @@ body>*:not(#rucsac){display:none!important}
 </div></section>
 
 <section class="band fo center" id="sugestii"><div class="wrap">
-  <div data-fp-flow="" class="eb c">Ce ați vrea să citiți?</div>
-  <h2 data-fp-flow="">Spuneți-ne despre ce să scriem.</h2>
-  <p data-fp-flow="" class="sug-lead">Citim fiecare sugestie și alegem din ele subiectele următoarelor articole. Nu aveți nevoie de nume sau de e-mail.</p>
+  <div data-fp-flow="" class="eb c">Ce ai vrea să citești?</div>
+  <h2 data-fp-flow="">Spune-ne despre ce să scriem.</h2>
+  <p data-fp-flow="" class="sug-lead">Citim fiecare sugestie și alegem din ele subiectele următoarelor articole. Nu ai nevoie de nume sau de e-mail.</p>
   <form data-fp-flow="" class="sug-form" id="sugestieForm">
-    <label class="sug-label" for="sugestie">Subiectul care vă interesează</label>
+    <label class="sug-label" for="sugestie">Subiectul care te interesează</label>
     <textarea id="sugestie" maxlength="1000" minlength="5" name="sugestie" placeholder="De exemplu: ce gustări punem în rucsac pentru o zi întreagă pe munte" required="" rows="3"></textarea>
     <label aria-hidden="true" class="sug-trap">Website<input autocomplete="off" name="website" tabindex="-1"/></label>
     <button class="btn p" type="submit">Trimite sugestia →</button>
-    <p class="sug-note">Vă rugăm să nu scrieți date personale. <a href="/confidentialitate/">Politica de confidențialitate</a></p>
+    <p class="sug-note">Te rugăm să nu scrii date personale. <a href="/confidentialitate/">Politica de confidențialitate</a></p>
     <p aria-live="polite" class="sug-status" id="sugestieStatus" role="status"></p>
   </form>
 </div></section>
@@ -717,11 +717,11 @@ body>*:not(#rucsac){display:none!important}
       var r=await fetch(URL_SUGESTII,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),signal:c.signal});
       var j=await r.json();
       if(!r.ok||!j.success) throw new Error(j.error||'Sugestia nu a putut fi trimisă.');
-      st.textContent='Mulțumim! Am primit sugestia dumneavoastră. 💚';
+      st.textContent='Mulțumim! Am primit sugestia ta. 💚';
       if(window.afpTrackEvent) window.afpTrackEvent('article_suggestion',{source_page:'articole'});
       f.reset(); prev=''; rid='';
     }catch(e){
-      st.textContent=(e.name==='AbortError'||e.message==='Failed to fetch')?'Nu am putut confirma trimiterea. Încercați din nou peste câteva momente.':e.message;
+      st.textContent=(e.name==='AbortError'||e.message==='Failed to fetch')?'Nu am putut confirma trimiterea. Încearcă din nou peste câteva momente.':e.message;
     }finally{clearTimeout(t); b.disabled=false; b.textContent='Trimite sugestia →';}
   });
 })();
