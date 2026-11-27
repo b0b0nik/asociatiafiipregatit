@@ -13,8 +13,17 @@
       publicArea(selection.anchorNode) && publicArea(selection.focusNode));
   };
   const canCopy = event => isEditable(event.target) || publicArea(event.target) || publicSelection();
+  // Click dreapta pe linkuri: „Deschide în filă nouă" merge. Pe poze și pe text rămâne blocat.
+  const linkMenu = event => {
+    const target = event.target;
+    if (!(target instanceof Element)) return false;
+    const link = target.closest("a[href]");
+    if (!link || /\.(?:jpe?g|png|webp|gif|avif)(?:[?#].*)?$/i.test(link.getAttribute("href") || "")) return false;
+    const image = target.closest("img");
+    return !image || /logo|patch/i.test(image.currentSrc || image.getAttribute("src") || "");
+  };
   document.addEventListener("contextmenu", event => {
-    if (!canCopy(event)) event.preventDefault();
+    if (!canCopy(event) && !linkMenu(event)) event.preventDefault();
   });
   document.addEventListener("dragstart", (event) => {
     if (event.target instanceof HTMLImageElement) event.preventDefault();
@@ -47,6 +56,8 @@
       -webkit-user-select: text !important; user-select: text !important;
       -webkit-touch-callout: default !important;
     }
+    body a[href] { -webkit-touch-callout: default !important; }
+    body a[href] img:not([src*="logo" i]):not([src*="patch" i]) { -webkit-touch-callout: none !important; }
     img { -webkit-user-drag: none; user-drag: none; }
     .afp-protected-image { position: relative; display: block; overflow: hidden; }
     .afp-protected-image > img:first-child { display: block; width: 100%; }
